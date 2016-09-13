@@ -10,7 +10,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='//fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
     <script src="./assets/js/sdufresne.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -236,11 +235,12 @@
       </style>
       <script type="text/javascript">
         $(function() {
-          $("#greeting").html(sdufresne.greeting());
-          $(".email-address").wrapInner(function() {
-            return "<a href=\"mailto:" + sdufresne.reverse($(this).text()) + "\"></a>";
-          });
-          $(".job-title").text(sdufresne.title());
+          document.getElementById('greeting').innerHTML = sdufresne.greeting();
+          var emailEl = document.getElementsByClassName('email-address')[0];
+          emailEl.innerHTML = '<a href="mailto:' +
+            sdufresne.reverse(emailEl.innerHTML) +
+            '">'+emailEl.innerHTML+'</a>';
+          document.getElementsByClassName('job-title')[0].innerHTML = sdufresne.title();
           //TODO: add click-to-change on job-title
         });
       </script>
