@@ -234,7 +234,7 @@
         }
       </style>
       <script type="text/javascript">
-        $(function() {
+        document.addEventListener("DOMContentLoaded", function() {
           document.getElementById('greeting').innerHTML = sdufresne.greeting();
           var emailEl = document.getElementsByClassName('email-address')[0];
           emailEl.innerHTML = '<a href="mailto:' +
