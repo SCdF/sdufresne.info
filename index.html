@@ -60,11 +60,26 @@
         line-height: 2ex;
       }
 
-      a, a:visited, a:hover, a:active {
+      .job-title, a, a:visited, a:hover, a:active {
+        font-weight: bold;
         text-decoration: none;
-        color: #608CD6;
+        color: black;
+        background-color: #FFEFEF;
       }
-      a:hover {
+      .job-title:hover, a:hover {
+        color: #FFEFEF;
+        background-color: red;
+      }
+
+      #contact a,
+      #contact a:visited,
+      #contact a:hover,
+      #contact a:active {
+        font-weight: inherit;
+        color: #608CD6;
+        background-color: inherit;
+      }
+      #contact a:hover {
         color: red;
       }
 
@@ -86,7 +101,7 @@
         font-size: 80%;
       }
 
-      /* small screens */
+      /* smaller screens */
       @media screen and (max-width: 700px) {
         img {
           display: none;
@@ -167,10 +182,10 @@
       <div id="spiel"><!-- ;-) -->
         <h1 class="greeting" id="greeting">Hello,</span>
         <h2 class="greeting">My name is Stefan du Fresne</h2>
-        <p>I'm a <span class="job-title">software imagineer</span> based out of <s>Auckland, New Zealand</s> London.</p>
+        <p>I'm a <span class="job-title">software developer</span> from New Zealand. I currently live in London.</p>
         <p>It's fair to say I've helped to build a reasonably large amount of software. Some of it works!</p>
-        <p>Currently I'm helping <a href="http://medicmobile.org">these delightful folks</a> make super cool mobile-focused healthcare software.</p>
-        <p>At work we use Angular, NodeJS and all the hipster tech. Functional programming&mdash;Scala and Clojure especially&mdash; is cool too. Whatever works.</p>
+        <p>Currently I'm helping <a href="http://medicmobile.org">these delightful folk</a> build mobile health tools for remote regions.</p>
+        <p>We use Angular, NodeJS and all the hipster tech. Functional programming&mdash;Scala and Clojure especially&mdash; is cool too. Whatever works.</p>
         <p>Sometimes I take bad photos of things and fiddle with them on computers.</p>
         <p>I often go by SCdF on the Internet.</p>
       </div>
@@ -178,11 +193,8 @@
         <img id="avatar" src="./assets/img/actually-me-2015.jpg" alt="Picture of Stefan du Fresne">
         <ul id="major-contacts">
           <li><span class="email-address">ofni.enserfuds@nafets</span></li>
-          <li>
-            <a href="https://github.com/SCdF/">Github</a>
-          </li>
-          <li>
-            <a href="https://keybase.io/scdf">Keybase</a>
+          <li><a href="https://github.com/SCdF/">Github</a></li>
+          <li><a href="https://keybase.io/scdf">Keybase</a></li>
         </ul>
         <hr>
         <ul id="minor-contacts">
@@ -211,21 +223,20 @@
         'use strict';
 
         var sdufresne = {
-
           greeting: function() {
             var hours = new Date().getHours();
             switch (true) {
-              case (hours < 12): return "Good Morning";
-              case (hours < 18): return "Good Afternoon";
-              default: return "Good Evening";
+              case (hours < 12): return 'Good Morning';
+              case (hours < 18): return 'Good Afternoon';
+              default: return 'Good Evening';
             }
           },
 
           reverse: function(s) {
-            return s.split("").reverse().join("");
+            return s.split('').reverse().join('');
           },
 
-          title: function() {
+          title: function(all) {
             var jobTitles = [
               'software developer',
               'software engineer',
@@ -234,15 +245,22 @@
               'programmer',
               ];
 
-            //TODO: do something with this
-            var sillyJobTitles = [
+            var allJobTitles = jobTitles.concat([
               'software craftsman',
               'software imagineer',
+              'artisan software sculptor',
+              'gentle code crooner',
               'code craftsman',
               'code monkey',
-            ];
+              'beard horticulturist',
+              'non-brogrammer programmer',
+              'thoroughly average programmer',
+              'large font aficionado'
+            ]);
 
-            return jobTitles[Math.floor(Math.random()*jobTitles.length)];
+            var thisTime = all ? allJobTitles : jobTitles;
+
+            return thisTime[Math.floor(Math.random()*thisTime.length)];
           }
         };
 
@@ -252,8 +270,14 @@
           emailEl.innerHTML = '<a href="mailto:' +
             sdufresne.reverse(emailEl.innerHTML) +
             '">'+emailEl.innerHTML+'</a>';
-          document.getElementsByClassName('job-title')[0].innerHTML = sdufresne.title();
-          //TODO: add click-to-change on job-title
+          var jobTitle = document.getElementsByClassName('job-title')[0];
+          jobTitle.innerHTML = sdufresne.title();
+          jobTitle.onmousedown = function(e) {
+            e.preventDefault();
+          };
+          jobTitle.onclick = function(e) {
+            jobTitle.innerHTML = sdufresne.title(true);
+          };
         });
       </script>
     </main>
