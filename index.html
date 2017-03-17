@@ -257,7 +257,7 @@
           },
 
           // I'm a <XXX> from New Zea…
-          title: function(all) {
+          title: function(currentTitle, all) {
             var jobTitles = [
               'software developer',
               'developer',
@@ -286,7 +286,12 @@
 
             var thisTime = all ? allJobTitles : jobTitles;
 
-            return thisTime[Math.floor(Math.random()*thisTime.length)];
+            var newTitle = thisTime[Math.floor(Math.random()*thisTime.length)];
+            if (newTitle === currentTitle) {
+              return sdufresne.title(currentTitle, all);
+            } else {
+              return newTitle;
+            }
           }
         };
 
@@ -302,7 +307,7 @@
             e.preventDefault();
           };
           jobTitle.onclick = function(e) {
-            jobTitle.innerHTML = sdufresne.title(true);
+            jobTitle.innerHTML = sdufresne.title(jobTitle.innerHTML, true);
           };
         });
       </script>
