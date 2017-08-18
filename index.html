@@ -9,7 +9,6 @@
     <meta name="description" content="Personal homepage of Stefan du Fresne, software developer aka software engineer aka code craftsman aka software imagineer." />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <style type="text/css">
       /* normal screens */
       img#avatar {
@@ -43,18 +42,25 @@
 
       /* actual styling */
       body {
-        font-family: "Open Sans","Helvetica Neue","Helvetica",sans-serif;
+        font-family: "Open Sans","Helvetica", "Arial",sans-serif;
+        font-weight: 100;
         color: #333;
       }
 
       .greeting {
-        font-family: "Helvetica",sans-serif;
+        font-family: "Helvetica","Arial", sans-serif;
         font-weight: 100;
         line-height: 2ex;
       }
 
       .job-title {
         cursor: pointer;
+      }
+
+      #spiel .job-title,
+      #spiel a {
+        display: inline-block;
+        transition: all 0.2s;
       }
 
       .job-title, a, a:visited, a:hover, a:active {
@@ -65,9 +71,14 @@
         margin: -0.125em;
         padding: 0.125em;
       }
-      .job-title:hover, a:hover {
+      #spiel .job-title:hover,
+      #spiel a:hover {
         color: #FFEFEF;
         background-color: #A00;
+
+        -webkit-transform: rotateZ(-1deg);
+        -ms-transform: rotateZ(-1deg);
+        transform: rotateZ(-1deg);
       }
 
       #contact a,
