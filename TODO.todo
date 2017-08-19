@@ -1,0 +1,4 @@
+TODO:
+  ☐ Mobile shouldn't execute touch events
+  ☐ Animation to dip before changing job title
+  ☐ Night mode, either with lux Firefox library, or time based.
