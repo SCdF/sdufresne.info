@@ -53,17 +53,17 @@
         line-height: 2ex;
       }
 
-      .job-title {
+      #job-title {
         cursor: pointer;
       }
 
-      #spiel .job-title,
+      #spiel #job-title,
       #spiel a {
         display: inline-block;
         transition: all .1s;
       }
 
-      .job-title, a, a:visited, a:hover, a:active {
+      #job-title, a, a:visited, a:hover, a:active {
         font-weight: bold;
         text-decoration: none;
         color: #333;
@@ -71,7 +71,7 @@
         margin: -0.125em;
         padding: 0.125em;
       }
-      #spiel .job-title:hover,
+      #spiel #job-title:hover,
       #spiel a:hover {
         color: #FFEFEF;
         background-color: #A00;
@@ -91,7 +91,7 @@
       }
 
       @media (hover: none) {
-        #spiel .job-title:hover,
+        #spiel #job-title:hover,
         #spiel a:hover {
           /* TODO: Do I have to repeat myself here? */
           color: #333;
@@ -272,7 +272,7 @@
       <div id="spiel"><!-- ;-) -->
         <h1 class="greeting" id="greeting">Hello,</h1>
         <h2 class="greeting">My name is Stefan du Fresne</h2>
-        <p>I'm a <span class="job-title">software developer</span> from New Zealand. I currently live in London.</p>
+        <p>I'm <span id="aan">a</span> <span id="job-title">software developer</span> from New Zealand. I currently live in London.</p>
         <p>It's fair to say I've helped to build a reasonably large amount of software. Some of it works!</p>
         <p>Currently I'm helping <a href="http://medicmobile.org">these delightful folk</a> build mobile health tools for remote regions.</p>
         <p>We use Angular, Node.js and all the hipster tech. Functional programming&mdash;Scala and Clojure especially&mdash;is cool too. Whatever works.</p>
@@ -302,6 +302,8 @@
         <div id="sigh"></div>
       </div>
       <script type="text/javascript">
+      /* jshint browser: true */
+      (function() {
         'use strict';
 
         var sdufresne = {
@@ -328,22 +330,27 @@
               ];
 
             var allJobTitles = jobTitles.concat([
-              'software craftsman',
-              'software imagineer',
+              '(defn stefan [] (fn[work] (do-work work)))',
+              'architect of your dreams',
               'artisan software sculptor',
-              'gentle code crooner',
-              'code craftsman',
-              'code monkey',
+              'beard horticulturalist',
               'beard horticulturist',
-              'non-brogrammer programmer',
-              'thoroughly average programmer',
+              'big fan of yours',
+              'code craftsman',
+              'code costermonger',
+              'code monkey',
+              'code-typhoon',
+              'gentle code crooner',
+              'good enough dev for govenment work',
+              'greatly enlarged micro-organsim',
               'large font aficionado',
               'meme wrangler',
-              'good enough dev for govenment work',
-              '(defn stefan [] (fn[work] (do-work work)))',
+              'non-brogrammer programmer',
+              'rabid archillect fan',
+              'software craftsman',
+              'software imagineer',
               'software witch',
-              'code-typhoon',
-              'greatly enlarged micro-organsim',
+              'thoroughly average programmer',
             ]);
 
             var thisTime = all ? allJobTitles : jobTitles;
@@ -353,6 +360,14 @@
               return sdufresne.title(currentTitle, all);
             } else {
               return newTitle;
+            }
+          },
+
+          article: function(currentTitle) {
+            if (['a', 'e', 'i', 'o', 'u'].indexOf(currentTitle.charAt(0)) >= 0) {
+              return 'an';
+            } else {
+              return 'a';
             }
           }
         };
@@ -365,23 +380,33 @@
             sdufresne.reverse(emailEl.innerHTML) +
             '">'+emailEl.innerHTML+'</a>';
 
-          var jobTitle = document.querySelector('.job-title');
-          jobTitle.innerHTML = sdufresne.title();
+          var jobTitle = document.querySelector('#job-title');
+          var titleArticle = document.querySelector('#aan');
+
+          var newTitle = sdufresne.title();
+          jobTitle.innerHTML = newTitle;
+          titleArticle.innerHTML = sdufresne.article(newTitle);
+
           jobTitle.onmousedown = function(e) {
             e.preventDefault();
           };
           jobTitle.onclick = function(e) {
             jobTitle.className = jobTitle.className + ' smash';
             window.setTimeout(function() {
-              jobTitle.innerHTML = sdufresne.title(jobTitle.innerHTML, true);
+              var newTitle = sdufresne.title(jobTitle.innerHTML, true);
+
+              jobTitle.innerHTML = newTitle;
+              titleArticle.innerHTML = sdufresne.article(newTitle);
+
               jobTitle.className = jobTitle.className.replace(' smash', '');
-            }, 100)
+            }, 100);
           };
 
           document.querySelector('#spiel a').onclick = function(e) {
             this.className = this.className + ' smash';
           };
         });
+      })();
       </script>
     </main>
   </body>
