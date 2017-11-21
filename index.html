@@ -382,21 +382,44 @@
             }
           },
 
-          rawCareerLength: Date.now() - Date.parse('2006-02-14'),
+          rawCareerLength: function() {
+            return Date.now() - Date.parse('2006-02-14');
+          },
 
-          stdCareerLength: function(divisor) {
-            return Math.floor(sdufresne.rawCareerLength / divisor);
+          dividedCareerLength: function(divisor) {
+            return Math.floor(sdufresne.rawCareerLength() / divisor);
           },
 
           careerLengths: {
-            years: function() {
-              return sdufresne.stdCareerLength(1000 * 60 * 60 * 24 * 365) + ' years';
+            year: function() {
+              return sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 365) + ' years';
             },
-            seconds: function() {
-              return sdufresne.stdCareerLength(1000) + ' seconds';
+            second: function() {
+              return sdufresne.dividedCareerLength(1000) + ' seconds';
             },
-            moons: function() {
-              return sdufresne.stdCareerLength(86400 * 1000) + ' moons';
+            moon: function() {
+              return sdufresne.dividedCareerLength(86400 * 1000) + ' moons';
+            },
+            dog: function() {
+              return sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 52) + ' dog years';
+            },
+            friedman: function() {
+              return sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6) + ' friedmans';
+            },
+            shake: function() {
+              return sdufresne.dividedCareerLength(1 / 1000) + ' shakes';
+            },
+            jiffy: function() {
+              return sdufresne.dividedCareerLength(1000 / 60) + ' jiffies';
+            },
+            planck: function() {
+              return sdufresne.dividedCareerLength(5.39 * Math.pow(10, -41)) + ' plancks';
+            },
+            ls: function() {
+              return (299792458 * sdufresne.dividedCareerLength(1000)) + ' light meters';
+            },
+            lotr: function() {
+              return sdufresne.dividedCareerLength(1000 * 60 * 60 * 11.4) + ' LoTR viewings';
             }
           },
 
@@ -407,7 +430,7 @@
                 potentialLengths.splice(potentialLengths.indexOf(current.type), 1);
                 return sdufresne.randArray(potentialLengths);
               } else {
-                return 'years';
+                return 'year';
               }
             })();
 
