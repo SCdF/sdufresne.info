@@ -273,7 +273,7 @@
         <h1 class="greeting" id="greeting">Hello,</h1>
         <h2 class="greeting">My name is Stefan du Fresne</h2>
         <p>I'm <span id="aan">a</span> <span id="job-title" class="js-clickable">software developer</span> from New Zealand. I currently live in London.</p>
-        <p>Over the <span id="career-length">years</span> I've helped to build a reasonably large amount of software. Some of it works!</p>
+        <p>Over the last <span id="career-length">few years</span> I've helped to build a reasonably large amount of software. Some of it works!</p>
         <p>Currently I'm helping <a href="http://medicmobile.org">these delightful folk</a> build mobile health tools for remote regions.</p>
         <p>We use Angular, Node.js and all the hipster tech. Functional programming&mdash;Scala and Clojure especially&mdash;is cool too. Whatever works.</p>
         <p>Sometimes I take bad photos of things and fiddle with them on computers.</p>
@@ -324,7 +324,9 @@
           },
 
           // I'm a <XXX> from New Zea…
-          title: function(currentTitle, all) {
+          title: function(current) {
+            current = current && current.display;
+
             var jobTitles = [
               'software developer',
               'developer',
@@ -353,17 +355,23 @@
               'software craftsman',
               'software imagineer',
               'software witch',
+              'software "engineer"',
               'thoroughly average programmer',
             ]);
 
-            var thisTime = all ? allJobTitles : jobTitles;
+            var potentialTitles = (function() {
+              if (current) {
+                var titles = Object.values(allJobTitles);
+                titles.splice(allJobTitles.indexOf(current), 1);
+                return titles;
+              } else {
+                return jobTitles;
+              }
+            })();
 
-            var newTitle = sdufresne.randArray(thisTime);
-            if (newTitle === currentTitle) {
-              return sdufresne.title(currentTitle, all);
-            } else {
-              return newTitle;
-            }
+            return {
+              display: sdufresne.randArray(potentialTitles)
+            };
           },
 
           article: function(currentTitle) {
@@ -382,27 +390,31 @@
 
           careerLengths: {
             years: function() {
-              return {
-                display: 'last ' + sdufresne.stdCareerLength(1000 * 60 * 60 * 24 * 365) + ' years',
-                type: 'years',
-              };
+              return sdufresne.stdCareerLength(1000 * 60 * 60 * 24 * 365) + ' years';
             },
             seconds: function() {
-              return {
-                display: 'last ' + sdufresne.stdCareerLength(1000) + ' seconds',
-                type: 'seconds',
-              };
+              return sdufresne.stdCareerLength(1000) + ' seconds';
+            },
+            moons: function() {
+              return sdufresne.stdCareerLength(86400 * 1000) + ' moons';
             }
           },
 
           careerLength: function(current) {
-            if (!current) {
-              return sdufresne.careerLengths.years();
-            } else {
-              var potentialLengths = Object.keys(sdufresne.careerLengths);
-              potentialLengths.splice(potentialLengths.indexOf(current.type), 1);
-              return sdufresne.careerLengths[sdufresne.randArray(potentialLengths)]();
-            }
+            var careerLength = (function() {
+              if (current) {
+                var potentialLengths = Object.keys(sdufresne.careerLengths);
+                potentialLengths.splice(potentialLengths.indexOf(current.type), 1);
+                return sdufresne.randArray(potentialLengths);
+              } else {
+                return 'years';
+              }
+            })();
+
+            return {
+              display: sdufresne.careerLengths[careerLength](),
+              type: careerLength
+            };
           },
 
           beClickable: function(element, initialValueFn, clickFn) {
@@ -444,27 +456,20 @@
             document.querySelector('#career-length'),
             sdufresne.careerLength);
 
+          sdufresne.beClickable(
+            document.querySelector('#job-title'),
+            sdufresne.title);
+
           var jobTitle = document.querySelector('#job-title');
           var titleArticle = document.querySelector('#aan');
 
-          var newTitle = sdufresne.title();
-          jobTitle.innerHTML = newTitle;
-          titleArticle.innerHTML = sdufresne.article(newTitle);
-
-          jobTitle.onmousedown = function(e) {
-            e.preventDefault();
-          };
-          jobTitle.onclick = function(e) {
-            jobTitle.className = jobTitle.className + ' smash';
-            window.setTimeout(function() {
-              var newTitle = sdufresne.title(jobTitle.innerHTML, true);
-
-              jobTitle.innerHTML = newTitle;
-              titleArticle.innerHTML = sdufresne.article(newTitle);
-
-              jobTitle.className = jobTitle.className.replace(' smash', '');
-            }, 100);
-          };
+          titleArticle.innerHTML = sdufresne.article(jobTitle.innerHTML);
+          // TODO: replace with MutationObserver
+          jobTitle.addEventListener ("DOMSubtreeModified", function() {
+            if (jobTitle.innerHTML) {
+              titleArticle.innerHTML = sdufresne.article(jobTitle.innerHTML);
+            }
+          });
 
           document.querySelector('#spiel a').onclick = function(e) {
             this.className = this.className + ' smash';
