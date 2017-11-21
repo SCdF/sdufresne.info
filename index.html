@@ -319,6 +319,10 @@
             return s.split('').reverse().join('');
           },
 
+          randArray: function(array) {
+            return array[Math.floor(Math.random()*array.length)]
+          },
+
           // I'm a <XXX> from New Zea…
           title: function(currentTitle, all) {
             var jobTitles = [
@@ -354,7 +358,7 @@
 
             var thisTime = all ? allJobTitles : jobTitles;
 
-            var newTitle = thisTime[Math.floor(Math.random()*thisTime.length)];
+            var newTitle = sdufresne.randArray(thisTime);
             if (newTitle === currentTitle) {
               return sdufresne.title(currentTitle, all);
             } else {
@@ -370,25 +374,40 @@
             }
           },
 
-          careerLength: Date.now() - Date.parse('2006-02-14'),
+          rawCareerLength: Date.now() - Date.parse('2006-02-14'),
 
-          standardCareerLength: function() {
-            var years = Math.floor(this.careerLength / 1000 / 60 / 60 / 24 / 365);
+          careerLengths: {
+            years: function() {
+              var years = Math.floor(sdufresne.rawCareerLength / 1000 / 60 / 60 / 24 / 365);
 
-            return {
-              display: 'last ' + years + ' years',
-              type: 'years',
-            };
+              return {
+                display: 'last ' + years + ' years',
+                type: 'years',
+              };
+            },
+            seconds: function() {
+              var seconds = Math.floor(sdufresne.rawCareerLength / 1000);
+
+              return {
+                display: 'last ' + seconds + ' seconds',
+                type: 'seconds',
+              };
+            }
           },
 
-          whackyCareerLength: function() {
-            return {
-              display: Math.random().toFixed(2),
-              type: 'random'
+          careerLength: function(current) {
+            if (!current) {
+              return sdufresne.careerLengths.years();
+            } else {
+              var potentialLengths = Object.keys(sdufresne.careerLengths);
+              potentialLengths.splice(potentialLengths.indexOf(current.type), 1);
+              return sdufresne.careerLengths[sdufresne.randArray(potentialLengths)]();
             }
           },
 
           beClickable: function(element, initialValueFn, clickFn) {
+            clickFn = clickFn || initialValueFn;
+
             element.classList.add('clickable');
             var value = initialValueFn();
             element.innerHTML = initialValueFn().display;
@@ -423,8 +442,7 @@
 
           sdufresne.beClickable(
             document.querySelector('#career-length'),
-            function() { return sdufresne.standardCareerLength(); },
-            sdufresne.whackyCareerLength);
+            sdufresne.careerLength);
 
           var jobTitle = document.querySelector('#job-title');
           var titleArticle = document.querySelector('#aan');
