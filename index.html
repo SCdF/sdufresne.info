@@ -376,20 +376,20 @@
 
           rawCareerLength: Date.now() - Date.parse('2006-02-14'),
 
+          stdCareerLength: function(divisor) {
+            return Math.floor(sdufresne.rawCareerLength / divisor);
+          },
+
           careerLengths: {
             years: function() {
-              var years = Math.floor(sdufresne.rawCareerLength / 1000 / 60 / 60 / 24 / 365);
-
               return {
-                display: 'last ' + years + ' years',
+                display: 'last ' + sdufresne.stdCareerLength(1000 * 60 * 60 * 24 * 365) + ' years',
                 type: 'years',
               };
             },
             seconds: function() {
-              var seconds = Math.floor(sdufresne.rawCareerLength / 1000);
-
               return {
-                display: 'last ' + seconds + ' seconds',
+                display: 'last ' + sdufresne.stdCareerLength(1000) + ' seconds',
                 type: 'seconds',
               };
             }
