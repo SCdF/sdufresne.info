@@ -382,8 +382,10 @@
             }
           },
 
+          careerStart: Date.parse('2006-02-14'),
+
           rawCareerLength: function() {
-            return Date.now() - Date.parse('2006-02-14');
+            return Date.now() - sdufresne.careerStart;
           },
 
           dividedCareerLength: function(divisor) {
@@ -420,7 +422,12 @@
             },
             lotr: function() {
               return sdufresne.dividedCareerLength(1000 * 60 * 60 * 11.4) + ' LoTR viewings';
-            }
+            },
+            // TODO: War & Peace readings
+            // wap: function() {
+            //   // https://www.staples.com/sbd/cre/marketing/technology-research-centers/ereaders/speed-reader/index.html
+            //   var minutes = (31 * 60) + 41;
+            // }
           },
 
           careerLength: function(current) {
