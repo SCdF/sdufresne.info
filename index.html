@@ -324,7 +324,7 @@
           },
 
           // I'm a <XXX> from New Zea…
-          title: function(current) {
+          title: function(current, cb) {
             current = current && current.display;
 
             var jobTitles = [
@@ -369,9 +369,15 @@
               }
             })();
 
-            return {
+            var result = {
               display: sdufresne.randArray(potentialTitles)
             };
+
+            if (cb) {
+              cb(result);
+            } else {
+              return result;
+            }
           },
 
           article: function(currentTitle) {
@@ -409,13 +415,15 @@
               return sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6) + ' friedmans';
             },
             shake: function() {
-              return sdufresne.dividedCareerLength(1 / 1000) + ' shakes';
+              return sdufresne.dividedCareerLength(1 / 1000)
+                + Math.round((Math.random() * 1000)) // get rid of the boring 000 at the end
+                + ' shakes';
             },
             jiffy: function() {
               return sdufresne.dividedCareerLength(1000 / 60) + ' jiffies';
             },
             planck: function() {
-              return sdufresne.dividedCareerLength(5.39 * Math.pow(10, -41)) + ' plancks';
+              return sdufresne.dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10) + ' plancks';
             },
             ls: function() {
               return (299792458 * sdufresne.dividedCareerLength(1000)) + ' light meters';
@@ -430,8 +438,8 @@
             // }
           },
 
-          careerLength: function(current) {
-            var careerLength = (function() {
+          careerLength: function(current, cb) {
+            var index = (function() {
               if (current) {
                 var potentialLengths = Object.keys(sdufresne.careerLengths);
                 potentialLengths.splice(potentialLengths.indexOf(current.type), 1);
@@ -441,10 +449,22 @@
               }
             })();
 
-            return {
-              display: sdufresne.careerLengths[careerLength](),
-              type: careerLength
-            };
+            var result = function(index) {
+              return {
+                display: sdufresne.careerLengths[index](),
+                type: index
+              };
+            }
+
+            if (cb) {
+              clearInterval(sdufresne.careerLengthIID);
+              cb(result(index));
+              sdufresne.careerLengthIID = setInterval(function() {
+                cb(result(index));
+              }, 1000);
+            } else {
+              return result(index);
+            }
           },
 
           beClickable: function(element, initialValueFn, clickFn) {
@@ -459,9 +479,10 @@
             element.onclick = function(e) {
               element.classList.add('smash');
               window.setTimeout(function() {
-                value = clickFn(value);
-
-                element.innerHTML = value.display;
+                clickFn(value, function(newValue) {
+                  value = newValue;
+                  element.innerHTML = newValue.display;
+                });
 
                 element.classList.remove('smash');
               }, 100);
