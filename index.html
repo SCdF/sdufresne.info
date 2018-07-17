@@ -307,6 +307,11 @@
       (function() {
         'use strict';
 
+        // NB: this code uses all the least exciting improvements to JS, because
+        // who can be bothered writing a build pipeline for a single static page,
+        // and I'd rather this worked on all browsers than I get to be all like
+        // const [bar] = ((...foo) => foo...])(["b", "a", "r"]) or whatever.
+
         var sdufresne = {
           greeting: function() {
             var hours = new Date().getHours();
@@ -342,27 +347,32 @@
               'artisan software sculptor',
               'beard horticulturalist',
               'beard horticulturist',
-              'bespoke bit twidler',
+              'bespoke bit twiddler',
               'big fan of yours',
               'bit herder',
+              'blockchain disbeliever',
               'code costermonger',
               'code craftsman',
               'code monkey',
               'code-typhoon',
+              'courageous headphone jack',
+              'deterministic finite automata',
               'gentle code crooner',
-              'good enough dev for govenment work',
-              'greatly enlarged micro-organsim',
+              'good enough dev for government work',
+              'greatly enlarged micro-organism',
               'large font aficionado',
               'magnetised needle and a steady hand',
-              'monotonic semilattice',
+              'monotonic semi-lattice',
               'meme wrangler',
               'non-brogrammer programmer',
+              'parametrically polymorphic programmer',
               'rabid archillect fan',
               'reasonable human',
               'software "engineer"',
               'software craftsman',
               'software imagineer',
               'software witch',
+              'stackoverflow savant',
               'terrible salsa partner',
               'thoroughly average programmer',
             ]);
