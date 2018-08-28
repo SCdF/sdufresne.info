@@ -4,47 +4,49 @@ https://keybase.io/scdf
 
 I hereby claim:
 
-  * I am an admin of http://sdufresne.info
+  * I am an admin of https://sdufresne.info
   * I am scdf (https://keybase.io/scdf) on keybase.
   * I have a public key ASAKl-URAtBD4HZHO_6e0zYOWs-qZ1wzdZfw64VZF7WibAo
 
 To do so, I am signing this object:
 
 {
-    "body": {
-        "key": {
-            "eldest_kid": "01200a97e51102d043e076473bfe9ed3360e5acfaa675c337597f0eb855917b5a26c0a",
-            "host": "keybase.io",
-            "kid": "01200a97e51102d043e076473bfe9ed3360e5acfaa675c337597f0eb855917b5a26c0a",
-            "uid": "cf7df739cfa1f224d6343915f95d5319",
-            "username": "scdf"
-        },
-        "service": {
-            "hostname": "sdufresne.info",
-            "protocol": "http:"
-        },
-        "type": "web_service_binding",
-        "version": 1
+  "body": {
+    "key": {
+      "eldest_kid": "01200a97e51102d043e076473bfe9ed3360e5acfaa675c337597f0eb855917b5a26c0a",
+      "host": "keybase.io",
+      "kid": "01200a97e51102d043e076473bfe9ed3360e5acfaa675c337597f0eb855917b5a26c0a",
+      "uid": "cf7df739cfa1f224d6343915f95d5319",
+      "username": "scdf"
     },
-    "client": {
-        "name": "keybase.io go client",
-        "version": "1.0.17"
-    },
-    "ctime": 1475658602,
-    "expire_in": 504576000,
     "merkle_root": {
-        "ctime": 1475658483,
-        "hash": "d99b5ec8a735120a5544b250b4836188b9fcbdd980c48dfddbceeffffb4f7d72ce4c8d1813b41b88eb40ef27cb7df4a1dd73242315958499b7387b9e323dc963",
-        "seqno": 664813
+      "ctime": 1535466505,
+      "hash": "bed890d531527d74f9e32b3068667dbbfdac9d1b37cac47475b5d029f73ace5f178fe2ec6a265055c3f1114a7caa33c395e59e21542923b9c6e0c1fc89b35b99",
+      "hash_meta": "13ce6bd7f49960872ac1bbbffa7c8c4c3cc669caede645d0c9347920538abdf1",
+      "seqno": 3526590
     },
-    "prev": "33eb0854509cf8b373ca1fdfaffdd4a8e8feda1dcad456d08cf6f9047a406ee7",
-    "seqno": 7,
-    "tag": "signature"
+    "service": {
+      "entropy": "Yo09Q2nZUNTQlYPzb9u4MGvx",
+      "hostname": "sdufresne.info",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.5.0"
+  },
+  "ctime": 1535466523,
+  "expire_in": 504576000,
+  "prev": "54d324f9a178a797128472735059d42833518b555b8ac5c120f9bef1edbdc472",
+  "seqno": 39,
+  "tag": "signature"
 }
 
 which yields the signature:
 
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgCpflEQLQQ+B2Rzv+ntM2DlrPqmdcM3WX8OuFWRe1omwKp3BheWxvYWTFAvF7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMGE5N2U1MTEwMmQwNDNlMDc2NDczYmZlOWVkMzM2MGU1YWNmYWE2NzVjMzM3NTk3ZjBlYjg1NTkxN2I1YTI2YzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMGE5N2U1MTEwMmQwNDNlMDc2NDczYmZlOWVkMzM2MGU1YWNmYWE2NzVjMzM3NTk3ZjBlYjg1NTkxN2I1YTI2YzBhIiwidWlkIjoiY2Y3ZGY3MzljZmExZjIyNGQ2MzQzOTE1Zjk1ZDUzMTkiLCJ1c2VybmFtZSI6InNjZGYifSwic2VydmljZSI6eyJob3N0bmFtZSI6InNkdWZyZXNuZS5pbmZvIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4xNyJ9LCJjdGltZSI6MTQ3NTY1ODYwMiwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDc1NjU4NDgzLCJoYXNoIjoiZDk5YjVlYzhhNzM1MTIwYTU1NDRiMjUwYjQ4MzYxODhiOWZjYmRkOTgwYzQ4ZGZkZGJjZWVmZmZmYjRmN2Q3MmNlNGM4ZDE4MTNiNDFiODhlYjQwZWYyN2NiN2RmNGExZGQ3MzI0MjMxNTk1ODQ5OWI3Mzg3YjllMzIzZGM5NjMiLCJzZXFubyI6NjY0ODEzfSwicHJldiI6IjMzZWIwODU0NTA5Y2Y4YjM3M2NhMWZkZmFmZmRkNGE4ZThmZWRhMWRjYWQ0NTZkMDhjZjZmOTA0N2E0MDZlZTciLCJzZXFubyI6NywidGFnIjoic2lnbmF0dXJlIn2jc2lnxEAb12gXKzrDT/CaKoNbkp3uouXx0iQ4GeOTs/bNLM/UI6I6NHNLZgoHSM7LRzV5RdqieTxwFllV7BWvMnpgN1YPqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgIP2HZtIETNE6yR/CJQiHn3mnwpkVS2zrGKoI6+1WSwqjdGFnzQICp3ZlcnNpb24B
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgCpflEQLQQ+B2Rzv+ntM2DlrPqmdcM3WX8OuFWRe1omwKp3BheWxvYWTESpcCJ8QgVNMk+aF4p5cShHJzUFnUKDNRi1VbisXBIPm+8e29xHLEINYiF4SyDOvDJOUauMUg4obwi3n5a82xRVsh0ccE+OfkAgHCo3NpZ8RAWFYub6mmPCx03fPCta+Tr3NQIOWUHMRio5aQgqEY9iCkpiPK8jEkG5WtreW9k3H7O8ZJjmDrgL0huikbYp0eBqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIEFSAxr+hcz9QigWA6UzxgBIrWt50QqvQR1Gi1tarrQ0o3RhZ80CAqd2ZXJzaW9uAQ==
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
