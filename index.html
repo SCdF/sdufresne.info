@@ -10,6 +10,10 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style type="text/css">
+      * {
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-weight: 100;
+      }
       /* normal screens */
       img#avatar {
         /* This calculates to ~307 across: 30% (#contact width) of 1024 */
@@ -42,14 +46,10 @@
 
       /* actual styling */
       body {
-        font-family: "Helvetica", "Arial", sans-serif;
-        font-weight: 100;
         color: #333;
       }
 
       .greeting {
-        font-family: "Helvetica", "Arial", sans-serif;
-        font-weight: 100;
         line-height: 2ex;
       }
 
@@ -64,7 +64,7 @@
       }
 
       .clickable, a, a:visited, a:hover, a:active {
-        font-weight: bold;
+        font-weight: 300;
         text-decoration: none;
         color: #333;
         background-color: #FFEFEF;
@@ -267,12 +267,12 @@
       }
     </style>
   </head>
-  <body>
+  <body style="margin: 0; padding: 0;">
     <main id="site-wrapper">
       <div id="spiel"><!-- ;-) -->
         <h1 class="greeting" id="greeting">Hello,</h1>
         <h2 class="greeting">My name is Stefan du Fresne</h2>
-        <p>I'm <span id="aan">a</span> <span id="job-title" class="js-clickable">software developer</span> from New Zealand. I currently live in London.</p>
+        <p>I'm <span id="aan">a</span> <span id="job-title">software developer</span> from New Zealand. I currently live in London.</p>
         <p>Over the last <span id="career-length">few years</span> I've helped to build a reasonably large amount of software. Some of it works!</p>
         <p>Currently I'm helping <a href="http://medicmobile.org">these delightful folk</a> build mobile health tools for remote regions.</p>
         <p>We use Angular, Node.js and all the hipster tech. Functional programming&mdash;Scala and Clojure especially&mdash;is cool too. Whatever works.</p>
@@ -510,11 +510,6 @@
 
         document.addEventListener("DOMContentLoaded", function() {
           document.getElementById('greeting').innerHTML = sdufresne.greeting();
-
-          var clickables = document.querySelectorAll('.js-clickable');
-          for (var i = 0; i < clickables.length; i++) {
-            clickables[i].classList.add('clickable');
-          }
 
           var emailEl = document.querySelector('.email-address');
           emailEl.innerHTML = '<a href="mailto:' +
