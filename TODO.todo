@@ -2,7 +2,7 @@ TODO:
   ✔ Mobile shouldn't execute touch events @done (17-08-19 14:17)
   ✔ Animation to dip before changing job title @done (17-08-19 14:17)
   ✔ Should mobile execute click animations? whynot @done (17-08-19 19:12)
-  ☐ Night mode, either with lux Firefox library, or time based.
+  ✔ Night mode, either with lux Firefox library, or time based. @done (18-12-27 17:48)
   ✔ Fix a / an in software titles @done (17-10-10 16:17)
   ✔ Flip beClickable to a callback structure so that we can update the label more than once if we want. This allows us to have small time values (seconds) update more often @done (17-12-15 21:06)
   ☐ Make update interval configurable so some can update every frame and others once a minute
