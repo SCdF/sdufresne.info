@@ -464,13 +464,13 @@
         document.addEventListener("DOMContentLoaded", function() {
           var greeting = document.getElementById('greeting');
           var hours = new Date().getHours();
-          switch (true) {
-            case (hours < 12): greeting.innerHTML = 'Good Morning';
-            case (hours < 18): greeting.innerHTML = 'Good Afternoon';
-            default: {
-              greeting.innerHTML = 'Good Evening';
-              document.getElementsByTagName('body')[0].classList.add('night-mode');
-            }
+          if (hours < 12) {
+            greeting.innerHTML = 'Good Morning';
+          } else if (hours < 18) {
+            greeting.innerHTML = 'Good Afternoon';
+          } else {
+            greeting.innerHTML = 'Good Evening';
+            document.getElementsByTagName('body')[0].classList.add('night-mode');
           }
 
           var emailEl = document.querySelector('.email-address');
