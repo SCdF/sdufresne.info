@@ -17,6 +17,10 @@
         font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
       }
 
+      .numbers {
+        font-family: monospace, monospace;
+      }
+
       .night-mode {
         background-color: #222;
         color: #ddd;
@@ -367,36 +371,37 @@
 
           careerLengths: {
             year: function() {
-              return sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 365) + ' years';
+              return [sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 365), 'years'];
             },
             second: function() {
-              return sdufresne.dividedCareerLength(1000) + ' seconds';
+              return [sdufresne.dividedCareerLength(1000), 'seconds'];
             },
             moon: function() {
-              return sdufresne.dividedCareerLength(86400 * 1000) + ' moons';
+              return [sdufresne.dividedCareerLength(86400 * 1000), 'moons'];
             },
             dog: function() {
-              return sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 52) + ' dog years';
+              return [sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 52), 'dog years'];
             },
             friedman: function() {
-              return sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6) + ' friedmans';
+              return [sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6), 'friedmans'];
             },
             shake: function() {
-              return sdufresne.dividedCareerLength(1 / 1000) +
-                Math.round((Math.random() * 1000)) + // get rid of the boring 000 at the end
-                ' shakes';
+              return [
+                sdufresne.dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)), // get rid of the boring 000 at the end
+                'shakes'
+              ];
             },
             jiffy: function() {
-              return sdufresne.dividedCareerLength(1000 / 60) + ' jiffies';
+              return [sdufresne.dividedCareerLength(1000 / 60), 'jiffies'];
             },
             planck: function() {
-              return sdufresne.dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10) + ' plancks';
+              return [sdufresne.dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10), 'plancks'];
             },
             ls: function() {
-              return (299792458 * sdufresne.dividedCareerLength(1000)) + ' light meters';
+              return [(299792458 * sdufresne.dividedCareerLength(1000)), 'light meters'];
             },
             lotr: function() {
-              return sdufresne.dividedCareerLength(1000 * 60 * 60 * 11.4) + ' LoTR viewings';
+              return [sdufresne.dividedCareerLength(1000 * 60 * 60 * 11.4), 'LoTR viewings'];
             },
             // TODO: War & Peace readings
             // wap: function() {
@@ -417,8 +422,10 @@
             })();
 
             var result = function(index) {
+              var career = sdufresne.careerLengths[index]();
+
               return {
-                display: sdufresne.careerLengths[index](),
+                display: '<span class="numbers">' + career[0] + '</span> ' + career[1],
                 type: index
               };
             };
