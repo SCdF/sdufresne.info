@@ -450,7 +450,7 @@
             element.onmousedown = function(e) {
               e.preventDefault();
             };
-            element.onclick = function(e) {
+            element.onclick = function() {
               element.classList.add('smash');
               window.setTimeout(function() {
                 clickFn(value, function(newValue) {
@@ -473,7 +473,6 @@
             greeting.innerHTML = 'Good Afternoon';
           } else {
             greeting.innerHTML = 'Good Evening';
-            document.getElementsByTagName('body')[0].classList.add('night-mode');
           }
 
           var emailEl = document.querySelector('.email-address');
@@ -500,7 +499,7 @@
             }
           });
 
-          document.querySelector('#spiel a').onclick = function(e) {
+          document.querySelector('#spiel a').onclick = function() {
             this.className = this.className + ' smash';
           };
         });
