@@ -363,16 +363,16 @@
                 return {value: next.value, done: false};
               }
             }
-          }
+          };
 
           var titleIterator, careerLengthIterator;
+          var careerLengthIID;
 
           var api = {
             reverse: function(s) { return s.split('').reverse().join(''); },
 
             // I'm a <XXX> from New Zea…
-            // TODO: drop current, need to drop it from beClickable
-            title: function(current, cb) {
+            title: function(cb) {
               var result;
               if (!titleIterator) {
                 // First time show a normal one and prep the silly ones
@@ -446,8 +446,7 @@
               // }
             },
 
-            // TODO: get rid of current, which is needed by the beClickable api
-            careerLength: function(current, cb) {
+            careerLength: function(cb) {
               var key;
               if (!careerLengthIterator) {
                 key = 'year';
@@ -466,9 +465,9 @@
               };
 
               if (cb) {
-                clearInterval(api.careerLengthIID);
+                clearInterval(careerLengthIID);
                 cb(result(key));
-                api.careerLengthIID = setInterval(function() {
+                careerLengthIID = setInterval(function() {
                   cb(result(key));
                 }, 1000);
               } else {
@@ -476,20 +475,18 @@
               }
             },
 
-            beClickable: function(element, initialValueFn, clickFn) {
-              clickFn = clickFn || initialValueFn;
-
+            beClickable: function(element, clickFn) {
               element.classList.add('clickable');
-              var value = initialValueFn();
-              element.innerHTML = value.display;
+              var firstValue = clickFn();
+              element.innerHTML = firstValue.display;
+
               element.onmousedown = function(e) {
                 e.preventDefault();
               };
               element.onclick = function() {
                 element.classList.add('smash');
                 window.setTimeout(function() {
-                  clickFn(value, function(newValue) {
-                    value = newValue;
+                  clickFn(function(newValue) {
                     element.innerHTML = newValue.display;
                   });
 
