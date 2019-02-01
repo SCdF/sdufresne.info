@@ -317,46 +317,58 @@
             'thoroughly average programmer',
           ]);
 
-          var careerLengths = {
-            year: function() {
-              return [dividedCareerLength(1000 * 60 * 60 * 24 * 365), 'years'];
+          var careerLengths = [
+            {
+              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 365); },
+              title: 'years'
             },
-            second: function() {
-              return [dividedCareerLength(1000), 'seconds'];
+            {
+              fn: function() { return dividedCareerLength(1000); },
+              title: 'seconds'
             },
-            moon: function() {
-              return [dividedCareerLength(86400 * 1000), 'moons'];
+            {
+              fn: function() { return dividedCareerLength(86400 * 1000); },
+              title: 'moons'
             },
-            dog: function() {
-              return [dividedCareerLength(1000 * 60 * 60 * 24 * 52), 'dog years'];
+            {
+              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 52); },
+              title: 'dog years'
             },
-            friedman: function() {
-              return [dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6), 'friedmans'];
+            {
+              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6); },
+              title: 'friedmans',
+              fast: true
             },
-            shake: function() {
-              return [
-                dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)), // get rid of the boring 000 at the end
-                'shakes'
-              ];
+            {
+              fn: function() { return dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)); }, // get rid of the boring 000 at the end
+              title: 'shakes',
+              fast: true
             },
-            jiffy: function() {
-              return [dividedCareerLength(1000 / 60), 'jiffies'];
+            {
+              fn: function() { return dividedCareerLength(1000 / 60); },
+              title: 'jiffies',
+              fast: true
             },
-            planck: function() {
-              return [dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10), 'plancks'];
+            {
+              fn: function() { return dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10); },
+              title: 'plancks',
+              fasT: true
             },
-            ls: function() {
-              return [(299792458 * dividedCareerLength(1000)), 'light meters'];
+            {
+              fn: function() { return (299792458 * dividedCareerLength(1000)); },
+              title: 'light meters',
+              fast: true
             },
-            lotr: function() {
-              return [dividedCareerLength(1000 * 60 * 60 * 11.4), 'LoTR viewings'];
+            {
+              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 11.4); },
+              title: 'LoTR viewings',
             },
             // TODO: War & Peace readings
             // wap: function() {
             //   // https://www.staples.com/sbd/cre/marketing/technology-research-centers/ereaders/speed-reader/index.html
             //   var minutes = (31 * 60) + 41;
             // }
-          };
+          ];
 
           var careerStart = 1139860800000;
 
@@ -447,31 +459,28 @@
             },
 
             careerLength: function(cb) {
-              var key;
+              var career;
               if (!careerLengthIterator) {
-                key = 'year';
-                careerLengthIterator = LoopingShuffleIterator(Object.keys(careerLengths));
+                career = careerLengths[0];
+                careerLengthIterator = LoopingShuffleIterator(careerLengths);
               } else {
-                key = careerLengthIterator.next().value;
+                career = careerLengthIterator.next().value;
               }
 
-              var result = function(key) {
-                var career = careerLengths[key]();
-
+              var result = function() {
                 return {
-                  display: '<span class="numbers">' + career[0] + '</span> ' + career[1],
-                  type: key
+                  display: '<span class="numbers">' + career.fn() + '</span> ' + career.title,
                 };
               };
 
               if (cb) {
                 clearInterval(careerLengthIID);
-                cb(result(key));
+                cb(result());
                 careerLengthIID = setInterval(function() {
-                  cb(result(key));
+                  cb(result());
                 }, 1000);
               } else {
-                return result(key);
+                return result();
               }
             },
 
