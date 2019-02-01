@@ -273,76 +273,114 @@
         // and if we can make it work for everyone we should
 
         var Utils = function() {
-          var api = {
-            reverse: function(s) {
-              return s.split('').reverse().join('');
-            },
+          var jobTitles = [
+            'software developer',
+            'developer',
+            'coder',
+            'programmer',
+          ];
 
-            randArray: function(array) {
-              return array[Math.floor(Math.random()*array.length)];
-            },
+          var allJobTitles = jobTitles.concat([
+            '(defn stefan [] (fn[work] (do-work work)))',
+            'architect of your dreams',
+            'artisan software sculptor',
+            'beard horticulturalist',
+            'beard horticulturist',
+            'bespoke bit twiddler',
+            'big fan of yours',
+            'bit herder',
+            'blockchain disbeliever',
+            'code costermonger',
+            'code craftsman',
+            'code monkey',
+            'code-typhoon',
+            'courageous headphone jack',
+            'deterministic finite automata',
+            'gentle code crooner',
+            'good enough dev for government work',
+            'greatly enlarged micro-organism',
+            'large font aficionado',
+            'magnetised needle and a steady hand',
+            'monad (which is just a monoid in the category of endofunctors, what\'s the problem?)',
+            'monotonic semi-lattice',
+            'meme wrangler',
+            'non-brogrammer programmer',
+            'parametrically polymorphic programmer',
+            'rabid archillect fan',
+            'reasonable human',
+            'software "engineer"',
+            'software craftsman',
+            'software imagineer',
+            'software witch',
+            'stackoverflow savant',
+            'terrible salsa partner',
+            'thoroughly average programmer',
+          ]);
+
+          var careerStart = 1139860800000;
+
+          // https://stackoverflow.com/a/2450976/1666
+          var shuffle = function(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+              // Pick a remaining element...
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+
+              // And swap it with the current element.
+              temporaryValue = array[currentIndex];
+              array[currentIndex] = array[randomIndex];
+              array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+          };
+
+          var LoopingShuffleIterator = function(array, _last) {
+            var it;
+            var last = _last;
+
+            // TODO: store last so you can avoid getting the same result when
+            // the iterator switches over to a new round
+
+            return {
+              next: function() {
+                var next = it && it.next();
+                if (!next || next.done) {
+                  shuffle(array);
+                  it = array.values();
+                  next = it.next();
+                }
+
+                if (next.value === last) {
+                  // We don't want double-ups, so skip it
+                  next = it.next();
+                }
+
+                return {value: next.value, done: false};
+              }
+            }
+          }
+
+          var titleIterator, careerLengthIterator;
+
+          var api = {
+            reverse: function(s) { return s.split('').reverse().join(''); },
 
             // I'm a <XXX> from New Zea…
+            // TODO: drop current, need to drop it from beClickable
             title: function(current, cb) {
-              current = current && current.display;
-
-              var jobTitles = [
-                'software developer',
-                'developer',
-                'coder',
-                'programmer',
-              ];
-
-              var allJobTitles = jobTitles.concat([
-                '(defn stefan [] (fn[work] (do-work work)))',
-                'architect of your dreams',
-                'artisan software sculptor',
-                'beard horticulturalist',
-                'beard horticulturist',
-                'bespoke bit twiddler',
-                'big fan of yours',
-                'bit herder',
-                'blockchain disbeliever',
-                'code costermonger',
-                'code craftsman',
-                'code monkey',
-                'code-typhoon',
-                'courageous headphone jack',
-                'deterministic finite automata',
-                'gentle code crooner',
-                'good enough dev for government work',
-                'greatly enlarged micro-organism',
-                'large font aficionado',
-                'magnetised needle and a steady hand',
-                'monad (which is just a monoid in the category of endofunctors, what\'s the problem?)',
-                'monotonic semi-lattice',
-                'meme wrangler',
-                'non-brogrammer programmer',
-                'parametrically polymorphic programmer',
-                'rabid archillect fan',
-                'reasonable human',
-                'software "engineer"',
-                'software craftsman',
-                'software imagineer',
-                'software witch',
-                'stackoverflow savant',
-                'terrible salsa partner',
-                'thoroughly average programmer',
-              ]);
-
-              var potentialTitles = (function() {
-                if (current) {
-                  var titles = Object.values(allJobTitles);
-                  titles.splice(allJobTitles.indexOf(current), 1);
-                  return titles;
-                } else {
-                  return jobTitles;
-                }
-              })();
-
-              var result = {
-                display: api.randArray(potentialTitles)
-              };
+              var result;
+              if (!titleIterator) {
+                // First time show a normal one and prep the silly ones
+                titleIterator = LoopingShuffleIterator(allJobTitles);
+                result = { display: jobTitles[Math.floor(Math.random() * jobTitles.length)] };
+              } else {
+                result = { display: titleIterator.next().value };
+              }
 
               if (cb) {
                 cb(result);
@@ -359,10 +397,8 @@
               }
             },
 
-            careerStart: 1139860800000,
-
             rawCareerLength: function() {
-              return Date.now() - api.careerStart;
+              return Date.now() - careerStart;
             },
 
             dividedCareerLength: function(divisor) {
@@ -410,34 +446,33 @@
               // }
             },
 
+            // TODO: get rid of current, which is needed by the beClickable api
             careerLength: function(current, cb) {
-              var index = (function() {
-                if (current) {
-                  var potentialLengths = Object.keys(api.careerLengths);
-                  potentialLengths.splice(potentialLengths.indexOf(current.type), 1);
-                  return api.randArray(potentialLengths);
-                } else {
-                  return 'year';
-                }
-              })();
+              var key;
+              if (!careerLengthIterator) {
+                key = 'year';
+                careerLengthIterator = LoopingShuffleIterator(Object.keys(api.careerLengths));
+              } else {
+                key = careerLengthIterator.next().value;
+              }
 
-              var result = function(index) {
-                var career = api.careerLengths[index]();
+              var result = function(key) {
+                var career = api.careerLengths[key]();
 
                 return {
                   display: '<span class="numbers">' + career[0] + '</span> ' + career[1],
-                  type: index
+                  type: key
                 };
               };
 
               if (cb) {
                 clearInterval(api.careerLengthIID);
-                cb(result(index));
+                cb(result(key));
                 api.careerLengthIID = setInterval(function() {
-                  cb(result(index));
+                  cb(result(key));
                 }, 1000);
               } else {
-                return result(index);
+                return result(key);
               }
             },
 
@@ -446,7 +481,7 @@
 
               element.classList.add('clickable');
               var value = initialValueFn();
-              element.innerHTML = initialValueFn().display;
+              element.innerHTML = value.display;
               element.onmousedown = function(e) {
                 e.preventDefault();
               };

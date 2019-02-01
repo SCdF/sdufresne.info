@@ -6,5 +6,5 @@ TODO:
   ✔ Fix a / an in software titles @done (17-10-10 16:17)
   ✔ Flip beClickable to a callback structure so that we can update the label more than once if we want. This allows us to have small time values (seconds) update more often @done (17-12-15 21:06)
   ☐ Make update interval configurable so some can update every frame and others once a minute
-  ☐ Change from random to shuffle
+  ✔ Change from random to shuffle @done (19-02-01 22:05)
     Shuffle and then re-shuffle once at end of index
