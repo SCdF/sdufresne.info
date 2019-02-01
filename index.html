@@ -270,199 +270,203 @@
 
         // NB: this code uses all the least exciting improvements to JS, because
         // who can be bothered writing a build pipeline for a single static page,
-        // and I'd rather this worked on all browsers than I get to be all like
-        // const [bar] = ((...foo) => foo...])(["b", "a", "r"]) or whatever.
+        // and if we can make it work for everyone we should
 
-        var sdufresne = {
-          reverse: function(s) {
-            return s.split('').reverse().join('');
-          },
-
-          randArray: function(array) {
-            return array[Math.floor(Math.random()*array.length)];
-          },
-
-          // I'm a <XXX> from New Zea…
-          title: function(current, cb) {
-            current = current && current.display;
-
-            var jobTitles = [
-              'software developer',
-              'developer',
-              'coder',
-              'programmer',
-            ];
-
-            var allJobTitles = jobTitles.concat([
-              '(defn stefan [] (fn[work] (do-work work)))',
-              'architect of your dreams',
-              'artisan software sculptor',
-              'beard horticulturalist',
-              'beard horticulturist',
-              'bespoke bit twiddler',
-              'big fan of yours',
-              'bit herder',
-              'blockchain disbeliever',
-              'code costermonger',
-              'code craftsman',
-              'code monkey',
-              'code-typhoon',
-              'courageous headphone jack',
-              'deterministic finite automata',
-              'gentle code crooner',
-              'good enough dev for government work',
-              'greatly enlarged micro-organism',
-              'large font aficionado',
-              'magnetised needle and a steady hand',
-              'monad (which is just a monoid in the category of endofunctors, what\'s the problem?)',
-              'monotonic semi-lattice',
-              'meme wrangler',
-              'non-brogrammer programmer',
-              'parametrically polymorphic programmer',
-              'rabid archillect fan',
-              'reasonable human',
-              'software "engineer"',
-              'software craftsman',
-              'software imagineer',
-              'software witch',
-              'stackoverflow savant',
-              'terrible salsa partner',
-              'thoroughly average programmer',
-            ]);
-
-            var potentialTitles = (function() {
-              if (current) {
-                var titles = Object.values(allJobTitles);
-                titles.splice(allJobTitles.indexOf(current), 1);
-                return titles;
-              } else {
-                return jobTitles;
-              }
-            })();
-
-            var result = {
-              display: sdufresne.randArray(potentialTitles)
-            };
-
-            if (cb) {
-              cb(result);
-            } else {
-              return result;
-            }
-          },
-
-          article: function(currentTitle) {
-            if (['a', 'e', 'i', 'o', 'u'].indexOf(currentTitle.charAt(0)) >= 0) {
-              return 'an';
-            } else {
-              return 'a';
-            }
-          },
-
-          careerStart: 1139860800000,
-
-          rawCareerLength: function() {
-            return Date.now() - sdufresne.careerStart;
-          },
-
-          dividedCareerLength: function(divisor) {
-            return Math.floor(sdufresne.rawCareerLength() / divisor);
-          },
-
-          careerLengths: {
-            year: function() {
-              return [sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 365), 'years'];
+        var Utils = function() {
+          var api = {
+            reverse: function(s) {
+              return s.split('').reverse().join('');
             },
-            second: function() {
-              return [sdufresne.dividedCareerLength(1000), 'seconds'];
+
+            randArray: function(array) {
+              return array[Math.floor(Math.random()*array.length)];
             },
-            moon: function() {
-              return [sdufresne.dividedCareerLength(86400 * 1000), 'moons'];
-            },
-            dog: function() {
-              return [sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 52), 'dog years'];
-            },
-            friedman: function() {
-              return [sdufresne.dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6), 'friedmans'];
-            },
-            shake: function() {
-              return [
-                sdufresne.dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)), // get rid of the boring 000 at the end
-                'shakes'
+
+            // I'm a <XXX> from New Zea…
+            title: function(current, cb) {
+              current = current && current.display;
+
+              var jobTitles = [
+                'software developer',
+                'developer',
+                'coder',
+                'programmer',
               ];
-            },
-            jiffy: function() {
-              return [sdufresne.dividedCareerLength(1000 / 60), 'jiffies'];
-            },
-            planck: function() {
-              return [sdufresne.dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10), 'plancks'];
-            },
-            ls: function() {
-              return [(299792458 * sdufresne.dividedCareerLength(1000)), 'light meters'];
-            },
-            lotr: function() {
-              return [sdufresne.dividedCareerLength(1000 * 60 * 60 * 11.4), 'LoTR viewings'];
-            },
-            // TODO: War & Peace readings
-            // wap: function() {
-            //   // https://www.staples.com/sbd/cre/marketing/technology-research-centers/ereaders/speed-reader/index.html
-            //   var minutes = (31 * 60) + 41;
-            // }
-          },
 
-          careerLength: function(current, cb) {
-            var index = (function() {
-              if (current) {
-                var potentialLengths = Object.keys(sdufresne.careerLengths);
-                potentialLengths.splice(potentialLengths.indexOf(current.type), 1);
-                return sdufresne.randArray(potentialLengths);
-              } else {
-                return 'year';
-              }
-            })();
+              var allJobTitles = jobTitles.concat([
+                '(defn stefan [] (fn[work] (do-work work)))',
+                'architect of your dreams',
+                'artisan software sculptor',
+                'beard horticulturalist',
+                'beard horticulturist',
+                'bespoke bit twiddler',
+                'big fan of yours',
+                'bit herder',
+                'blockchain disbeliever',
+                'code costermonger',
+                'code craftsman',
+                'code monkey',
+                'code-typhoon',
+                'courageous headphone jack',
+                'deterministic finite automata',
+                'gentle code crooner',
+                'good enough dev for government work',
+                'greatly enlarged micro-organism',
+                'large font aficionado',
+                'magnetised needle and a steady hand',
+                'monad (which is just a monoid in the category of endofunctors, what\'s the problem?)',
+                'monotonic semi-lattice',
+                'meme wrangler',
+                'non-brogrammer programmer',
+                'parametrically polymorphic programmer',
+                'rabid archillect fan',
+                'reasonable human',
+                'software "engineer"',
+                'software craftsman',
+                'software imagineer',
+                'software witch',
+                'stackoverflow savant',
+                'terrible salsa partner',
+                'thoroughly average programmer',
+              ]);
 
-            var result = function(index) {
-              var career = sdufresne.careerLengths[index]();
+              var potentialTitles = (function() {
+                if (current) {
+                  var titles = Object.values(allJobTitles);
+                  titles.splice(allJobTitles.indexOf(current), 1);
+                  return titles;
+                } else {
+                  return jobTitles;
+                }
+              })();
 
-              return {
-                display: '<span class="numbers">' + career[0] + '</span> ' + career[1],
-                type: index
+              var result = {
+                display: api.randArray(potentialTitles)
               };
-            };
 
-            if (cb) {
-              clearInterval(sdufresne.careerLengthIID);
-              cb(result(index));
-              sdufresne.careerLengthIID = setInterval(function() {
+              if (cb) {
+                cb(result);
+              } else {
+                return result;
+              }
+            },
+
+            article: function(currentTitle) {
+              if (['a', 'e', 'i', 'o', 'u'].indexOf(currentTitle.charAt(0)) >= 0) {
+                return 'an';
+              } else {
+                return 'a';
+              }
+            },
+
+            careerStart: 1139860800000,
+
+            rawCareerLength: function() {
+              return Date.now() - api.careerStart;
+            },
+
+            dividedCareerLength: function(divisor) {
+              return Math.floor(api.rawCareerLength() / divisor);
+            },
+
+            careerLengths: {
+              year: function() {
+                return [api.dividedCareerLength(1000 * 60 * 60 * 24 * 365), 'years'];
+              },
+              second: function() {
+                return [api.dividedCareerLength(1000), 'seconds'];
+              },
+              moon: function() {
+                return [api.dividedCareerLength(86400 * 1000), 'moons'];
+              },
+              dog: function() {
+                return [api.dividedCareerLength(1000 * 60 * 60 * 24 * 52), 'dog years'];
+              },
+              friedman: function() {
+                return [api.dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6), 'friedmans'];
+              },
+              shake: function() {
+                return [
+                  api.dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)), // get rid of the boring 000 at the end
+                  'shakes'
+                ];
+              },
+              jiffy: function() {
+                return [api.dividedCareerLength(1000 / 60), 'jiffies'];
+              },
+              planck: function() {
+                return [api.dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10), 'plancks'];
+              },
+              ls: function() {
+                return [(299792458 * api.dividedCareerLength(1000)), 'light meters'];
+              },
+              lotr: function() {
+                return [api.dividedCareerLength(1000 * 60 * 60 * 11.4), 'LoTR viewings'];
+              },
+              // TODO: War & Peace readings
+              // wap: function() {
+              //   // https://www.staples.com/sbd/cre/marketing/technology-research-centers/ereaders/speed-reader/index.html
+              //   var minutes = (31 * 60) + 41;
+              // }
+            },
+
+            careerLength: function(current, cb) {
+              var index = (function() {
+                if (current) {
+                  var potentialLengths = Object.keys(api.careerLengths);
+                  potentialLengths.splice(potentialLengths.indexOf(current.type), 1);
+                  return api.randArray(potentialLengths);
+                } else {
+                  return 'year';
+                }
+              })();
+
+              var result = function(index) {
+                var career = api.careerLengths[index]();
+
+                return {
+                  display: '<span class="numbers">' + career[0] + '</span> ' + career[1],
+                  type: index
+                };
+              };
+
+              if (cb) {
+                clearInterval(api.careerLengthIID);
                 cb(result(index));
-              }, 1000);
-            } else {
-              return result(index);
+                api.careerLengthIID = setInterval(function() {
+                  cb(result(index));
+                }, 1000);
+              } else {
+                return result(index);
+              }
+            },
+
+            beClickable: function(element, initialValueFn, clickFn) {
+              clickFn = clickFn || initialValueFn;
+
+              element.classList.add('clickable');
+              var value = initialValueFn();
+              element.innerHTML = initialValueFn().display;
+              element.onmousedown = function(e) {
+                e.preventDefault();
+              };
+              element.onclick = function() {
+                element.classList.add('smash');
+                window.setTimeout(function() {
+                  clickFn(value, function(newValue) {
+                    value = newValue;
+                    element.innerHTML = newValue.display;
+                  });
+
+                  element.classList.remove('smash');
+                }, 100);
+              };
             }
-          },
-
-          beClickable: function(element, initialValueFn, clickFn) {
-            clickFn = clickFn || initialValueFn;
-
-            element.classList.add('clickable');
-            var value = initialValueFn();
-            element.innerHTML = initialValueFn().display;
-            element.onmousedown = function(e) {
-              e.preventDefault();
-            };
-            element.onclick = function() {
-              element.classList.add('smash');
-              window.setTimeout(function() {
-                clickFn(value, function(newValue) {
-                  value = newValue;
-                  element.innerHTML = newValue.display;
-                });
-
-                element.classList.remove('smash');
-              }, 100);
-            };
-          }
+          };
+          return api;
         };
+
+        var utils = Utils();
 
         document.addEventListener("DOMContentLoaded", function() {
           var greeting = document.getElementById('greeting');
@@ -477,25 +481,25 @@
 
           var emailEl = document.querySelector('.email-address');
           emailEl.innerHTML = '<a href="mailto:' +
-            sdufresne.reverse(emailEl.innerHTML) +
+            utils.reverse(emailEl.innerHTML) +
             '">'+emailEl.innerHTML+'</a>';
 
-          sdufresne.beClickable(
+          utils.beClickable(
             document.querySelector('#career-length'),
-            sdufresne.careerLength);
+            utils.careerLength);
 
-          sdufresne.beClickable(
+          utils.beClickable(
             document.querySelector('#job-title'),
-            sdufresne.title);
+            utils.title);
 
           var jobTitle = document.querySelector('#job-title');
           var titleArticle = document.querySelector('#aan');
 
-          titleArticle.innerHTML = sdufresne.article(jobTitle.innerHTML);
+          titleArticle.innerHTML = utils.article(jobTitle.innerHTML);
           // TODO: replace with MutationObserver
           jobTitle.addEventListener ("DOMSubtreeModified", function() {
             if (jobTitle.innerHTML) {
-              titleArticle.innerHTML = sdufresne.article(jobTitle.innerHTML);
+              titleArticle.innerHTML = utils.article(jobTitle.innerHTML);
             }
           });
 
