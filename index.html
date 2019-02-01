@@ -317,7 +317,56 @@
             'thoroughly average programmer',
           ]);
 
+          var careerLengths = {
+            year: function() {
+              return [dividedCareerLength(1000 * 60 * 60 * 24 * 365), 'years'];
+            },
+            second: function() {
+              return [dividedCareerLength(1000), 'seconds'];
+            },
+            moon: function() {
+              return [dividedCareerLength(86400 * 1000), 'moons'];
+            },
+            dog: function() {
+              return [dividedCareerLength(1000 * 60 * 60 * 24 * 52), 'dog years'];
+            },
+            friedman: function() {
+              return [dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6), 'friedmans'];
+            },
+            shake: function() {
+              return [
+                dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)), // get rid of the boring 000 at the end
+                'shakes'
+              ];
+            },
+            jiffy: function() {
+              return [dividedCareerLength(1000 / 60), 'jiffies'];
+            },
+            planck: function() {
+              return [dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10), 'plancks'];
+            },
+            ls: function() {
+              return [(299792458 * dividedCareerLength(1000)), 'light meters'];
+            },
+            lotr: function() {
+              return [dividedCareerLength(1000 * 60 * 60 * 11.4), 'LoTR viewings'];
+            },
+            // TODO: War & Peace readings
+            // wap: function() {
+            //   // https://www.staples.com/sbd/cre/marketing/technology-research-centers/ereaders/speed-reader/index.html
+            //   var minutes = (31 * 60) + 41;
+            // }
+          };
+
           var careerStart = 1139860800000;
+
+          var rawCareerLength = function() {
+            return Date.now() - careerStart;
+          };
+
+          var dividedCareerLength = function(divisor) {
+            return Math.floor(rawCareerLength() / divisor);
+          };
 
           // https://stackoverflow.com/a/2450976/1666
           var shuffle = function(array) {
@@ -397,66 +446,17 @@
               }
             },
 
-            rawCareerLength: function() {
-              return Date.now() - careerStart;
-            },
-
-            dividedCareerLength: function(divisor) {
-              return Math.floor(api.rawCareerLength() / divisor);
-            },
-
-            careerLengths: {
-              year: function() {
-                return [api.dividedCareerLength(1000 * 60 * 60 * 24 * 365), 'years'];
-              },
-              second: function() {
-                return [api.dividedCareerLength(1000), 'seconds'];
-              },
-              moon: function() {
-                return [api.dividedCareerLength(86400 * 1000), 'moons'];
-              },
-              dog: function() {
-                return [api.dividedCareerLength(1000 * 60 * 60 * 24 * 52), 'dog years'];
-              },
-              friedman: function() {
-                return [api.dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6), 'friedmans'];
-              },
-              shake: function() {
-                return [
-                  api.dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)), // get rid of the boring 000 at the end
-                  'shakes'
-                ];
-              },
-              jiffy: function() {
-                return [api.dividedCareerLength(1000 / 60), 'jiffies'];
-              },
-              planck: function() {
-                return [api.dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10), 'plancks'];
-              },
-              ls: function() {
-                return [(299792458 * api.dividedCareerLength(1000)), 'light meters'];
-              },
-              lotr: function() {
-                return [api.dividedCareerLength(1000 * 60 * 60 * 11.4), 'LoTR viewings'];
-              },
-              // TODO: War & Peace readings
-              // wap: function() {
-              //   // https://www.staples.com/sbd/cre/marketing/technology-research-centers/ereaders/speed-reader/index.html
-              //   var minutes = (31 * 60) + 41;
-              // }
-            },
-
             careerLength: function(cb) {
               var key;
               if (!careerLengthIterator) {
                 key = 'year';
-                careerLengthIterator = LoopingShuffleIterator(Object.keys(api.careerLengths));
+                careerLengthIterator = LoopingShuffleIterator(Object.keys(careerLengths));
               } else {
                 key = careerLengthIterator.next().value;
               }
 
               var result = function(key) {
-                var career = api.careerLengths[key]();
+                var career = careerLengths[key]();
 
                 return {
                   display: '<span class="numbers">' + career[0] + '</span> ' + career[1],
