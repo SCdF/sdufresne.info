@@ -336,8 +336,11 @@
             },
             {
               fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6); },
-              title: 'friedmans',
-              fast: true
+              title: 'friedmans'
+            },
+            {
+              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 11.4); },
+              title: 'LoTR viewings',
             },
             {
               fn: function() { return dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)); }, // get rid of the boring 000 at the end
@@ -352,22 +355,23 @@
             {
               fn: function() { return dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10); },
               title: 'plancks',
-              fasT: true
+              fast: true
             },
             {
-              fn: function() { return (299792458 * dividedCareerLength(1000)); },
+              fn: function() { return Math.floor(299792.458 * rawCareerLength() / 1000); },
               title: 'light meters',
               fast: true
             },
             {
-              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 11.4); },
-              title: 'LoTR viewings',
-            },
-            // TODO: War & Peace readings
-            // wap: function() {
-            //   // https://www.staples.com/sbd/cre/marketing/technology-research-centers/ereaders/speed-reader/index.html
-            //   var minutes = (31 * 60) + 41;
-            // }
+              fn: function() {
+                var wpm = 320; // apparently
+                var wap = 561093;
+
+                var minPerWap = wap / wpm;
+                return dividedCareerLength(minPerWap * 60 * 1000);
+              },
+              title: 'readings of War & Peace'
+            }
           ];
 
           var careerStart = 1139860800000;
@@ -404,9 +408,6 @@
             var it;
             var last = _last;
 
-            // TODO: store last so you can avoid getting the same result when
-            // the iterator switches over to a new round
-
             return {
               next: function() {
                 var next = it && it.next();
@@ -421,13 +422,15 @@
                   next = it.next();
                 }
 
+                last = next.value;
+
                 return {value: next.value, done: false};
               }
             }
           };
 
           var titleIterator, careerLengthIterator;
-          var careerLengthIID;
+          var careerAnimationHandle;
 
           var api = {
             reverse: function(s) { return s.split('').reverse().join(''); },
@@ -462,7 +465,7 @@
               var career;
               if (!careerLengthIterator) {
                 career = careerLengths[0];
-                careerLengthIterator = LoopingShuffleIterator(careerLengths);
+                careerLengthIterator = LoopingShuffleIterator(careerLengths, career);
               } else {
                 career = careerLengthIterator.next().value;
               }
@@ -474,11 +477,19 @@
               };
 
               if (cb) {
-                clearInterval(careerLengthIID);
-                cb(result());
-                careerLengthIID = setInterval(function() {
-                  cb(result());
-                }, 1000);
+                var animate = function() { cb(result()); };
+
+                window.clearInterval(careerAnimationHandle);
+
+                animate();
+
+                if (career.fast) {
+                  // TODO: it would be nice to use requestAnimationFrame
+                  // Unfortunately it's surprisingly hard to call and cancel stabily
+                  careerAnimationHandle = window.setInterval(animate, 100);
+                } else {
+                  careerAnimationHandle = window.setInterval(animate, 1000);
+                }
               } else {
                 return result();
               }
@@ -492,7 +503,7 @@
               element.onmousedown = function(e) {
                 e.preventDefault();
               };
-              element.onclick = function() {
+              element.onmouseup = function() {
                 element.classList.add('smash');
                 window.setTimeout(function() {
                   clickFn(function(newValue) {
