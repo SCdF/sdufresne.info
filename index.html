@@ -320,47 +320,53 @@
           var careerLengths = [
             {
               fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 365); },
-              title: 'years'
+              title: 'years',
+              speed: 'minute'
             },
             {
               fn: function() { return dividedCareerLength(1000); },
-              title: 'seconds'
+              title: 'seconds',
+              speed: 'second'
             },
             {
               fn: function() { return dividedCareerLength(86400 * 1000); },
-              title: 'moons'
+              title: 'moons',
+              speed: 'minute'
             },
             {
               fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 52); },
-              title: 'dog years'
+              title: 'dog years',
+              speed: 'minute'
             },
             {
               fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6); },
-              title: 'friedmans'
+              title: 'friedmans',
+              speed: 'minute'
             },
             {
               fn: function() { return dividedCareerLength(1000 * 60 * 60 * 11.4); },
               title: 'LoTR viewings',
+              speed: 'minute'
             },
             {
               fn: function() { return dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)); }, // get rid of the boring 000 at the end
               title: 'shakes',
-              fast: true
+              speed: 'frame'
             },
             {
               fn: function() { return dividedCareerLength(1000 / 60); },
               title: 'jiffies',
-              fast: true
+              speed: 'frame'
             },
             {
               fn: function() { return dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10); },
               title: 'plancks',
-              fast: true
+              speed: 'frame'
             },
             {
               fn: function() { return Math.floor(299792.458 * rawCareerLength() / 1000); },
               title: 'light meters',
-              fast: true
+              speed: 'frame'
             },
             {
               fn: function() {
@@ -483,12 +489,14 @@
 
                 animate();
 
-                if (career.fast) {
+                if (career.speed === 'frame') {
                   // TODO: it would be nice to use requestAnimationFrame
                   // Unfortunately it's surprisingly hard to call and cancel stabily
                   careerAnimationHandle = window.setInterval(animate, 100);
-                } else {
+                } else if (career.speed === 'second') {
                   careerAnimationHandle = window.setInterval(animate, 1000);
+                } else {
+                  careerAnimationHandle = window.setInterval(animate, 60000);
                 }
               } else {
                 return result();
@@ -497,8 +505,10 @@
 
             beClickable: function(element, clickFn) {
               element.classList.add('clickable');
-              var firstValue = clickFn();
-              element.innerHTML = firstValue.display;
+
+              clickFn(function(firstValue) {
+                element.innerHTML = firstValue.display;
+              });
 
               element.onmousedown = function(e) {
                 e.preventDefault();
