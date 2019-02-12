@@ -319,7 +319,20 @@
 
           var careerLengths = [
             {
-              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 365); },
+              fn: function() {
+                var start = new Date(careerStart),
+                    now = new Date();
+
+                var years = now.getYear() - start.getYear();
+
+                start.setFullYear(now.getFullYear());
+
+                if (start.getTime() > now.getTime()) {
+                  return years - 1;
+                } else {
+                  return years;
+                }
+              },
               title: 'years',
               speed: 'minute'
             },
