@@ -34,7 +34,7 @@
       #site-wrapper {
         max-width: 1280px;
         font-size: 200%;
-        line-height: 3ex;
+        line-height: 1.4;
         padding-right: 1em;
         padding-left: 1em;
         margin: 0 auto;
@@ -160,21 +160,34 @@
           float: none;
           width: 100%;
         }
-        #contact hr {
-          display: none;
-        }
         #major-contacts {
-          float: left;
+          border-top: solid #eee;
           padding-left: 1em !important;
-          width: 60%;
           margin: 0;
-          line-height: 3ex;
+          line-height: 1.5;
+        }
+        #major-contacts li {
+          display: inline-flex;
+          font-size: 110%;
+          padding: 0.5em;
+          margin: 0.5em;
+          background-color: #FFEFEF;
+        }
+        #major-contacts a,
+        #major-contacts a:visited,
+        #major-contacts a:hover,
+        #major-contacts a:active {
+          font-weight: bold;
+          text-decoration: none;
+          color: #333;
+          background-color: #FFEFEF;
+          margin: -0.125em;
+          padding: 0.125em;
         }
 
         #minor-contacts {
-          float: right;
-          width: 30%;
           margin: 0;
+          line-height: 1.5;
         }
         #sigh {
           clear: both;
@@ -250,7 +263,7 @@
           <li>🔑 <a href="https://keybase.io/scdf">Keybase</a></li>
           <li>👨🏼‍💻 <a href="https://github.com/SCdF/">Github</a></li>
           <li>🐦 <a href="https://twitter.com/_SCdF_">Twitter</a></li>
-          <li>🙈 <a style="font-size: 50%" href="http://nz.linkedin.com/pub/stefan-du-fresne/47/687/797">...if you really have to</a></li>
+          <li>🙈 <a href="http://nz.linkedin.com/pub/stefan-du-fresne/47/687/797">...if you really have to</a></li>
         </ul>
 
         <!--
