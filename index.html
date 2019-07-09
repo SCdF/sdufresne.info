@@ -3,7 +3,7 @@
   <head>
     <!--
       Reading this? Looking for an awesome software developer? You might want to check out
-      sdufresne.info/cv :-)
+      sdufresne.info/cv.html :-)
 
       ... or just email me. I never update my cv.
     -->
@@ -27,7 +27,7 @@
       }
 
       /* normal screens */
-      img#avatar {
+      #avatar {
         max-width: 100%;
       }
 
@@ -94,14 +94,13 @@
 
       .smash {
         transition: all .1s;
-      }
-      .smash:hover {
+
         -webkit-transform: rotateZ(1deg) !important;
         -ms-transform: rotateZ(1deg) !important;
         transform: rotateZ(1deg) !important;
       }
 
-      @media (hover: none) {
+      @media (pointer: coarse) {
         #spiel .clickable:hover,
         #spiel a:hover {
           /* TODO: Do I have to repeat myself here? */
@@ -146,7 +145,7 @@
 
       /* smaller screens */
       @media screen and (max-width: 760px) {
-        img {
+        #avatar {
           display: none;
         }
 
@@ -235,32 +234,34 @@
         <h2 class="greeting">My name is Stefan du Fresne</h2>
         <p>I'm <span id="aan">a</span> <span id="job-title">software developer</span> from New Zealand. I currently live in London.</p>
         <p>Over the last <span id="career-length">few years</span> I've helped to build a reasonably large amount of software. Some of it works!</p>
-        <p>Currently I'm helping <a href="http://medicmobile.org">these delightful folk</a> build mobile health tools for remote regions.</p>
-        <p>We use Angular, Node.js and all the hipster tech. Functional programming&mdash;Scala and Clojure especially&mdash;is cool too. Whatever works.</p>
-        <p>Sometimes I take bad photos of things and fiddle with them on computers.</p>
+        <p>Currently I'm working with <a href="http://medicmobile.org/team">these delightful humans</a> to build open source health tooling to improve outcomes for underserved communities.</p>
+        <p>We use Angular, Node and all that good stuff. Functional programming&mdash;Scala and Clojure especially&mdash;is cool too. Rust is also pretty neat. Whatever works.</p>
         <p>I often go by SCdF on the Internet.</p>
+        <p>hmu :-)</p>
       </div>
       <div id="contact">
         <img
           id="avatar"
           alt="Picture of Stefan du Fresne"
-          src="./assets/img/actually-me-2015-1x.jpg"
-          srcset="./assets/img/actually-me-2015-1x.jpg 1x, ./assets/img/actually-me-2015-2x.jpg 2x">
+          src="./assets/img/actually-me-2019-1x.jpg"
+          srcset="./assets/img/actually-me-2019-1x.jpg 1x, ./assets/img/actually-me-2019-2x.jpg 2x">
         <ul id="major-contacts">
-          <li><span class="email-address">ofni.enserfuds@nafets</span></li>
-          <li><a href="https://keybase.io/scdf">Keybase</a></li>
-          <li><a href="https://github.com/SCdF/">Github</a></li>
+          <li>💌 <span class="email-address">ofni.enserfuds@nafets</span></li>
+          <li>🔑 <a href="https://keybase.io/scdf">Keybase</a></li>
+          <li>👨🏼‍💻 <a href="https://github.com/SCdF/">Github</a></li>
+          <li>🐦 <a href="https://twitter.com/_SCdF_">Twitter</a></li>
+          <li>🙈 <a style="font-size: 50%" href="http://nz.linkedin.com/pub/stefan-du-fresne/47/687/797">...if you really have to</a></li>
         </ul>
+
         <!--
         <hr>
         <ul id="minor-contacts">
           <li><a href="http://stackoverflow.com/users/1666/scdf">StackOverflow</a></li>
           <li><a href="https://news.ycombinator.com/user?id=SCdF">HackerNews</a></li>
-          <li><a href="http://nz.linkedin.com/pub/stefan-du-fresne/47/687/797">LinkedIn</a></li>
-          <li><a href="https://twitter.com/_SCdF_">Twitter</a></li>
           <li><a href="https://www.flickr.com/photos/stefandufresne/">Flickr</a></li>
         </ul>
-      -->
+        -->
+
         <div id="sigh"></div>
       </div>
       <script type="text/javascript">
@@ -299,6 +300,7 @@
             'gentle code crooner',
             'good enough dev for government work',
             'greatly enlarged micro-organism',
+            'infinite field of flowers',
             'large font aficionado',
             'magnetised needle and a steady hand',
             'monad (which is just a monoid in the category of endofunctors, what\'s the problem?)',

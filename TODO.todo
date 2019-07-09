@@ -5,6 +5,11 @@ TODO:
   ✔ Night mode, either with lux Firefox library, or time based. @done (18-12-27 17:48)
   ✔ Fix a / an in software titles @done (17-10-10 16:17)
   ✔ Flip beClickable to a callback structure so that we can update the label more than once if we want. This allows us to have small time values (seconds) update more often @done (17-12-15 21:06)
-  ☐ Make update interval configurable so some can update every frame and others once a minute
+  ✔ Make update interval configurable so some can update every frame and others once a minute @done (19-07-09 14:43)
   ✔ Change from random to shuffle @done (19-02-01 22:05)
     Shuffle and then re-shuffle once at end of index
+  ✔ Change image to 2019 picture @done (19-07-09 14:43)
+  ☐ BUG: image should only load if it's going to be displayed
+    https://stackoverflow.com/questions/12158540/does-displaynone-prevent-an-image-from-loading
+    Try making it a background image and control it that way with CSS
+    ☐ Make sure 1x and 2x versions still work
