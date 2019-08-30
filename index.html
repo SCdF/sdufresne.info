@@ -21,11 +21,6 @@
         font-family: monospace, monospace;
       }
 
-      .night-mode {
-        background-color: #222;
-        color: #ddd;
-      }
-
       /* normal screens */
       #avatar {
         max-width: 100%;
@@ -98,6 +93,18 @@
         -webkit-transform: rotateZ(1deg) !important;
         -ms-transform: rotateZ(1deg) !important;
         transform: rotateZ(1deg) !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #222;
+          color: #ddd;
+        }
+
+        .clickable, a, a:visited, a:hover, a:active {
+          color: #ddd;
+          background-color: #522;
+        }
       }
 
       @media (pointer: coarse) {
@@ -295,6 +302,7 @@
           ];
 
           var allJobTitles = jobTitles.concat([
+            '1x engineer',
             '(defn stefan [] (fn[work] (do-work work)))',
             'architect of your dreams',
             'artisan software sculptor',
