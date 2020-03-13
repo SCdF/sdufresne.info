@@ -342,6 +342,7 @@
 
           var careerLengths = [
             {
+              title: 'years',
               fn: function() {
                 var start = new Date(careerStart),
                     now = new Date();
@@ -356,74 +357,100 @@
                   return years;
                 }
               },
-              title: 'years',
-              speed: 'minute'
             },
             {
-              fn: function() { return dividedCareerLength(1000); },
               title: 'seconds',
+              fn: function() { return divideCareerLengthMillisBy(1000); },
               speed: 'second'
             },
             {
-              fn: function() { return dividedCareerLength(86400 * 1000); },
-              title: 'moons',
-              speed: 'minute'
+              title: 'minutes',
+              fn: function() { return divideCareerLengthMillisBy(1000 * 60); },
             },
             {
-              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 52); },
-              title: 'dog years',
-              speed: 'minute'
+              title: 'hours',
+              fn: function() { return divideCareerLengthMillisBy(1000 * 60 * 60); },
             },
             {
-              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 24 * 30.4 * 6); },
-              title: 'friedmans',
-              speed: 'minute'
+              title: 'days',
+              fn: function() { return divideCareerLengthMillisBy(1000 * 60 * 60 * 24); },
             },
             {
-              fn: function() { return dividedCareerLength(1000 * 60 * 60 * 11.4); },
-              title: 'LoTR viewings',
-              speed: 'minute'
+              title: 'moons', // https://en.wikipedia.org/wiki/Lunar_phase
+              fn: function() { return divideCareerLengthMillisBy(1000 * 60 * 60 * 24 * 29.53); },
             },
             {
-              fn: function() { return dividedCareerLength(1 / 1000) + Math.round((Math.random() * 1000)); }, // get rid of the boring 000 at the end
-              title: 'shakes',
-              speed: 'frame'
+              title: 'friedmans', // https://en.wikipedia.org/wiki/Friedman_Unit
+              fn: function() { return divideCareerLengthMillisBy(1000 * 60 * 60 * 24 * 30.4 * 6); },
             },
             {
-              fn: function() { return dividedCareerLength(1000 / 60); },
-              title: 'jiffies',
-              speed: 'frame'
+              title: 'LoTR viewings', // Based on all three extended editions
+              fn: function() { return divideCareerLengthMillisBy(1000 * 60 * 60 * 11.4); },
             },
             {
-              fn: function() { return dividedCareerLength(5.39 * Math.pow(10, -41)).toPrecision(10); },
-              title: 'plancks',
-              speed: 'frame'
-            },
-            {
-              fn: function() { return Math.floor(299792.458 * rawCareerLength() / 1000); },
-              title: 'light meters',
-              speed: 'frame'
-            },
-            {
+              title: 'readings of War & Peace',
               fn: function() {
                 var wpm = 320; // apparently
-                var wap = 561093;
+                var warAndPeaceWordCount = 561093;
 
-                var minPerWap = wap / wpm;
-                return dividedCareerLength(minPerWap * 60 * 1000);
+                var minPerWap = warAndPeaceWordCount / wpm;
+                return divideCareerLengthMillisBy(1000 * 60 * minPerWap);
               },
-              title: 'readings of War & Peace'
+            },
+
+            // https://en.wikipedia.org/wiki/List_of_unusual_units_of_measurement
+            {
+              title: 'dog years',
+              fn: function() { return divideCareerLengthMillisBy(1000 * 60 * 60 * 24 * 52); },
+            },
+            {
+              title: 'kermits',
+              fn: function () { return divideCareerLengthMillisBy(1000 * 60 * 14.4); }
+            },
+            {
+              title: 'shakes',
+              fn: function() {
+                return divideCareerLengthMillisBy(1 / 1000) +
+                  Math.round((Math.random() * 1000)); // get rid of the boring 000 at the end
+              },
+              speed: 'frame'
+            },
+            {
+              title: 'jiffies',
+              fn: function() { return divideCareerLengthMillisBy(1000 / 60); },
+              speed: 'frame'
+            },
+            {
+              title: 'galactic years',
+              fn: function() { return (careerLengthMillis() / (1000 * 60 * 60 * 24 * 365 * 250000000)).toPrecision(10);},
+              speed: 'frame'
+            },
+
+            {
+              title: 'plancks', // https://en.wikipedia.org/wiki/Planck_time
+              fn: function() { return divideCareerLengthMillisBy(5.39 * Math.pow(10, -41)).toPrecision(10); },
+              speed: 'frame'
+            },
+            {
+              title: 'light meters',  // https://en.wikipedia.org/wiki/Speed_of_light &
+                                      // https://en.wikipedia.org/wiki/List_of_unusual_units_of_measurement#Light-distance
+              fn: function() {
+                var metersPerSecond = 299792458;
+                var metersPerMilliSecond = metersPerSecond / 1000;
+                return Math.floor(careerLengthMillis() * metersPerMilliSecond);
+              },
+              speed: 'frame'
             }
           ];
 
           var careerStart = 1139860800000;
 
-          var rawCareerLength = function() {
+          var careerLengthMillis = function() {
             return Date.now() - careerStart;
           };
 
-          var dividedCareerLength = function(divisor) {
-            return Math.floor(rawCareerLength() / divisor);
+          var divideCareerLengthMillisBy = function(divisor) {
+            return Math.floor(careerLengthMillis() / divisor);
           };
 
           // https://stackoverflow.com/a/2450976/1666
@@ -532,7 +559,7 @@
                 } else if (career.speed === 'second') {
                   careerAnimationHandle = window.setInterval(animate, 1000);
                 } else {
-                  careerAnimationHandle = window.setInterval(animate, 60000);
+                  careerAnimationHandle = window.setInterval(animate, 1000 * 60);
                 }
               } else {
                 return result();
