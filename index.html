@@ -105,7 +105,7 @@
         transform: rotateZ(1deg) !important;
       }
 
-      /* TODO: test and document this ipad hack */
+      /* reverts link animation after tap on iPad */
       @media (pointer: coarse) {
         #spiel .clickable:hover,
         #spiel a:hover {
@@ -145,6 +145,7 @@
       }
       #contact li svg {
         max-height: 1.5rem;
+        max-width: 1.5rem; /* safari needs this as well as above */
         vertical-align: middle;
       }
 
@@ -267,7 +268,7 @@
         </p>
         <p>
           Talon combined with <a href="https://github.com/pokey/cursorless-talon">Cursorless</a> (incredibly fast Vscode
-          editing) and <a href="https://vimium.github.io/">Vimium</a> (vim bindings for your browser) is an a remarkably
+          editing) and <a href="https://vimium.github.io/">Vimium</a> (vim bindings for your browser) is a remarkably
           effective toolset for hands-free computing, as least as far as web browsing and coding is concerned.
         </p>
         <p>
@@ -294,8 +295,8 @@
         </p>
         <h3>Anything else?</h3>
         <p>
-          I'm not very active on social media, but you can see my links <span id="links-location-side">to the side</span
-          ><span id="links-location-below">below</span>.
+          I'm not very active on social media, but you can see my socials (and a more comprehensive job history)
+          <span id="links-location-side">to the side</span><span id="links-location-below">below</span>.
         </p>
       </section>
       <section id="contact">
@@ -307,7 +308,7 @@
         />
         <ul id="major-contacts">
           <li>
-            <a href="mailto://stefan@sdufresne.info">
+            <a href="mailto:stefan@sdufresne.info">
               <svg xmlns="http://www.w3.org/2000/svg" aria-label="Gmail" role="img" viewBox="0 0 512 512">
                 <rect width="512" height="512" rx="50%" fill="#000" />
                 <path d="M158 391v-142l-82-63V361q0 30 30 30" fill="#4285f4" />
