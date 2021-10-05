@@ -24,7 +24,7 @@
     <style type="text/css">
       html {
         font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Roboto, "Helvetica Neue",
-          "Helvetica", Arial, sans-serif;
+          Helvetica, Arial, sans-serif;
       }
 
       body {
@@ -144,9 +144,9 @@
         overflow: hidden;
       }
       #contact li svg {
-        max-height: 1.5rem;
-        max-width: 1.5rem; /* safari needs this as well as above */
         vertical-align: middle;
+        max-height: 1.5rem;
+        max-width: 1.5rem;
       }
 
       /* smaller screens */
@@ -195,9 +195,6 @@
           padding: 0.125em;
         }
 
-        #sigh {
-          clear: both;
-        }
         #spiel {
           float: none;
           width: inherit;
@@ -390,16 +387,11 @@
             </a>
           </li>
         </ul>
-        <div id="sigh"></div>
       </section>
       <script type="text/javascript">
         /* jshint browser: true */
         (function () {
           "use strict";
-
-          // NB: this code uses all the least exciting improvements to JS, because
-          // who can be bothered writing a build pipeline for a single static page,
-          // and if we can make it work for every browser we should
 
           var Utils = function () {
             var jobTitles = ["software developer", "developer", "coder", "programmer"];
@@ -621,7 +613,7 @@
               };
             };
 
-            var titleIterator, careerLengthIterator, awkwardEuphamismsIterator;
+            var titleIterator, careerLengthIterator;
             var careerAnimationHandle;
 
             var api = {
@@ -641,21 +633,6 @@
                 } else {
                   result = { display: titleIterator.next().value };
                 }
-
-                if (cb) {
-                  cb(result);
-                } else {
-                  return result;
-                }
-              },
-
-              awkwardEuphamism: function (cb) {
-                var result;
-                if (!awkwardEuphamismsIterator) {
-                  awkwardEuphamismsIterator = LoopingShuffleIterator(awkwardEuphamisms);
-                }
-
-                result = { display: awkwardEuphamismsIterator.next().value };
 
                 if (cb) {
                   cb(result);
