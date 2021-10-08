@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stefan du Fresne's Résumé</title>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Résumé of Stefan du Fresne">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-41305108-1', 'sdufresne.info');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+  <article>
+      <section>
+        <header id="summary">
+          <h1>Stefan du Fresne</h1>
+          <p>
+            <date id="pubdate" datetime="2021-10" pubdate>Last updated <strong>Oct 2021</strong></date >
+            <address id="contact">
+              <ul>
+                <li>e: <a href="mailto:stefan@sdufresne.info">stefan@sdufresne.info</a></span></li>
+                <li>w: <a href="https://sdufresne.info">https://sdufresne.info</a></li>
+                <li>gh: <a href="https://github.com/scdf">https://github.com/scdf</a></li>
+              </ul>
+            </address>
+          </p>
+        </header>
+        <p><strong>Hello!</strong> I'm Stefan, a software developer with 15 years of experience. Originally from New Zealand, I currently live in London, England.</p>
+        <p><strong>I am:</strong>
+          <ul>
+            <li>A pragmatist with a strong track record of building practical solutions to complex problems</li>
+            <li>An exuberant team player who believes that everyone has something to contribute</li>
+            <li>Committed to building ethical software that improves our world, nation or community</li>
+            <li>Equally comfortable working with clients, leading teams and mentoring teammates as I am building software</li>
+            <li>Experienced in working remotely across multiple time-zones, disciplines and cultures</li>
+            <li>
+              A fan of functional programming, but more interested in the problem being solved than the language it&#39;s solved
+              in
+            </li>
+            <li><a href="#technical-experience">A widely experienced polyglot programmer</a></li>
+          </ul>
+        </p>
+        <p>
+          Recently I took a break to learn strategies to mitigate RSI, culminating in learning to code by voice. I still use
+          my hands, but voice coding means I am not required to, and it is often faster (really).
+          <a href="./coding-with-talon.html">Read more about how I work.</a>
+        </p>
+        <p><strong>You want to:</strong>
+          <ul>
+            <li><a href="#work-samples">see work samples</a></li>
+            <li><a href="#work-experience">skip to my work experience</a></li>
+            <li><a href="mailto:stefan@sdufresne.info">ask me a question</a></li>
+          </ul>
+        </p>
+
+<h2 id="work-samples">Work Samples</h2>
+<p>
+  Here are two recent substantial bodies of work of mine you can check out on
+  <a href="https://github.com/SCdF">GitHub</a>:
+</p>
+<h3 id="sanremo-a-recent-personal-project">Sanremo, A Recent Personal Project</h3>
+<p>
+  Deployed at: <a href="https://sanremo.sdufresne.info">https://sanremo.sdufresne.info</a> Code at:
+  <a href="https://github.com/scdf/sanremo">https://github.com/scdf/sanremo</a>
+</p>
+<p>
+  Sanremo is a React / Redux / MUI based offline first web app, written in JS / TS. It uses PouchDB on the front end and
+  a combination of custom sync code and socket.io to push data to a postgresql db on the backend.
+</p>
+<p>This project has three goals:</p>
+<ul>
+  <li>
+    Build a simple tool that lets me easily create repeatable checklists, inspired by the use of aviation checklists by
+    pilots, which I use daily
+  </li>
+  <li>
+    Be an excuse to try some tech I hadn&#39;t had a chance to at work, namely the react stack and some pouchdb
+    experimentation in newer adapters, server sync without couchdb
+  </li>
+  <li>Test out voice coding and other RSI mitigation strategies with an production-like project</li>
+</ul>
+<h3 id="medic-five-years-of-commercial-development">Medic, Five Years of Commercial Development</h3>
+<p>
+  <a href="https://medic.org/">Medic</a>&#39;s work is almost entirely open source: code, PRs, tickets and many design
+  documents (if linked in tickets) are available. The bulk is against the
+  <a href="https://github.com/medic/cht-core">medic/cht-core</a> repository.
+</p>
+<p>
+  Cht-core is the core framework of the <a href="https://communityhealthtoolkit.org/">Community Health Toolkit</a>: a
+  responsive offline-first web app designed to run on cheap android phones, a back-end api that supports it, and a
+  back-end message processing engine.
+</p>
+<p>
+  For <a href="https://github.com/medic/cht-core/graphs/contributors">code contributions</a>, you can see
+  <a href="https://github.com/medic/cht-core/commits?author=SCdF">a list of my branch merges here</a>. Note that Medic
+  employs a deliberately restrictive merge to master policy. All testing, rework, design discussion etc happens in a
+  branch, with a squashed merge to master indicating that the feature or fix is complete and ready for production. This
+  policy, combined with squashing merges, results in a cleaner (but sparser!) commit log.
+</p>
+<p>
+  For <a href="https://github.com/medic/cht-core/issues">ticket contributions</a> you can see
+  <a href="https://github.com/medic/cht-core/issues?q=commenter%3ASCdF"
+    >a list of tickets I&#39;ve contributed to here</a
+  >.
+</p>
+<p>
+  Medic, and cht-core in particular, is a very complex and challenging project. I talk about it briefly in work
+  experience below, and I&#39;m happy to chat further about the difficulties and challenges it presents.
+</p>
+<h2 id="work-experience">Work Experience</h2>
+<h3 id="2015-2020-senior-software-developer-engineering-manager-medic-mobile-uk-remote-">
+  2015-2020: Senior Software Developer &amp; Engineering Manager @ Medic Mobile (UK remote)
+</h3>
+<p>
+  <a href="https://medic.org/">Medic</a> is a non-profit that &quot;designs, delivers, and supports world-class,
+  open-source software for health workers providing care in the world’s hardest-to-reach communities.&quot;
+</p>
+<ul>
+  <li>senior software developer, later also the engineering manager</li>
+  <li>worked remotely, collaborating with co-workers in a dozen different time-zones</li>
+  <li>as <strong>senior software developer</strong>:
+    <ul>
+      <li>
+        responsible for maintaining and improving a complex and highly configurable application with severe design,
+        performance and user education constraints, often as part of a very small dev team, supporting tens of thousands
+        of users with millions of monthly interactions in 16 countries
+      </li>
+      <li>responsible for design, coding, PR reviews, planning and scheduling, etc, from conception to production</li>
+      <li>
+        travelled to Uganda, Kenya and Nepal, working with local team mates and users to make sure the software worked
+        for their unique situations
+      </li>
+      <li>
+        worked as a cross-discipline adviser and technical liaison on over a dozen internal projects concurrently,
+        keeping track of the problems they were trying to solve and advising and directing from a core product
+        perspective
+      </li>
+      <li>
+        engineering work is a team effort, but here are some recent efforts I was deeply involved in:
+        <ul>
+          <li>
+            replaced entire legacy deployment tool-chain with a new tool designed to both take legacy deployment
+            artefacts and work with a newer deployment methodology we were working toward. The old tool-chain had severe
+            problems for our deployment scenarios, this replacement solved oodles of bugs and reduced deployment
+            downtime exponentially
+          </li>
+          <li>
+            built (initially via a week-long in-person TDD exercise) a low impact and intentionally replaceable
+            telemetry solution that solved the immediate problems we had, overcoming hesitancy and complexity around off
+            the shelf solutions.
+          </li>
+          <li>
+            a feature that let custom deployers configure dynamic, programmatic but safe data integrations with external
+            services. Configurable with JSON / JS, it let you send compiled subsets of data externally and safely,
+            allowing for custom configurations to not rely on core development to move at their pace
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>as <strong>engineering manager</strong>
+    <ul>
+      <li>
+          Ran people management for the dev team, and people management and team leadership of the devops and QA teams
+      </li>
+      <li>
+          Managed about a dozen engineers (1v1s, quarterlies, annual reviews, adhoc technical and personal support),
+          while also continuing to contribute software engineering work
+      </li>
+      <li>
+          Mentored junior developers through extensive one on one pairing, often daily and at their convenience, to help
+          them polish their commits for merging
+      </li>
+      <li>
+          Led the devops and QA teams to restructure how they worked. This enabled devops to finally clear their
+          exploding support backlog, more reliably provide timely support going forward, and find time to work on
+          improving core infrastructure
+      </li>
+      <li>
+          Led a large engineering hiring round (and co-ran others): designed the take home coding exercise, reviewed
+          hundreds of CVs, dozens of take home results, and performed a dozen or so interviews with candidates.
+      </li>
+    </ul>
+  </li>
+</ul>
+<h3 id="2013-2015-software-developer-team-lead-movio-nz-uk-remote-">
+  2013-2015: Software Developer &amp; Team Lead @ Movio (NZ, UK remote)
+</h3>
+<p><a href="https://movio.co/">Movio</a> produces &quot;data-driven marketing solutions for the film industry&quot;.</p>
+<ul>
+  <li>Senior software developer and team lead</li>
+  <li>
+    Primarily worked on and was team lead of Movio Cinema&#39;s in-production stack. Movio Cinema is an analytics and
+    email / sms marketing platform for cinemas. Scala / Akka based, with legacy LAMP stack components
+  </li>
+  <li>
+    Additionally: led the prototype for their second product: Movio Media, a analytics platform for studios; was
+    rewarded a fancy dinner for my partner and I for working especially hard; was rewarded a trip to Rarotonga for my
+    partner and I, for working even harder
+  </li>
+</ul>
+<h3 id="2012-2013-software-developer-foster-moore-nz-">2012-2013: Software Developer @ Foster Moore (NZ)</h3>
+<p>
+  <a href="https://www.fostermoore.com/about-foster-moore/">Foster Moore</a> are &quot;the world experts in electronic
+  registries.&quot;
+</p>
+<ul>
+  <li>Java developer supporting registry deployments in The Cook Islands, New Zealand and Canada</li>
+  <li>Helped modernise development methodologies (agile, branching strategies, reproducible environments etc )</li>
+  <li>
+    Led and worked on a team to develop a small custom registry from scratch using modern (at the time!) Java
+    technologies
+  </li>
+</ul>
+<h3 id="2008-2012-software-developer-implementation-consultant-orion-health-nz-us-es-">
+  2008-2012: Software Developer &amp; Implementation Consultant @ Orion Health (NZ, US, ES)
+</h3>
+<p>
+  <a href="https://orionhealth.com/uk/about-us/our-story/">Orion Health</a> is &quot;an award-winning, global provider
+  of healthcare information technology advancing population health and precision medicine solutions for personalised
+  care across the entire health community.&quot;
+</p>
+<ul>
+  <li>
+    Java Developer working on various modular (OSGi) applications built to manage sensitive patient data, including a
+    custom configurable clinical data repository
+  </li>
+  <li>
+    Implementation Consultant based first in Santa Monica, US then Majorca, Spain. Responsible for working on
+    in-production implementation of Orion&#39;s products, building prototypes / pre-sales
+  </li>
+  <li>
+    Additionally: led 2012&#39;s <a href="https://www.ihe.net/">Connectathon</a> team; won a
+    <a href="./assets/img/duckly.jpg">duck (!)</a> spiking a web component framework for an internal competition;
+    blogged and wrote internally; built a 20% time code search tool orders of magnitude faster than their existing
+    tooling
+  </li>
+</ul>
+<h3 id="2006-2008-software-developer-solnet-solutions-nz-">2006-2008 Software Developer &amp; Solnet Solutions (NZ)</h3>
+<p>
+  <a href="https://solnet.co.nz/who-we-are/">Solnet Solutions</a> is &quot;a leading provider of technology innovation
+  for government and private enterprise, specialising in the development of solutions using open source
+  technologies.&quot;
+</p>
+<ul>
+  <li>
+    Java / .NET / Eclipse RCP / Ruby / VBS (!) developer working on a range of products and solutions for a large
+    variety of clients, mostly insurance or government departments (education, health)
+  </li>
+</ul>
+<h2 id="education">Education</h2>
+<ul>
+  <li>BSc Computer Science, University of Auckland, 2003-2005</li>
+  <li>Senior prize winner in 2005</li>
+</ul>
+<h2 id="technical-experience">Technical Experience</h2>
+<p>
+  I&#39;m a firm believer in your ability to learn relevant tech on the job being more important than something you knew
+  once. Having said that:
+</p>
+<ul>
+  <li>Most recently building web apps / servers / cli tools, as well as thick client apps in the past</li>
+  <li>
+    Currently coding in Javascript, Typescript, SQL, HTML(JSX mostly) and Python. Professional past: Java, Scala, .NET,
+    SQL, PHP, Ruby. Personally, dabbled in Clojure and Rust.
+  </li>
+  <li>
+    Currently use Windows, MacOS and Linux daily, daily driving Windows+WSL2, and have daily driven all three in the
+    past.
+  </li>
+  <li>I am well versed in git, professional past: SVN and CVS</li>
+</ul>
+<h2 id="anything-else-">Anything Else?</h2>
+<p>
+  References available upon request. I don&#39;t use LinkedIn, my endorsements will be <em>very</em> out of date.
+  I&#39;m also not on social media much, but there are more links to me around the web at
+  <a href="https://sdufresne.info">https://sdufresne.info</a>.
+</p>
+  </article>
+
+  <style type="text/css">
+    html {
+      font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+    article {
+      margin: 8px;
+    }
+
+    a, a:visited, a:hover, a:active {
+      text-decoration: none;
+      color: #608CD6;
+    }
+    a:hover {
+      color: red;
+    }
+
+    section {
+      max-width: 800px;
+      font-size: 110%;
+      padding-right: 1em;
+      padding-left: 1em;
+      margin: 0 auto;
+    }
+    #summary {
+      text-align: center;
+    }
+    #summary h1 {
+      font-size: 400%;
+      margin-top: .5em;
+      margin-bottom: 0;
+    }
+    #pubdate {
+      font-size: 80%;
+    }
+    #contact {
+      font-size: 90%;
+    }
+    #contact ul {
+      padding-left: 0;
+    }
+    #contact li,
+    #education li {
+      list-style: none;
+      display: inline;
+    }
+    #education ul {
+      padding-left: 0;
+    }
+    @media screen and (max-width: 800px) {
+      section {
+        font-size: 100%;
+        padding-left: .5em;
+        padding-right: .5em;
+      }
+      #me {
+        font-size: 300%;
+      }
+    }
+    @media print {
+      body {
+        font-size: 10pt;
+      }
+      body > header {
+        display: none;
+      }
+      section {
+        padding-left: .5em;
+        padding-right: .5em;
+      }
+      #me {
+        font-size: 300%;
+      }
+      a {
+        color: inherit !important;
+      }
+    }
+
+    section>h1, section>header>h1 {
+      font-size: 200%;
+    }
+    section>header>h1,
+    section>header>.time-period {
+      display: inline;
+    }
+    .time-period {
+      float: right;
+    }
+    .time-period:before {
+      content: " (";
+    }
+    .time-period:after {
+      content: ")"
+    }
+    .company {
+      display: none;
+    }
+  </style>
+</body>
+</html>
