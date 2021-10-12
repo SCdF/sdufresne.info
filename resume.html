@@ -34,9 +34,9 @@
             <date id="pubdate" datetime="2021-10" pubdate>Last updated <strong>Oct 2021</strong></date>
             <address id="contact">
               <ul>
-                <li>e: <a href="mailto:stefan@sdufresne.info">stefan@sdufresne.info</a></li>
-                <li>w: <a href="https://sdufresne.info">https://sdufresne.info</a></li>
-                <li>gh: <a href="https://github.com/scdf">https://github.com/scdf</a></li>
+                <li>e: <a class="samesame" href="mailto:stefan@sdufresne.info">stefan@sdufresne.info</a></li>
+                <li>w: <a class="samesame" href="https://sdufresne.info">https://sdufresne.info</a></li>
+                <li>gh: <a class="samesame" href="https://github.com/scdf">https://github.com/scdf</a></li>
               </ul>
             </address>
           </div>
@@ -64,12 +64,14 @@
           use my hands, but voice coding means I am not required to, and it is often faster (really).
           <a href="./coding-with-talon.html">Read more about how I work.</a>
         </p>
-        <p><strong>You want to:</strong></p>
-        <ul>
-          <li><a href="#work-samples">see work samples</a></li>
-          <li><a href="#work-experience">skip to my work experience</a></li>
-          <li><a href="mailto:stefan@sdufresne.info">ask me a question</a></li>
-        </ul>
+        <div id="toc">
+          <p><strong>You want to:</strong></p>
+          <ul>
+            <li><a href="#work-samples">see work samples</a></li>
+            <li><a href="#work-experience">skip to my work experience</a></li>
+            <li><a href="mailto:stefan@sdufresne.info">ask me a question</a></li>
+          </ul>
+        </div>
       </section>
       <section>
         <header><h2 id="work-samples">Work Samples</h2></header>
@@ -128,7 +130,7 @@
       </section>
       <section>
         <header><h2 id="work-experience">Work Experience</h2></header>
-        <h3>2015-2020: Senior Software Developer &amp; Engineering Manager @ Medic Mobile (UK remote)</h3>
+        <h3>2015-2020: Senior Software Developer &amp; Engineering Manager @ Medic (UK remote)</h3>
         <p>
           <i
             ><a href="https://medic.org/">Medic</a> is a non-profit that &quot;designs, delivers, and supports
@@ -308,7 +310,7 @@
         <p>
           I don&#39;t use LinkedIn, my endorsements will be <em>very</em> out of date. I&#39;m also not on social media
           much, but there are more links to me around the web at
-          <a href="https://sdufresne.info">https://sdufresne.info</a>.
+          <a class="samesame" href="https://sdufresne.info">https://sdufresne.info</a>.
         </p>
       </section>
     </article>
@@ -338,7 +340,7 @@
       }
 
       section {
-        max-width: 800px;
+        max-width: 1024px;
         font-size: 110%;
         padding-right: 1em;
         padding-left: 1em;
@@ -383,18 +385,24 @@
         body {
           font-size: 10pt;
         }
-        body > header {
-          display: none;
+        @page {
+          margin: 1cm;
         }
         section {
-          padding-left: 0.5em;
-          padding-right: 0.5em;
+          max-width: 100%;
+          page-break-inside: avoid;
         }
         #me {
           font-size: 300%;
         }
+        #toc {
+          display: none;
+        }
         a {
           color: inherit !important;
+        }
+        a:not(.samesame)::after {
+          content: " (" attr(href) ")";
         }
       }
 
