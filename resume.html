@@ -31,7 +31,7 @@
         <header id="summary">
           <h1>Stefan du Fresne</h1>
           <div>
-            <date id="pubdate" datetime="2021-10" pubdate>Last updated <strong>Oct 2021</strong></date>
+            <date id="pubdate" datetime="2021-10" pubdate>Last updated <strong>Nov 2021</strong></date>
             <address id="contact">
               <ul>
                 <li>e: <a class="samesame" href="mailto:stefan@sdufresne.info">stefan@sdufresne.info</a></li>
@@ -59,6 +59,18 @@
             solved in
           </li>
         </ul>
+        <p>
+          <strong>Recently:</strong>
+        </p>
+        <ul>
+          <li>Javascript / Typescript / NodeJS / React / Redux, some Python</li>
+          <li>
+            Prior to that I worked on an open source offline-first web app using AngularJS / PouchDB / CouchDB, allowing
+            thousands of CHWs to bring doorstep medical care to underserved communities
+          </li>
+          <li>Prior that that I worked in Scala / Java</li>
+          <li>Dabbled in Clojure and Rust</li>
+        </ul>
         <div id="toc">
           <p><strong>You want to:</strong></p>
           <ul>
@@ -71,56 +83,61 @@
       <section>
         <header><h2 id="work-samples">Work Samples</h2></header>
         <p>
-          Here are two recent substantial bodies of work of mine you can check out on
+          Two recent codebases I've worked on that you can check out on
           <a href="https://github.com/SCdF">GitHub</a>:
         </p>
-        <h3>Sanremo, A Recent Personal Project</h3>
-        <p>
-          <a href="https://github.com/scdf/sanremo">Sanremo</a> is a React / Redux / MUI based offline first web app,
-          written in JS / TS. It uses PouchDB on the front end and a combination of custom sync code and socket.io to
-          push data to a postgresql db on the backend.
-        </p>
-        <p>Sanremo had three goals:</p>
-        <ul>
-          <li>
-            Build a simple tool that lets me easily create repeatable checklists, inspired by the use of aviation
-            checklists by pilots
-          </li>
-          <li>Be an excuse to try some tech I hadn&#39;t had a chance to at work</li>
-          <li>
-            Practice <a href="https://talonvoice.com/docs/index.html">coding with my voice</a>, as an rsi mitigation
-            strategy
-          </li>
-        </ul>
-        <p>
-          I'm still hacking away at it (performance has not yet been worked through!), but it's good enough that I use
-          it daily.
-        </p>
-        <h3>Medic, The Last Five Years</h3>
-        <p>
-          <a href="https://medic.org/">Medic</a>&#39;s work is almost entirely open source: code, PRs, tickets and many
-          design documents (if linked in tickets) are available. The bulk is against the
-          <a href="https://github.com/medic/cht-core">medic/cht-core</a> repository.
-        </p>
-        <p>
-          Cht-core is the core framework of the
-          <a href="https://communityhealthtoolkit.org/">Community Health Toolkit</a>: a responsive offline-first web app
-          designed to run on cheap android phones, a back-end api that supports it, and a back-end message processing
-          engine.
-        </p>
-        <p>
-          For <a href="https://github.com/medic/cht-core/graphs/contributors">code contributions</a>, you can see
-          <a href="https://github.com/medic/cht-core/commits?author=SCdF">a list of my branch merges here</a>. Note that
-          Medic employs a deliberately restrictive merge to master policy. All testing, rework, design discussion etc
-          happens in a branch, with a squashed merge to master indicating that the feature or fix is complete and ready
-          for production. This policy, combined with squashing merges, results in a cleaner (but sparser!) commit log.
-        </p>
-        <p>
-          For <a href="https://github.com/medic/cht-core/issues">ticket contributions</a> you can see
-          <a href="https://github.com/medic/cht-core/issues?q=commenter%3ASCdF"
-            >a list of tickets I&#39;ve contributed to here</a
-          >.
-        </p>
+        <section class="inner">
+          <h3>Sanremo, A Recent Personal Project</h3>
+          <p>
+            <a href="https://github.com/scdf/sanremo">Sanremo</a> is a React / Redux / MUI based offline first web app,
+            written in JS / TS. It uses PouchDB on the front end and a combination of custom sync code and socket.io to
+            push data to a postgresql db on the backend.
+          </p>
+          <p>Sanremo has a few goals:</p>
+          <ul>
+            <li>
+              Build a simple tool that lets me easily create repeatable checklists, inspired by the use of aviation
+              checklists by pilots
+            </li>
+            <li>
+              Be an excuse to write something non trivial using some tech that I hadn't had a chance to use
+              professionally
+            </li>
+            <li>Investigate some performance and stability issues between PouchDB adapters</li>
+            <li>
+              Practice <a href="https://talonvoice.com/docs/index.html">coding with my voice</a>, as an rsi mitigation
+              strategy
+            </li>
+          </ul>
+        </section>
+        <section class="inner">
+          <h3>Medic, The Last Five Years</h3>
+          <p>
+            <a href="https://medic.org/">Medic</a>&#39;s work is almost entirely open source: code, PRs, tickets and
+            many design documents (if linked in tickets) are available. The bulk is against the
+            <a href="https://github.com/medic/cht-core">medic/cht-core</a> repository.
+          </p>
+          <p>
+            Cht-core is the core framework of the
+            <a href="https://communityhealthtoolkit.org/">Community Health Toolkit</a>: a responsive offline-first web
+            app designed to run on cheap android phones, a back-end api that supports it, and a back-end message
+            processing engine.
+          </p>
+          <p>
+            For <a href="https://github.com/medic/cht-core/graphs/contributors">code contributions</a>, you can see
+            <a href="https://github.com/medic/cht-core/commits?author=SCdF">a list of my branch merges here</a>. Note
+            that Medic employs a deliberately restrictive merge to master policy. All testing, rework, design discussion
+            etc happens in a branch, with a squashed merge to master indicating that the feature or fix is complete and
+            ready for production. This policy, combined with squashing merges, results in a cleaner (but sparser!)
+            commit log.
+          </p>
+          <p>
+            For <a href="https://github.com/medic/cht-core/issues">ticket contributions</a> you can see
+            <a href="https://github.com/medic/cht-core/issues?q=commenter%3ASCdF"
+              >a list of tickets I&#39;ve contributed to here</a
+            >.
+          </p>
+        </section>
       </section>
       <section>
         <header><h2 id="work-experience">Work Experience</h2></header>
@@ -280,13 +297,8 @@
         </ul>
       </section>
       <section>
-        <header><h2>Technical Experience</h2></header>
-        <p>
-          I&#39;m a firm believer in your ability to learn relevant tech on the job being more important than something
-          you knew once. Having said that:
-        </p>
+        <header><h2>Technical Summary</h2></header>
         <ul>
-          <li>Most recently building web apps / servers / cli tools, as well as thick client apps in the past</li>
           <li>
             Currently coding in Javascript, Typescript, SQL, HTML(JSX mostly) and Python. Professional past: Java,
             Scala, .NET, SQL, PHP, Ruby. Personally, dabbled in Clojure and Rust.
@@ -317,7 +329,11 @@
         margin: 0;
       }
       article {
-        margin: 8px;
+        max-width: 1024px;
+        font-size: 110%;
+        padding-right: 1em;
+        padding-left: 1em;
+        margin: 0 auto;
       }
 
       a,
@@ -331,13 +347,6 @@
         color: red;
       }
 
-      section {
-        max-width: 1024px;
-        font-size: 110%;
-        padding-right: 1em;
-        padding-left: 1em;
-        margin: 0 auto;
-      }
       #summary {
         text-align: center;
       }
@@ -364,7 +373,7 @@
         padding-left: 0;
       }
       @media screen and (max-width: 800px) {
-        section {
+        article {
           font-size: 100%;
           padding-left: 0.5em;
           padding-right: 0.5em;
@@ -380,8 +389,10 @@
         @page {
           margin: 1cm;
         }
-        section {
+        article {
           max-width: 100%;
+        }
+        section.inner {
           page-break-inside: avoid;
         }
         #me {
