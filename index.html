@@ -31,6 +31,11 @@
           Helvetica, Arial, sans-serif;
       }
 
+      h1 {
+        margin-block: 0.67em;
+        font-size: 2em;
+      }
+
       body {
         margin: 0;
         padding: 0;
@@ -732,12 +737,16 @@
             var titleArticle = document.querySelector("#aan");
 
             titleArticle.innerHTML = utils.article(jobTitle.innerHTML);
-            // TODO: replace with MutationObserver
-            jobTitle.addEventListener("DOMSubtreeModified", function () {
-              if (jobTitle.innerHTML) {
-                titleArticle.innerHTML = utils.article(jobTitle.innerHTML);
-              }
+
+            var observer = new MutationObserver(function (mutations) {
+              mutations.forEach(function (mutation) {
+                if (mutation.type === "childList" && jobTitle.innerHTML) {
+                  titleArticle.innerHTML = utils.article(jobTitle.innerHTML);
+                }
+              });
             });
+
+            observer.observe(jobTitle, { childList: true });
           });
         })();
       </script>
