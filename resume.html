@@ -6,24 +6,6 @@
     <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Résumé of Stefan du Fresne" />
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
-
-      ga("create", "UA-41305108-1", "sdufresne.info");
-      ga("send", "pageview");
-    </script>
   </head>
   <body>
     <article>
@@ -31,7 +13,7 @@
         <header id="summary">
           <h1>Stefan du Fresne</h1>
           <div>
-            <date id="pubdate" datetime="2021-10" pubdate>Last updated <strong>Nov 2021</strong></date>
+            <date id="pubdate" datetime="2021-10" pubdate>Last updated <strong>Aug 2025</strong></date>
             <address id="contact">
               <ul>
                 <li>e: <a class="samesame" href="mailto:stefan@sdufresne.info">stefan@sdufresne.info</a></li>
@@ -42,8 +24,8 @@
           </div>
         </header>
         <p>
-          <strong>Hello!</strong> I'm Stefan, a software developer with 15 years of experience. Originally from New
-          Zealand, I currently live in London, England.
+          <strong>Hello!</strong> I'm Stefan, a software developer with 19 years of experience. Originally from New
+          Zealand, I currently live in the sprawling suburbia surrounding London, England.
         </p>
         <p><strong>I am:</strong></p>
         <ul>
@@ -60,16 +42,21 @@
           </li>
         </ul>
         <p>
-          <strong>Recent tech:</strong>
+          <strong>Current tech:</strong>
         </p>
         <ul>
-          <li>Javascript / Typescript / NodeJS / React / Redux, some Python</li>
+          <li>Typescript / Node / Terraform / Serverless / SQS / k8s / Kafka / PostgreSQL / Google Pub Sub</li>
+          <li>Domain driven design, API first</li>
+        </ul>
+        <p><strong>Prior tech:</strong></p>
+        <ul>
+          <li>React / Redux / MUI</li>
           <li>
-            Prior to that I worked on an open source offline-first web app using AngularJS / PouchDB / NodeJS / CouchDB
-            / app cache / service workers
+            An open source offline-first web app using AngularJS / PouchDB / NodeJS / CouchDB / app cache / service
+            workers
           </li>
-          <li>Prior to that I worked in Scala / Java / MySQL</li>
-          <li>Dabbled in Clojure and Rust</li>
+          <li>Scala / Akka / Java / MySQL</li>
+          <li>Dabbled in Clojure, Rust, Python</li>
         </ul>
         <div id="toc">
           <p><strong>You want to:</strong></p>
@@ -82,36 +69,29 @@
       </section>
       <section>
         <header><h2 id="work-samples">Work Samples</h2></header>
-        <p>
-          Two recent codebases I've worked on that you can check out on
-          <a href="https://github.com/SCdF">GitHub</a>:
-        </p>
-        <section class="inner">
-          <h3>Sanremo, A Recent Personal Project</h3>
+        <section class="inner" id="sanremo-work-sample">
+          <h3>(2021) Sanremo, A Recent(ish!) Personal Project</h3>
           <p>
-            <a href="https://github.com/scdf/sanremo">Sanremo</a> is a React / Redux / MUI based offline first web app,
-            written in JS / TS. It uses PouchDB on the front end and a combination of custom sync code and socket.io to
-            push data to a postgresql db on the backend.
+            <a href="https://github.com/scdf/sanremo">Sanremo</a> is a voice-coded React / Redux / MUI based offline
+            first web app, written in JS / TS. It uses PouchDB on the front end and a combination of custom sync code
+            and websockets to sync data with a postgresql db on the backend.
           </p>
-          <p>Sanremo has a few goals:</p>
+          <p>Goals:</p>
           <ul>
+            <li>Build a simple tool for personal use, inspired by aviation checklists</li>
             <li>
-              Build a simple tool that lets me easily create repeatable checklists, inspired by the use of aviation
-              checklists by pilots
+              Get comfortable coding with my voice, using <a href="https://talonvoice.com/">Talon</a> and
+              <a href="https://cursorless.org/">Cursorless</a>
             </li>
             <li>
-              Be an excuse to write something non trivial using some tech that I hadn't had a chance to use
-              professionally
+              Investigate some performance and stability issues between the legacy and upcoming indexeddb PouchDB
+              adapters
             </li>
-            <li>Investigate some performance and stability issues between PouchDB adapters</li>
-            <li>
-              Practice <a href="https://talonvoice.com/docs/index.html">coding with my voice</a>, as an rsi mitigation
-              strategy
-            </li>
+            <li>Use some tech I had not yet used professionally (React and TS mostly)</li>
           </ul>
         </section>
         <section class="inner">
-          <h3>Medic, The Last Five Years</h3>
+          <h3>(2015-2020) Medic</h3>
           <p>
             <a href="https://medic.org/">Medic</a>&#39;s work is almost entirely open source: code, PRs, tickets and
             many design documents (if linked in tickets) are available. The bulk is against the
@@ -141,172 +121,270 @@
       </section>
       <section>
         <header><h2 id="work-experience">Work Experience</h2></header>
-        <h3>2015-2020: Senior Software Developer &amp; Engineering Manager @ Medic (UK remote)</h3>
-        <p>
-          <i
-            ><a href="https://medic.org/">Medic</a> is a non-profit that &quot;designs, delivers, and supports
-            world-class, open-source software for health workers providing care in the world’s hardest-to-reach
-            communities.&quot;</i
-          >
-        </p>
-        <ul>
-          <li>senior software developer, later also the engineering manager</li>
-          <li>worked remotely, collaborating with co-workers in a dozen different time-zones</li>
-        </ul>
-        <p>As <strong>senior software developer</strong>:</p>
-        <ul>
-          <li>
-            responsible for maintaining and improving a complex and highly configurable application with severe design,
-            performance and user education constraints, often as part of a very small dev team, supporting tens of
-            thousands of users with millions of monthly interactions in 16 countries
-          </li>
-          <li>
-            responsible for design, coding, PR reviews, planning and scheduling, etc, from conception to production
-          </li>
-          <li>
-            travelled to Uganda, Kenya and Nepal, working with local team mates and users to make sure the software
-            accommodated their unique situations
-          </li>
-          <li>
-            worked as a cross-discipline adviser and technical liaison on over a dozen internal projects concurrently,
-            keeping track of the problems they were trying to solve and advising and directing from a core product
-            perspective
-          </li>
-          <li>
-            engineering work is a team effort, but here are some recent efforts I was deeply involved in:
-            <ul>
-              <li>
-                replaced entire deployment toolchain with entirely new (but backwards compatible) tools, solving oodles
-                of bugs and reduced deployment downtime exponentially.
-              </li>
-              <li>
-                built (initially via a week-long in-person TDD exercise) a low impact and intentionally replaceable
-                telemetry solution that solved the immediate problems we had, overcoming hesitancy and complexity around
-                off the shelf solutions.
-              </li>
-              <li>
-                a feature that let custom deployers configure dynamic, programmatic but safe data integrations with
-                external services. Configurable with JSON / JS, it let you write expressions or code to send data
-                externally and safely, allowing for custom configurations to not rely on core development to move at
-                their pace
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <p>As <strong>engineering manager</strong></p>
-        <ul>
-          <li>
-            Ran people management for the dev team, and people management and team leadership of the devops and QA teams
-          </li>
-          <li>
-            Managed about a dozen engineers (1v1s, quarterlies, annual reviews, adhoc technical and personal support),
-            while also continuing to contribute software engineering work
-          </li>
-          <li>Mentored junior developers through extensive one-on-one pairing, often daily and at their convenience</li>
-          <li>
-            Brought effective backlog management to the devops and QA teams. This enabled devops to finally clear their
-            exploding support backlog, more reliably provide timely support going forward, and find time to work on
-            improving core infrastructure
-          </li>
-          <li>
-            Led a large engineering hiring round (and co-ran others): designed the take home coding exercise, reviewed
-            hundreds of CVs, dozens of take home results, and performed a dozen or so interviews with candidates.
-          </li>
-        </ul>
-        <h3>2013-2015: Software Developer &amp; Team Lead @ Movio (NZ, UK remote)</h3>
-        <p>
-          <i
-            ><a href="https://movio.co/">Movio</a> produces &quot;data-driven marketing solutions for the film
-            industry&quot;.</i
-          >
-        </p>
-        <ul>
-          <li>Senior software developer and team lead</li>
-          <li>
-            Primarily worked on and was team lead of Movio Cinema&#39;s in-production stack. Movio Cinema is an
-            analytics and email / sms marketing platform for cinemas. Scala / Akka based, with legacy LAMP stack
-            components
-          </li>
-          <li>
-            Additionally: led the prototype for their second product: Movio Media, a analytics platform for studios; was
-            rewarded a fancy dinner for my partner and I for working especially hard; was rewarded a trip to Rarotonga
-            for my partner and I for working even harder
-          </li>
-        </ul>
-        <h3>2012-2013: Software Developer @ Foster Moore (NZ)</h3>
-        <p>
-          <i
-            ><a href="https://www.fostermoore.com/about-foster-moore/">Foster Moore</a> are &quot;the world experts in
-            electronic registries.&quot;</i
-          >
-        </p>
-        <ul>
-          <li>Java developer supporting registry deployments in The Cook Islands, New Zealand and Canada</li>
-          <li>
-            Helped modernise development methodologies (agile, branching strategies, reproducible environments etc )
-          </li>
-          <li>
-            Led and worked on a team to develop a small custom registry from scratch using modern (at the time!) Java
-            technologies
-          </li>
-        </ul>
-        <h3>2008-2012: Java Developer &amp; Implementation Consultant @ Orion Health (NZ, US, ES)</h3>
-        <p>
-          <i
-            ><a href="https://orionhealth.com/uk/about-us/our-story/">Orion Health</a> is &quot;an award-winning, global
-            provider of healthcare information technology advancing population health and precision medicine solutions
-            for personalised care across the entire health community.&quot;</i
-          >
-        </p>
-        <ul>
-          <li>
-            Java Developer working on various modular (OSGi) applications built to manage sensitive patient data,
-            including a custom configurable clinical data repository
-          </li>
-          <li>
-            Implementation Consultant based first in Santa Monica, US then Majorca, Spain. Responsible for working on
-            in-production implementations of Orion&#39;s products, building prototypes / pre-sales
-          </li>
-          <li>
-            Additionally: led 2012&#39;s <a href="https://www.ihe.net/">Connectathon</a> team; won a
-            <a href="./assets/img/duckly.jpg">duck (!)</a> spiking a web component framework for an internal
-            competition; blogged and wrote internally; built a 20% time code search tool that ran orders of magnitude
-            faster than their existing tooling
-          </li>
-        </ul>
-        <h3>2006-2008 Software Developer &amp; Solnet Solutions (NZ)</h3>
-        <p>
-          <i
-            ><a href="https://solnet.co.nz/who-we-are/">Solnet Solutions</a> is &quot;a leading provider of technology
-            innovation for government and private enterprise, specialising in the development of solutions using open
-            source technologies.&quot;</i
-          >
-        </p>
-        <ul>
-          <li>
-            Java / .NET / Eclipse RCP / Ruby / VBS (!) developer working on a range of products and solutions for a
-            large variety of clients, mostly insurance or government departments (education, health)
-          </li>
-        </ul>
+        <section class="inner">
+          <h3>(2022-present) Principle Engineer @ OVO</h3>
+          <p>
+            <i
+              ><a href="https://ovoenergy.com/">OVO</a> is a UK energy supplier, with a mission to &quot;Power human
+              progress with clean affordable energy for everyone.&quot;</i
+            >
+          </p>
+          <p><b>Currently,</b> in the "Core Tech Energy" platform group, reinventing OVO's core services.</p>
+          <ul>
+            <li>
+              a small group of the most senior engineers at OVO, focusing on high impact initiatives to reorient the
+              company around API-first Domain Driven Design, setting the technical direction for the rest of the company
+            </li>
+            <li>
+              responsible for the Customer team, building OVO's first organisation-wide Customer API, to bridge the
+              dozen or so customer entity representations and decouple the company from its legacy systems, enabling the
+              company to ask such questions as
+              <i>&quot;how many customers do we have?&quot;</i> :-)
+            </li>
+            <li>
+              domain driven design, strangler fig patterned approach, sanity layering to manage legacy systems, ADRs to
+              standardise approaches between core teams
+            </li>
+            <li>Typescript backend, REST APIs, PubSub for events, postgres</li>
+          </ul>
+          <p><b>Previously,</b> green energy initiatives related to Zero Carbon Living (ZCL).</p>
+          <p>As principal engineer:</p>
+          <ul>
+            <li>worked with the HoD and other principles to establish technical coherency and standards across ZCL</li>
+            <li>
+              paired with other principle engineers to help them hone their designs, participating in design reviews,
+              residuality theory sessions, etc
+            </li>
+            <li>mentored and coached senior engineers</li>
+          </ul>
+          <p>Notable technial projects:</p>
+          <ul>
+            <li>
+              EV Charger Installation journey
+              <ul>
+                <li>
+                  an important journey that processes 10s of thousands of pounds a week, integrates with less robust
+                  external systems, but is not traditionally considered high traffic
+                </li>
+                <li>so, designed to be fault tolerant and cheap to run</li>
+                <li>
+                  node deployed to AWS Lambda (so very cheap), using SQS to create a fault tolerance between actions,
+                  and between external systems and our processing, with data archived to BigQuery via Kafka autocapture
+                </li>
+                <li>
+                  highly reliable, with only one notable production faults in 2 years (bad terraform merge). So reliable
+                  we have been able to backfill and restore data multiple times when the less robust third party failed
+                </li>
+                <li>
+                  aided third party in ensuring their webhook interface was secure, helping them design a message
+                  signing strategy
+                </li>
+              </ul>
+            </li>
+            <li>
+              Smart Thermostats shipping provider automation
+              <ul>
+                <li>
+                  took over a project a coworker was struggling with (at their request) due to unclear historic designs
+                  and legacy systems, confusing external APIs and tight deadlines
+                </li>
+                <li>
+                  redesigned their work and produced a single scalable solution that allowed us to handle a
+                  <b>20x increase</b> in sales
+                </li>
+                <li>lambda / sqs / dynamodb, integrating with external SOAP</li>
+              </ul>
+            </li>
+            <li>
+              Charge Anytime, OVO's smart EV charging addon. This was less code and more engineering leadership role.
+              <ul>
+                <li>designed and coordinated tech solutions between half a dozen different teams and stakeholders</li>
+                <li>designed and shipped tactical solutions in a fast paced commercial environment</li>
+                <li>peeled back layers of tech debt and dead code to improve maintainability and reduce complexity</li>
+                <li>React / Typescript</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section class="inner">
+          <h3>(2020-2021) Personal Growth: Voice Coding</h3>
+          <p>I spent about a year mitigating my RSI, a problem I've had on and off throughout my career.</p>
+          <p>
+            Learnt to use voice control. Specifically, using
+            <a href="https://talonvoice.com/docs/index.html">Talon</a> to control my computer with my voice, and
+            <a href="https://cursorless.org/">Cursorless</a> to enhance my coding.
+          </p>
+          <p>
+            Built <a href="#sanremo-work-sample">Sanremo</a> to test out these tools and become proficient before
+            looking for my next role.
+          </p>
+        </section>
+        <section class="inner">
+          <h3>(2015-2020) Senior Software Developer &amp; Engineering Manager @ Medic (UK remote)</h3>
+          <p>
+            <i
+              ><a href="https://medic.org/">Medic</a> is a non-profit that &quot;designs, delivers, and supports
+              world-class, open-source software for health workers providing care in the world’s hardest-to-reach
+              communities.&quot;</i
+            >
+          </p>
+          <ul>
+            <li>senior software developer, later also the engineering manager</li>
+            <li>worked remotely, collaborating with co-workers in a dozen different time-zones</li>
+          </ul>
+          <p>As <strong>senior software developer</strong>:</p>
+          <ul>
+            <li>
+              responsible for maintaining and improving a complex and highly configurable application with severe
+              design, performance and user education constraints, often as part of a very small dev team, supporting
+              tens of thousands of users with millions of monthly interactions in 16 countries
+            </li>
+            <li>
+              responsible for design, coding, PR reviews, planning and scheduling, etc, from conception to production
+            </li>
+            <li>
+              travelled to Uganda, Kenya and Nepal, working with local team mates and users to make sure the software
+              accommodated their unique situations
+            </li>
+            <li>
+              worked as a cross-discipline adviser and technical liaison on over a dozen internal projects concurrently,
+              keeping track of the problems they were trying to solve and advising and directing from a core product
+              perspective
+            </li>
+            <li>
+              engineering work is a team effort, but here are some recent efforts I was deeply involved in:
+              <ul>
+                <li>
+                  replaced entire deployment toolchain with entirely new (but backwards compatible) tools, solving
+                  oodles of bugs and reduced deployment downtime exponentially.
+                </li>
+                <li>
+                  built (initially via a week-long in-person TDD exercise) a low impact and intentionally replaceable
+                  telemetry solution that solved the immediate problems we had, overcoming hesitancy and complexity
+                  around off the shelf solutions.
+                </li>
+                <li>
+                  a feature that let custom deployers configure dynamic, programmatic but safe data integrations with
+                  external services. Configurable with JSON / JS, it let you write expressions or code to send data
+                  externally and safely, allowing for custom configurations to not rely on core development to move at
+                  their pace
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>As <strong>engineering manager</strong></p>
+          <ul>
+            <li>
+              Ran people management for the dev team, and people management and team leadership of the devops and QA
+              teams
+            </li>
+            <li>
+              Managed about a dozen engineers (1v1s, quarterlies, annual reviews, adhoc technical and personal support),
+              while also continuing to contribute software engineering work
+            </li>
+            <li>
+              Mentored junior developers through extensive one-on-one pairing, often daily and at their convenience
+            </li>
+            <li>
+              Brought effective backlog management to the devops and QA teams. This enabled devops to finally clear
+              their exploding support backlog, more reliably provide timely support going forward, and find time to work
+              on improving core infrastructure
+            </li>
+            <li>
+              Led a large engineering hiring round (and co-ran others): designed the take home coding exercise, reviewed
+              hundreds of CVs, dozens of take home results, and performed a dozen or so interviews with candidates.
+            </li>
+          </ul>
+        </section>
+        <section class="inner">
+          <h3>2013-2015: Software Developer &amp; Team Lead @ Movio (NZ, UK remote)</h3>
+          <p>
+            <i
+              ><a href="https://movio.co/">Movio</a> produces &quot;data-driven marketing solutions for the film
+              industry&quot;.</i
+            >
+          </p>
+          <ul>
+            <li>Senior software developer and team lead</li>
+            <li>
+              Primarily worked on and was team lead of Movio Cinema&#39;s in-production stack. Movio Cinema is an
+              analytics and email / sms marketing platform for cinemas. Scala / Akka based, with legacy LAMP stack
+              components
+            </li>
+            <li>
+              Additionally: led the prototype for their second product: Movio Media, a analytics platform for studios;
+              was rewarded a fancy dinner for my partner and I for working especially hard; was rewarded a trip to
+              Rarotonga for my partner and I for working even harder
+            </li>
+          </ul>
+        </section>
+        <section class="inner">
+          <h3>2012-2013: Software Developer @ Foster Moore (NZ)</h3>
+          <p>
+            <i
+              ><a href="https://www.fostermoore.com/about-foster-moore/">Foster Moore</a> are &quot;the world experts in
+              electronic registries.&quot;</i
+            >
+          </p>
+          <ul>
+            <li>Java developer supporting registry deployments in The Cook Islands, New Zealand and Canada</li>
+            <li>
+              Helped modernise development methodologies (agile, branching strategies, reproducible environments etc )
+            </li>
+            <li>
+              Led and worked on a team to develop a small custom registry from scratch using modern (at the time!) Java
+              technologies
+            </li>
+          </ul>
+        </section>
+        <section class="inner">
+          <h3>2008-2012: Java Developer &amp; Implementation Consultant @ Orion Health (NZ, US, ES)</h3>
+          <p>
+            <i
+              ><a href="https://orionhealth.com/uk/about-us/our-story/">Orion Health</a> is &quot;an award-winning,
+              global provider of healthcare information technology advancing population health and precision medicine
+              solutions for personalised care across the entire health community.&quot;</i
+            >
+          </p>
+          <ul>
+            <li>
+              Java Developer working on various modular (OSGi) applications built to manage sensitive patient data,
+              including a custom configurable clinical data repository
+            </li>
+            <li>
+              Implementation Consultant based first in Santa Monica, US then Majorca, Spain. Responsible for working on
+              in-production implementations of Orion&#39;s products, building prototypes / pre-sales
+            </li>
+            <li>
+              Additionally: led 2012&#39;s <a href="https://www.ihe.net/">Connectathon</a> team; won a
+              <a href="./assets/img/duckly.jpg">duck (!)</a> spiking a web component framework for an internal
+              competition; blogged and wrote internally; built a 20% time code search tool that ran orders of magnitude
+              faster than their existing tooling
+            </li>
+          </ul>
+        </section>
+        <section class="inner">
+          <h3>2006-2008 Software Developer &amp; Solnet Solutions (NZ)</h3>
+          <p>
+            <i
+              ><a href="https://solnet.co.nz/who-we-are/">Solnet Solutions</a> is &quot;a leading provider of technology
+              innovation for government and private enterprise, specialising in the development of solutions using open
+              source technologies.&quot;</i
+            >
+          </p>
+          <ul>
+            <li>
+              Java / .NET / Eclipse RCP / Ruby / VBS (!) developer working on a range of products and solutions for a
+              large variety of clients, mostly insurance or government departments (education, health)
+            </li>
+          </ul>
+        </section>
       </section>
       <section>
         <header><h2>Education</h2></header>
         <ul>
           <li>BSc Computer Science, University of Auckland, 2003-2005</li>
           <li>Senior prize winner in 2005</li>
-        </ul>
-      </section>
-      <section>
-        <header><h2>Technical Summary</h2></header>
-        <ul>
-          <li>
-            Currently coding in Javascript, Typescript, SQL, HTML(JSX mostly) and Python. Professional past: Java,
-            Scala, .NET, SQL, PHP, Ruby. Personally, dabbled in Clojure and Rust.
-          </li>
-          <li>
-            Comfortable in Windows, MacOS and Linux, currently Windows+WSL2, have daily driven all three in the past.
-          </li>
-          <li>Have used git since 2013, SVN and CVS in the past</li>
         </ul>
       </section>
       <section>
