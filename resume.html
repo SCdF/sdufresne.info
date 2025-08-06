@@ -16,9 +16,9 @@
             <date id="pubdate" datetime="2021-10" pubdate>Last updated <strong>Aug 2025</strong></date>
             <address id="contact">
               <ul>
-                <li>e: <a class="samesame" href="mailto:stefan@sdufresne.info">stefan@sdufresne.info</a></li>
-                <li>w: <a class="samesame" href="https://sdufresne.info">https://sdufresne.info</a></li>
-                <li>gh: <a class="samesame" href="https://github.com/scdf">https://github.com/scdf</a></li>
+                <li>e: <a class="donotprintlink" href="mailto:stefan@sdufresne.info">stefan@sdufresne.info</a></li>
+                <li>w: <a class="donotprintlink" href="https://sdufresne.info">https://sdufresne.info</a></li>
+                <li>gh: <a class="donotprintlink" href="https://github.com/scdf">https://github.com/scdf</a></li>
               </ul>
             </address>
           </div>
@@ -41,88 +41,30 @@
             solved in
           </li>
         </ul>
-        <p>
-          <strong>Current tech:</strong>
-        </p>
-        <ul>
-          <li>Typescript / Node / Terraform / Serverless / SQS / k8s / Kafka / PostgreSQL / Google Pub Sub</li>
-          <li>Domain driven design, API first</li>
-        </ul>
-        <p><strong>Prior tech:</strong></p>
-        <ul>
-          <li>React / Redux / MUI</li>
-          <li>
-            An open source offline-first web app using AngularJS / PouchDB / NodeJS / CouchDB / app cache / service
-            workers
-          </li>
-          <li>Scala / Akka / Java / MySQL</li>
-          <li>Dabbled in Clojure, Rust, Python</li>
-        </ul>
-        <div id="toc">
+        <div class="donotprint">
           <p><strong>You want to:</strong></p>
           <ul>
-            <li><a href="#work-samples">see work samples</a></li>
-            <li><a href="#work-experience">skip to my work experience</a></li>
-            <li><a href="mailto:stefan@sdufresne.info">ask me a question</a></li>
+            <li><a href="#tech-stack">See tech I've used</a></li>
+            <li><a href="#work-experience">See work experience</a></li>
+            <li><a href="#work-samples">See public code</a></li>
+            <li><a href="mailto:stefan@sdufresne.info">Ask me a question</a></li>
           </ul>
         </div>
-      </section>
-      <section>
-        <header><h2 id="work-samples">Work Samples</h2></header>
-        <section class="inner" id="sanremo-work-sample">
-          <h3>(2021) Sanremo, A Recent(ish!) Personal Project</h3>
-          <p>
-            <a href="https://github.com/scdf/sanremo">Sanremo</a> is a voice-coded React / Redux / MUI based offline
-            first web app, written in JS / TS. It uses PouchDB on the front end and a combination of custom sync code
-            and websockets to sync data with a postgresql db on the backend.
-          </p>
-          <p>Goals:</p>
+        <section>
+          <header id="tech-stack"><h3>Recent Technologies</h3></header>
+          <p>70% backend, 30% frontend.</p>
           <ul>
-            <li>Build a simple tool for personal use, inspired by aviation checklists</li>
-            <li>
-              Get comfortable coding with my voice, using <a href="https://talonvoice.com/">Talon</a> and
-              <a href="https://cursorless.org/">Cursorless</a>
-            </li>
-            <li>
-              Investigate some performance and stability issues between the legacy and upcoming indexeddb PouchDB
-              adapters
-            </li>
-            <li>Use some tech I had not yet used professionally (React and TS mostly)</li>
+            <li>Typescript, Javascript, Node.js, Terraform, Docker, HTML, CSS, React, Angular</li>
+            <li>SQL, NoSql, DynamoDB, CouchDB, PouchDB</li>
+            <li>AWS, GCP, PubSub, SQS, Kafka, AWS Lambda, k8s, Datadog</li>
+            <li>Less recently: Scala, Java, Clojure, Python, Ruby</li>
           </ul>
-        </section>
-        <section class="inner">
-          <h3>(2015-2020) Medic</h3>
-          <p>
-            <a href="https://medic.org/">Medic</a>&#39;s work is almost entirely open source: code, PRs, tickets and
-            many design documents (if linked in tickets) are available. The bulk is against the
-            <a href="https://github.com/medic/cht-core">medic/cht-core</a> repository.
-          </p>
-          <p>
-            Cht-core is the core framework of the
-            <a href="https://communityhealthtoolkit.org/">Community Health Toolkit</a>: a responsive offline-first web
-            app designed to run on cheap android phones, a back-end api that supports it, and a back-end message
-            processing engine.
-          </p>
-          <p>
-            For <a href="https://github.com/medic/cht-core/graphs/contributors">code contributions</a>, you can see
-            <a href="https://github.com/medic/cht-core/commits?author=SCdF">a list of my branch merges here</a>. Note
-            that Medic employs a deliberately restrictive merge to master policy. All testing, rework, design discussion
-            etc happens in a branch, with a squashed merge to master indicating that the feature or fix is complete and
-            ready for production. This policy, combined with squashing merges, results in a cleaner (but sparser!)
-            commit log.
-          </p>
-          <p>
-            For <a href="https://github.com/medic/cht-core/issues">ticket contributions</a> you can see
-            <a href="https://github.com/medic/cht-core/issues?q=commenter%3ASCdF"
-              >a list of tickets I&#39;ve contributed to here</a
-            >.
-          </p>
         </section>
       </section>
       <section>
         <header><h2 id="work-experience">Work Experience</h2></header>
         <section class="inner">
-          <h3>(2022-present) Principle Engineer @ OVO</h3>
+          <header><h3>(2022-present) Principal Engineer @ OVO</h3></header>
           <p>
             <i
               ><a href="https://ovoenergy.com/">OVO</a> is a UK energy supplier, with a mission to &quot;Power human
@@ -132,51 +74,54 @@
           <p><b>Currently,</b> in the "Core Tech Energy" platform group, reinventing OVO's core services.</p>
           <ul>
             <li>
-              a small group of the most senior engineers at OVO, focusing on high impact initiatives to reorient the
+              A small group of the most senior engineers at OVO, focusing on high impact initiatives to reorient the
               company around API-first Domain Driven Design, setting the technical direction for the rest of the company
             </li>
             <li>
-              responsible for the Customer team, building OVO's first organisation-wide Customer API, to bridge the
+              Responsible for the Customer team, building OVO's first organisation-wide Customer API, to bridge the
               dozen or so customer entity representations and decouple the company from its legacy systems, enabling the
-              company to ask such questions as
-              <i>&quot;how many customers do we have?&quot;</i> :-)
+              company to ask such questions as <i>&quot;how many customers do we have?&quot;</i> :-)
             </li>
             <li>
-              domain driven design, strangler fig patterned approach, sanity layering to manage legacy systems, ADRs to
-              standardise approaches between core teams
+              Domain driven design, sanity layering to manage complex legacy systems, ADRs to standardise approaches
+              between core teams, architectural assistance to other teams throughout the company
             </li>
-            <li>Typescript backend, REST APIs, PubSub for events, postgres</li>
+            <li>Typescript backend, REST APIs, PubSub for events, PostgreSQL, GraphQL, Kafka</li>
           </ul>
           <p><b>Previously,</b> green energy initiatives related to Zero Carbon Living (ZCL).</p>
           <p>As principal engineer:</p>
           <ul>
-            <li>worked with the HoD and other principles to establish technical coherency and standards across ZCL</li>
             <li>
-              paired with other principle engineers to help them hone their designs, participating in design reviews,
-              residuality theory sessions, etc
+              Responsible for the technical design, coordination and mentoring of engineers working on Charge Anytime,
+              OVO's smart EV charging addon
             </li>
-            <li>mentored and coached senior engineers</li>
+            <li>Worked with the HoD and other principals to establish technical coherency and standards across ZCL</li>
+            <li>
+              Paired with other principals engineers to help them hone their designs, participating in design reviews,
+              residuality theory sessions, and other architectural discussions
+            </li>
+            <li>Mentored and coached senior engineers</li>
           </ul>
-          <p>Notable technial projects:</p>
+          <p>Other projects:</p>
           <ul>
             <li>
               EV Charger Installation journey
               <ul>
                 <li>
-                  an important journey that processes 10s of thousands of pounds a week, integrates with less robust
+                  An important journey that processes 10s of thousands of pounds a week, integrates with less robust
                   external systems, but is not traditionally considered high traffic
                 </li>
-                <li>so, designed to be fault tolerant and cheap to run</li>
                 <li>
-                  node deployed to AWS Lambda (so very cheap), using SQS to create a fault tolerance between actions,
-                  and between external systems and our processing, with data archived to BigQuery via Kafka autocapture
+                  NodeJS deployed to AWS Lambda to optimise for "fast enough" cost efficient compute, using SQS to
+                  create a fault tolerance between lambdas, and between external systems and our processing, with data
+                  archived to BigQuery via Kafka autocapture
                 </li>
                 <li>
-                  highly reliable, with only one notable production faults in 2 years (bad terraform merge). So reliable
+                  Highly reliable, with only one notable production fault in 2 years (bad terraform merge). So reliable
                   we have been able to backfill and restore data multiple times when the less robust third party failed
                 </li>
                 <li>
-                  aided third party in ensuring their webhook interface was secure, helping them design a message
+                  Aided third party in ensuring their webhook interface was secure, helping them design a message
                   signing strategy
                 </li>
               </ul>
@@ -185,38 +130,41 @@
               Smart Thermostats shipping provider automation
               <ul>
                 <li>
-                  took over a project a coworker was struggling with (at their request) due to unclear historic designs
-                  and legacy systems, confusing external APIs and tight deadlines
+                  Rescued the project to automate shipping, as unclear historic designs, legacy systems, confusing
+                  external APIs and tight deadlines meant the project was in danger of collapsing a large planned
+                  marketing push
                 </li>
                 <li>
-                  redesigned their work and produced a single scalable solution that allowed us to handle a
-                  <b>20x increase</b> in sales
+                  Redesigned the multiple existing attempts to produce a single scalable solution that allowed the
+                  marketing push to go ahead, resulting in a <b>20x increase</b> in sales
                 </li>
-                <li>lambda / sqs / dynamodb, integrating with external SOAP</li>
-              </ul>
-            </li>
-            <li>
-              Charge Anytime, OVO's smart EV charging addon. This was less code and more engineering leadership role.
-              <ul>
-                <li>designed and coordinated tech solutions between half a dozen different teams and stakeholders</li>
-                <li>designed and shipped tactical solutions in a fast paced commercial environment</li>
-                <li>peeled back layers of tech debt and dead code to improve maintainability and reduce complexity</li>
-                <li>React / Typescript</li>
+                <li>AWS Lambda, SQS, DynamoDB, integrating with external SOAP service</li>
               </ul>
             </li>
           </ul>
         </section>
-        <section class="inner">
+        <section class="inner" id="voice">
           <h3>(2020-2021) Personal Growth: Voice Coding</h3>
-          <p>I spent about a year mitigating my RSI, a problem I've had on and off throughout my career.</p>
           <p>
-            Learnt to use voice control. Specifically, using
-            <a href="https://talonvoice.com/docs/index.html">Talon</a> to control my computer with my voice, and
-            <a href="https://cursorless.org/">Cursorless</a> to enhance my coding.
+            Worked on mitigating my RSI. A constant niggle throughout my career, I decided it was time to fix it once
+            and for all. After trying different strategies, I've landed on coding by voice, via the astonishingly
+            effective
+            <a href="https://talonvoice.com/">Talon</a>.
           </p>
           <p>
-            Built <a href="#sanremo-work-sample">Sanremo</a> to test out these tools and become proficient before
-            looking for my next role.
+            Talon combined with <a href="https://github.com/pokey/cursorless-talon">Cursorless</a> (incredibly fast
+            structural editing) and <a href="https://vimium.github.io/">Vimium</a> (vim bindings for your browser) is a
+            remarkably effective toolset for hands-free computing, as least as far as web browsing and coding is
+            concerned.
+          </p>
+          <p>
+            To put it to the test, I built
+            <a href="#sanremo-work-sample">Sanremo</a>, an experiment in repeatable checklists by way of an
+            offline-first PWA.
+          </p>
+          <p>
+            I still use my hands frequently, but voice coding means I am not required to, and voice coding is often
+            faster (seriously!).
           </p>
         </section>
         <section class="inner">
@@ -229,47 +177,27 @@
             >
           </p>
           <ul>
-            <li>senior software developer, later also the engineering manager</li>
-            <li>worked remotely, collaborating with co-workers in a dozen different time-zones</li>
+            <li>Senior software developer, later promoted to engineering manager</li>
+            <li>Worked remotely, collaborating with co-workers in a dozen different time-zones</li>
           </ul>
           <p>As <strong>senior software developer</strong>:</p>
           <ul>
             <li>
-              responsible for maintaining and improving a complex and highly configurable application with severe
+              Responsible for maintaining and improving a complex and highly configurable application with severe
               design, performance and user education constraints, often as part of a very small dev team, supporting
               tens of thousands of users with millions of monthly interactions in 16 countries
             </li>
             <li>
-              responsible for design, coding, PR reviews, planning and scheduling, etc, from conception to production
+              Responsible for design, coding, PR reviews, planning and scheduling, etc, from conception to production
             </li>
             <li>
-              travelled to Uganda, Kenya and Nepal, working with local team mates and users to make sure the software
+              Travelled to Uganda, Kenya and Nepal, working with local team mates and users to make sure the software
               accommodated their unique situations
             </li>
             <li>
-              worked as a cross-discipline adviser and technical liaison on over a dozen internal projects concurrently,
-              keeping track of the problems they were trying to solve and advising and directing from a core product
+              Worked as a cross-discipline adviser and technical liaison on over a dozen internal projects concurrently,
+              keeping track of the problems they were trying to solve and advising and directing from a platform
               perspective
-            </li>
-            <li>
-              engineering work is a team effort, but here are some recent efforts I was deeply involved in:
-              <ul>
-                <li>
-                  replaced entire deployment toolchain with entirely new (but backwards compatible) tools, solving
-                  oodles of bugs and reduced deployment downtime exponentially.
-                </li>
-                <li>
-                  built (initially via a week-long in-person TDD exercise) a low impact and intentionally replaceable
-                  telemetry solution that solved the immediate problems we had, overcoming hesitancy and complexity
-                  around off the shelf solutions.
-                </li>
-                <li>
-                  a feature that let custom deployers configure dynamic, programmatic but safe data integrations with
-                  external services. Configurable with JSON / JS, it let you write expressions or code to send data
-                  externally and safely, allowing for custom configurations to not rely on core development to move at
-                  their pace
-                </li>
-              </ul>
             </li>
           </ul>
           <p>As <strong>engineering manager</strong></p>
@@ -381,10 +309,58 @@
         </section>
       </section>
       <section>
+        <header><h2 id="work-samples">Work Samples</h2></header>
+        <section class="inner" id="sanremo-work-sample">
+          <h3>(2021) Sanremo, A Recent(ish!) Personal Project</h3>
+          <p>
+            <a href="https://github.com/scdf/sanremo">Sanremo</a> is a <a href="#voice">voice-coded</a> React / Redux /
+            MUI based offline first web app, written in JS / TS. It uses PouchDB on the front end and a combination of
+            custom sync code and websockets to sync data with a PostgreSQL db on the backend.
+          </p>
+          <p>Goals:</p>
+          <ul>
+            <li>Build a simple tool for personal use, inspired by aviation checklists</li>
+            <li>
+              Get comfortable coding with my voice, using <a href="https://talonvoice.com/">Talon</a> and
+              <a href="https://cursorless.org/">Cursorless</a>
+            </li>
+            <li>
+              Investigate some performance and stability issues between the legacy and upcoming IndexedDB PouchDB
+              adapters
+            </li>
+            <li>Use some tech I had not yet used professionally (React and TS mostly)</li>
+          </ul>
+        </section>
+        <section class="inner">
+          <h3>(2015-2020) Medic</h3>
+          <p>
+            <a href="https://medic.org/">Medic</a>&#39;s work is almost entirely open source: code, PRs, tickets and
+            many design documents (if linked in tickets) are available. The bulk is against the
+            <a href="https://github.com/medic/cht-core">medic/cht-core</a> repository.
+          </p>
+          <p>
+            CHT Core is the core framework of the
+            <a href="https://communityhealthtoolkit.org/">Community Health Toolkit</a>: a responsive offline-first web
+            app designed to run on low end android phones, a back-end api that supports it, and a back-end message
+            processing engine.
+          </p>
+          <p>
+            For <a href="https://github.com/medic/cht-core/graphs/contributors">code contributions</a>, you can see
+            <a href="https://github.com/medic/cht-core/commits?author=SCdF">a list of my branch merges here</a>. Note
+            that Medic employs a deliberately restrictive merge to master policy.
+          </p>
+          <p>
+            For <a href="https://github.com/medic/cht-core/issues">ticket contributions</a> you can see
+            <a href="https://github.com/medic/cht-core/issues?q=commenter%3ASCdF"
+              >a list of tickets I&#39;ve contributed to here</a
+            >.
+          </p>
+        </section>
+      </section>
+      <section>
         <header><h2>Education</h2></header>
         <ul>
           <li>BSc Computer Science, University of Auckland, 2003-2005</li>
-          <li>Senior prize winner in 2005</li>
         </ul>
       </section>
       <section>
@@ -392,7 +368,7 @@
         <p>References available upon request.</p>
         <p>
           I&#39;m not on social media much, but there are more links to me around the web at
-          <a class="samesame" href="https://sdufresne.info">https://sdufresne.info</a>.
+          <a class="donotprintlink" href="https://sdufresne.info">https://sdufresne.info</a>.
         </p>
       </section>
     </article>
@@ -471,18 +447,18 @@
           max-width: 100%;
         }
         section.inner {
-          page-break-inside: avoid;
+          /* page-break-inside: avoid; */
         }
         #me {
           font-size: 300%;
         }
-        #toc {
+        .donotprint {
           display: none;
         }
         a {
           color: inherit !important;
         }
-        a:not(.samesame)::after {
+        a:not(.donotprintlink)::after {
           content: " (" attr(href) ")";
         }
       }
