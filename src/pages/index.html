@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-<!--
-  Hello source code reader!
-
-  This page is as a) inline and b) oldschool as I can sensibly make it.
-
-  I say this defensively, lest you think this is what I think modern web design is!
-
-  I know I know, everyone enables JS! IE11 is dead! You can use modern things now, it's fine!
-
-  For now though, this stays as it is.
-
-  In fact, if you think I could make it more compatible: https://github.com/SCdF/sdufresne.info/issues
--->
 <html lang="en">
   <head>
     <title>
@@ -67,7 +54,7 @@
         float: left;
         width: 60%;
       }
-      #contact {
+      #sidebar {
         width: 30%;
         float: right;
       }
@@ -81,7 +68,8 @@
       }
 
       #spiel .clickable,
-      #spiel a {
+      #spiel a,
+      #major-links a {
         display: inline-block;
         transition: all 0.1s;
       }
@@ -98,7 +86,8 @@
         padding: 0.125em;
       }
       #spiel .clickable:hover,
-      #spiel a:hover {
+      #spiel a:hover,
+      #major-links a:hover {
         color: #ffefef;
         background-color: #a00;
 
@@ -127,32 +116,31 @@
         }
       }
 
-      #contact a,
-      #contact a:visited,
-      #contact a:hover,
-      #contact a:active {
+      #major-contacts a,
+      #major-contacts a:visited,
+      #major-contacts a:hover,
+      #major-contacts a:active {
         font-weight: inherit;
         color: #406cb6;
         background-color: inherit;
       }
-      #contact a:hover {
+      #major-contacts a:hover {
         color: red;
       }
 
-      #contact {
+      #sidebar {
         font-size: 80%;
-        line-height: initial;
       }
 
-      #contact ul {
+      #sidebar ul {
         padding-left: 0;
       }
 
-      #contact li {
+      #major-contacts li {
         list-style-type: none;
         overflow: hidden;
       }
-      #contact li svg {
+      #major-contacts li svg {
         vertical-align: middle;
         max-height: 1.5rem;
         max-width: 1.5rem;
@@ -163,9 +151,6 @@
         #avatar {
           display: none;
         }
-        #nostalgia {
-          display: none;
-        }
         #site-wrapper {
           padding: 0;
           margin: 0;
@@ -173,29 +158,24 @@
           overflow: auto;
           position: relative;
         }
-        #contact {
+        #sidebar {
           float: none;
           width: 100%;
 
           border-top: solid #eee;
           margin: 0;
         }
-        #contact li {
-          display: inline-flex;
+        #sidebar li {
           padding: 0.5em;
           margin: 0.5em;
-          background-color: #ffefef;
         }
-        #contact a,
-        #contact a:visited,
-        #contact a:hover,
-        #contact a:active {
-          font-weight: bold;
-          text-decoration: none;
-          color: #333;
-          background-color: #ffefef;
-          margin: -0.125em;
-          padding: 0.125em;
+        #major-contacts {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+        #major-contacts svg {
+          display: none;
         }
 
         #spiel {
@@ -261,7 +241,29 @@
           a reasonably large amount of software. Some of it works!
         </p>
         <p>One day there will be dark mode here.</p>
-        <h3>Currently&hellip;</h3>
+        <h3>Latest posts</h3>
+        <section style="font-size: 69%; padding-left: 1ex">
+          <h3><a>Burger architecture</a></h3>
+          <p>
+            I've been exposed to a lot of talk recently, of hexagonal
+            architecture, clean architecture, onion architecture, and I'm here
+            to tell you, not only are they the same, but they are far more
+            complicated than you probably need.
+          </p>
+          <h3><a>Coding with your voice</a></h3>
+          <p>
+            In 2020 I burnt out. Physically, and mentally. But most importantly,
+            physically. I was unable to hold a fork, let alone type 40 hrs a
+            week. Something had to change.
+          </p>
+          <h3><a>AI is complicated</a></h3>
+          <p>
+            There is a knock at your door. It's your conscious, and it's here to
+            tell you to put the Claude prompt down and touch grass.
+          </p>
+        </section>
+
+        <h3>What I'm working on&hellip;</h3>
         <p>Green energy @ <a href="https://ovoenergy.com">OVO!</a></p>
         <h3>Previously&hellip;</h3>
         <p>
@@ -308,7 +310,7 @@
           <a href="./resume.html">I've done a few other things.</a>
         </p>
       </section>
-      <section id="contact">
+      <section id="sidebar">
         <img
           id="avatar"
           alt="Picture of Stefan du Fresne"
@@ -317,7 +319,20 @@
           width="384"
           height="538"
         />
-        <ul id="major-contacts">
+        <ul
+          id="major-links"
+          style="
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 0.3em 0;
+          "
+        >
+          <li style="display: inline-block; margin: 0.3em"><a>Blog</a></li>
+          <li style="display: inline-block; margin: 0.3em"><a>Notes</a></li>
+          <li style="display: inline-block; margin: 0.3em"><a>Photos</a></li>
+        </ul>
+        <ul id="major-contacts" style="margin: 0.3em 0">
           <li>
             <a href="mailto:stefan@sdufresne.info">
               <svg
