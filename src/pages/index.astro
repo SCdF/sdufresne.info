@@ -1,10 +1,6 @@
 ---
-import {type BlogPost} from './blog/templates/blog.ts'
-// FIXME: work out how to type blogposts
-const lastThreePosts =
-  Object.values(import.meta.glob<BlogPost>('./blog/*.md', { eager: true }))
-  .filter(post => post.frontmatter.pubDate !== undefined)
-  .sort((a,b) => new Date(b.frontmatter.pubDate || 0).getDate() - new Date(a.frontmatter.pubDate || 0).getDate())
+import {latestFirst, published} from './blog/templates/blog.ts'
+const latestPosts = latestFirst(published()).splice(0, 3)
 ---
 
 <!DOCTYPE html>
@@ -178,6 +174,8 @@ const lastThreePosts =
           padding: 0.5em;
           margin: 0.5em;
         }
+
+        /* FIXME: this does not look good in mobile */
         #major-contacts {
           display: flex;
           justify-content: space-between;
@@ -253,7 +251,7 @@ const lastThreePosts =
         <h3>Latest posts</h3>
         <!-- FIXME: move style to CSS -->
         <section style="font-size: 69%; padding-left: 1ex">
-          {lastThreePosts.map((post: any) => <post>
+          {latestPosts.map((post: any) => <post>
             <h3><a href={post.url}>{post.frontmatter.title}</a></h3>
             <p>{post.frontmatter.description}</p>
           </post>)}
