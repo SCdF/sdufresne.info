@@ -1,3 +1,12 @@
+---
+import {type BlogPost} from './blog/templates/blog.ts'
+// FIXME: work out how to type blogposts
+const lastThreePosts =
+  Object.values(import.meta.glob<BlogPost>('./blog/*.md', { eager: true }))
+  .filter(post => post.frontmatter.pubDate !== undefined)
+  .sort((a,b) => new Date(b.frontmatter.pubDate || 0).getDate() - new Date(a.frontmatter.pubDate || 0).getDate())
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -242,25 +251,12 @@
         </p>
         <p>One day there will be dark mode here.</p>
         <h3>Latest posts</h3>
+        <!-- FIXME: move style to CSS -->
         <section style="font-size: 69%; padding-left: 1ex">
-          <h3><a>Burger architecture</a></h3>
-          <p>
-            I've been exposed to a lot of talk recently, of hexagonal
-            architecture, clean architecture, onion architecture, and I'm here
-            to tell you, not only are they the same, but they are far more
-            complicated than you probably need.
-          </p>
-          <h3><a>Coding with your voice</a></h3>
-          <p>
-            In 2020 I burnt out. Physically, and mentally. But most importantly,
-            physically. I was unable to hold a fork, let alone type 40 hrs a
-            week. Something had to change.
-          </p>
-          <h3><a>AI is complicated</a></h3>
-          <p>
-            There is a knock at your door. It's your conscious, and it's here to
-            tell you to put the Claude prompt down and touch grass.
-          </p>
+          {lastThreePosts.map((post: any) => <post>
+            <h3><a href={post.url}>{post.frontmatter.title}</a></h3>
+            <p>{post.frontmatter.description}</p>
+          </post>)}
         </section>
 
         <h3>What I'm working on&hellip;</h3>
