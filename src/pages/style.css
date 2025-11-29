@@ -12,20 +12,11 @@ body {
   color: #333;
 }
 
-h1 {
-  margin-block: 0.67em;
-  font-size: 2em;
-}
-
 .numbers {
   font-family: monospace;
 }
 
-/* desktop screens */
-#avatar {
-  max-width: 100%;
-  height: auto;
-}
+/* Layout */
 
 #spiel {
   float: left;
@@ -34,10 +25,6 @@ h1 {
 #sidebar {
   width: 30%;
   float: right;
-}
-
-.greeting {
-  line-height: 2ex;
 }
 
 /* Links */
@@ -91,23 +78,21 @@ a:hover {
   }
 }
 
-#major-contacts a,
-#major-contacts a:visited,
-#major-contacts a:hover,
-#major-contacts a:active {
-  margin: initial;
-  padding: initial;
-  font-weight: initial;
-  background-color: initial;
-  display: initial;
-  color: #406cb6;
+/* Spiel only */
+
+.greeting {
+  line-height: 2ex;
 }
-#major-contacts a:hover {
-  color: red;
-}
+
+/* Sidebar only */
 
 #sidebar {
   font-size: 80%;
+}
+
+#sidebar #avatar {
+  max-width: 100%;
+  height: auto;
 }
 
 #sidebar ul {
@@ -122,6 +107,21 @@ a:hover {
   vertical-align: middle;
   max-height: 1.5rem;
   max-width: 1.5rem;
+}
+
+#major-contacts a,
+#major-contacts a:visited,
+#major-contacts a:hover,
+#major-contacts a:active {
+  margin: initial;
+  padding: initial;
+  font-weight: initial;
+  background-color: initial;
+  display: initial;
+  color: #406cb6;
+}
+#major-contacts a:hover {
+  color: red;
 }
 
 /* smaller screens */
