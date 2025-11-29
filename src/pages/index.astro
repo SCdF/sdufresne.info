@@ -1,5 +1,6 @@
 ---
-import './style.css'
+import '../styles/main.css'
+import './index.css'
 
 import {latestFirst, published} from './blog/_templates/blog.ts'
 const latestPosts = latestFirst(published()).splice(0, 3)
@@ -39,7 +40,7 @@ const latestPosts = latestFirst(published()).splice(0, 3)
         <p>One day there will be dark mode here.</p>
         <h3>Latest posts</h3>
         <!-- FIXME: move style to CSS -->
-        <section style="font-size: 69%; padding-left: 1ex">
+        <section class="recent-posts">
           {latestPosts.map((post: any) => <post>
             <h3><a href={post.url}>{post.frontmatter.title}</a></h3>
             <p>{post.frontmatter.description}</p>
@@ -102,24 +103,13 @@ const latestPosts = latestFirst(published()).splice(0, 3)
           width="384"
           height="538"
         />
-        <!-- FIXME extract styles -->
-        <ul
-          id="major-links"
-          style="
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin: 0.3em 0;
-          "
-        >
-        <!-- FIXME extract styles -->
-          <li style="display: inline-block; margin: 0.3em"><a href="./blog">Blog</a></li>
-          <li style="display: inline-block; margin: 0.3em"><a>Notes</a></li>
-          <li style="display: inline-block; margin: 0.3em"><a>Socials?</a></li>
-          <li style="display: inline-block; margin: 0.3em"><a>Photos</a></li>
+        <ul id="major-links">
+          <li><a href="./blog">Blog</a></li>
+          <li><a>Notes</a></li>
+          <li><a>Socials?</a></li>
+          <li><a>Photos</a></li>
         </ul>
-        <!-- FIXME extract styles -->
-        <ul id="major-contacts" style="margin: 0.3em 0">
+        <ul id="major-contacts">
           <li>
             <a href="mailto:stefan@sdufresne.info">
               <svg

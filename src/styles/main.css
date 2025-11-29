@@ -5,7 +5,7 @@ html {
 
 body {
   max-width: 1280px;
-  font-size: 200%;
+  font-size: 24px;
   line-height: 1.4;
   margin: 0 auto;
   padding: 0 1em;
@@ -16,18 +16,6 @@ body {
   font-family: monospace;
 }
 
-/* Layout */
-
-#spiel {
-  float: left;
-  width: 60%;
-}
-#sidebar {
-  width: 30%;
-  float: right;
-}
-
-/* Links */
 .clickable {
   cursor: pointer;
 }
@@ -65,7 +53,6 @@ a:hover {
   transform: rotateZ(1deg) !important;
 }
 
-/* reverts link animation after tap on iPad */
 @media (pointer: coarse) {
   .clickable:hover,
   a:hover {
@@ -78,93 +65,12 @@ a:hover {
   }
 }
 
-/* Spiel only */
-
-.greeting {
-  line-height: 2ex;
-}
-
-/* Sidebar only */
-
-#sidebar {
-  font-size: 80%;
-}
-
-#sidebar #avatar {
-  max-width: 100%;
-  height: auto;
-}
-
-#sidebar ul {
-  padding-left: 0;
-}
-
-#major-contacts li {
-  list-style-type: none;
-  overflow: hidden;
-}
-#major-contacts li svg {
-  vertical-align: middle;
-  max-height: 1.5rem;
-  max-width: 1.5rem;
-}
-
-#major-contacts a,
-#major-contacts a:visited,
-#major-contacts a:hover,
-#major-contacts a:active {
-  margin: initial;
-  padding: initial;
-  font-weight: initial;
-  background-color: initial;
-  display: initial;
-  color: #406cb6;
-}
-#major-contacts a:hover {
-  color: red;
-}
-
 /* smaller screens */
 @media screen and (max-width: 760px) {
-  #avatar {
-    display: none;
-  }
   body {
     padding: 0;
     margin: 0;
     padding-top: 0.5em;
-    overflow: auto;
-    position: relative;
-  }
-  #sidebar {
-    float: none;
-    width: 100%;
-
-    border-top: solid #eee;
-    margin: 0;
-  }
-  #sidebar li {
-    padding: 0.5em;
-    margin: 0.5em;
-  }
-
-  /* FIXME: this does not look good in mobile */
-  #major-contacts {
-    display: flex;
-    /* justify-content: space-between; */
-    flex-wrap: wrap;
-  }
-  #major-contacts svg {
-    display: none;
-  }
-
-  #spiel {
-    float: none;
-    width: inherit;
-    margin: 0.5em;
-    margin-top: 0;
-    padding: 1em;
-    padding-top: 0;
   }
 }
 /* Desktop font sizes */

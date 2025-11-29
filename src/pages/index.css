@@ -1,0 +1,108 @@
+/* layout */
+#spiel {
+  float: left;
+  width: 60%;
+
+  font-size: larger;
+}
+#sidebar {
+  width: 30%;
+  float: right;
+}
+
+/* main */
+#spiel .greeting {
+  line-height: 2ex;
+}
+
+#spiel .recent-posts {
+  font-size: smaller;
+  padding-left: 1em;
+}
+/* sidebar */
+#avatar {
+  max-width: 100%;
+  height: auto;
+}
+
+#sidebar ul {
+  padding-left: 0;
+}
+
+#major-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0.3em 0;
+}
+
+#major-links li {
+  display: inline-block;
+  margin: 0.3em;
+}
+
+#major-contacts {
+  margin: 0.3em 0;
+}
+
+#major-contacts li {
+  list-style-type: none;
+  overflow: hidden;
+}
+#major-contacts li svg {
+  vertical-align: middle;
+  max-height: 1.5rem;
+  max-width: 1.5rem;
+}
+
+#major-contacts a,
+#major-contacts a:visited,
+#major-contacts a:hover,
+#major-contacts a:active {
+  margin: initial;
+  padding: initial;
+  font-weight: initial;
+  background-color: initial;
+  display: initial;
+  color: #406cb6;
+}
+#major-contacts a:hover {
+  color: red;
+}
+
+/* mobile */
+@media screen and (max-width: 760px) {
+  #avatar {
+    display: none;
+  }
+  #sidebar {
+    float: none;
+    width: 100%;
+
+    border-top: solid #eee;
+    margin: 0;
+  }
+  #sidebar li {
+    padding: 0.5em;
+    margin: 0.5em;
+  }
+
+  /* FIXME: this does not look good in mobile */
+  #major-contacts {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+  }
+  #major-contacts svg {
+    display: none;
+  }
+
+  #spiel {
+    float: none;
+    width: inherit;
+    margin: 0.5em;
+    margin-top: 0;
+    padding: 1em;
+    padding-top: 0;
+  }
+}
