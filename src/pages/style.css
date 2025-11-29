@@ -40,13 +40,12 @@ h1 {
   line-height: 2ex;
 }
 
+/* Links */
 .clickable {
   cursor: pointer;
 }
-
-#spiel .clickable,
-#spiel a,
-#major-links a {
+.clickable,
+a {
   display: inline-block;
   transition: all 0.1s;
 }
@@ -62,9 +61,8 @@ a:active {
   margin: -0.125em;
   padding: 0.125em;
 }
-#spiel .clickable:hover,
-#spiel a:hover,
-#major-links a:hover {
+.clickable:hover,
+a:hover {
   color: #ffefef;
   background-color: #a00;
 
@@ -82,8 +80,8 @@ a:active {
 
 /* reverts link animation after tap on iPad */
 @media (pointer: coarse) {
-  #spiel .clickable:hover,
-  #spiel a:hover {
+  .clickable:hover,
+  a:hover {
     color: #333;
     background-color: #ffefef;
 
@@ -97,9 +95,12 @@ a:active {
 #major-contacts a:visited,
 #major-contacts a:hover,
 #major-contacts a:active {
-  font-weight: inherit;
+  margin: initial;
+  padding: initial;
+  font-weight: initial;
+  background-color: initial;
+  display: initial;
   color: #406cb6;
-  background-color: inherit;
 }
 #major-contacts a:hover {
   color: red;
