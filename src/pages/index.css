@@ -3,7 +3,7 @@
   float: left;
   width: 60%;
 
-  font-size: larger;
+  font-size: xx-large;
 }
 #sidebar {
   width: 30%;
@@ -16,7 +16,7 @@
 }
 
 #spiel .recent-posts {
-  font-size: smaller;
+  font-size: x-large;
   padding-left: 1em;
 }
 /* sidebar */
