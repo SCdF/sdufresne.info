@@ -1,0 +1,618 @@
+---
+import '../styles/global.css'
+import '../styles/home.css'
+
+import {latestFirst, published} from '../blog.ts'
+import Nav from '../components/nav.astro'
+const latestPosts = latestFirst(published()).splice(0, 3)
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Stefan du Fresne - software developer, imagineer and general human
+    </title>
+    <meta
+      name="description"
+      content="Personal homepage of Stefan du Fresne, software developer aka software engineer aka code craftsman aka software imagineer."
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title="Stefan du Fresne's blog" href={new URL("rss.xml", Astro.site)}/>
+  </head>
+  <body>
+    <section id="spiel">
+      <h1 class="greeting" id="greeting">Hello!</h1>
+      <h2 class="greeting">I'm Stefan du Fresne,</h2>
+      <p>
+        I'm <span id="aan">a</span>
+        <a id="job-title">software developer</a> from New Zealand. I currently
+        live in the sprawling suburbia surrounding London, England.
+      </p>
+      <p>
+        Over the last <a id="career-length">few years</a> I've helped to build
+        a reasonably large amount of software. Some of it works!
+      </p>
+      <p>One day there will be dark mode here.</p>
+      {
+        latestPosts.length ?
+        <section>
+          <h3>Latest posts</h3>
+          <ul class="recent-posts">
+            {latestPosts.map((post) => <li>
+              <h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+            </li>)}
+          </ul>
+        </section> : ''
+      }
+
+
+      <h3>What I'm working on&hellip;</h3>
+      <p>Green energy @ <a href="https://ovoenergy.com">OVO!</a></p>
+      <h3>Previously&hellip;</h3>
+      <p>
+        Working on mitigating my RSI. A constant niggle throughout my career,
+        I decided it was time to fix it once and for all. After trying
+        different strategies, I've landed on coding by voice, via the
+        astonishingly effective
+        <a href="https://talonvoice.com/">Talon</a>.
+      </p>
+      <p>
+        Talon combined with
+        <a href="https://github.com/pokey/cursorless-talon">Cursorless</a>
+        (incredibly fast structural editing) and
+        <a href="https://vimium.github.io/">Vimium</a> (vim bindings for your
+        browser) is a remarkably effective toolset for hands-free computing,
+        as least as far as web browsing and coding is concerned.
+      </p>
+      <p>
+        To put it to the test, I built
+        <a href="https://sanremo.sdufresne.info">Sanremo</a>
+        <sup>(<a href="https://github.com/SCdF/sanremo">src</a>)</sup>, an
+        experiment in repeatable checklists by way of an offline-first PWA.
+      </p>
+      <img
+        style="max-width: 100%"
+        alt="Github contributions showing that talon is effective"
+        src="assets/img/talon.png"
+      />
+      <p>As you can from my highly scientific graph, Talon works a treat!</p>
+      <p>
+        I still use my hands frequently, but voice coding means I am not
+        required to, and voice coding is often faster (seriously!).
+      </p>
+      <h3>Previously&hellip;</h3>
+      <p>
+        <a href="https://medic.org">Medic</a>; a non-profit building
+        <a href="https://github.com/medic">open source </a> tools to help
+        Community Health Workers worldwide bring doorstep medical care to
+        their communities; as a software developer and later, the engineering
+        manager.
+      </p>
+      <h3>Previously&hellip;</h3>
+      <p>
+        <a href="./resume.html">I've done a few other things.</a>
+      </p>
+    </section>
+    <section id="sidebar">
+      <img
+        id="avatar"
+        alt="Picture of Stefan du Fresne"
+        src="./assets/img/me-1x.jpg"
+        srcset="./assets/img/me-1x.jpg 1x, ./assets/img/me-2x.jpg 2x"
+        width="384"
+        height="538"
+      />
+      <Nav />
+      <ul id="major-contacts">
+        <li>
+          <a href="mailto:stefan@sdufresne.info">
+            <svg
+              fill="#FFF"
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="24" height="24" rx="50%" fill="#000" />
+              <path
+                d="M12,2 C17.4292399,2 21.8479317,6.32667079 21.9961582,11.7200952 L22,12 L22,13 C22,15.1729208 20.477434,17 18.5,17 C17.3269391,17 16.3139529,16.3570244 15.6839382,15.3803024 C14.770593,16.3757823 13.4581934,17 12,17 C9.23857625,17 7,14.7614237 7,12 C7,9.23857625 9.23857625,7 12,7 C14.6887547,7 16.8818181,9.12230671 16.9953805,11.7831104 L17,12 L17,13 C17,14.1407877 17.7160103,15 18.5,15 C19.2447902,15 19.928229,14.2245609 19.9947109,13.1689341 L20,13 L20,12 C20,7.581722 16.418278,4 12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C13.1630948,20 14.2892822,19.7522618 15.3225159,19.2798331 C15.8247876,19.0501777 16.4181317,19.271177 16.647787,19.7734487 C16.8774423,20.2757205 16.656443,20.8690646 16.1541713,21.0987199 C14.861218,21.689901 13.4515463,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 Z"
+              />
+            </svg>
+            <strong>stefan@sdufresne.info</strong>
+          </a>
+        </li>
+        <li>
+          <a href="https://keybase.io/scdf/chat">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Keybase"
+              role="img"
+              viewBox="0 0 512 512"
+            >
+              <rect width="512" height="512" rx="50%" fill="#000" />
+              <g fill="#fff">
+                <path
+                  d="m201 80 22-31 18 10c-9 18-8 24-8 26 8-3 81 10 59 80 0 0 44 12 76 57 29 39 11 104-57 84-58-17-111-13-177 40l32-81-79 102c-3-99 10-140 79-190-23-1-41-18-40-38l2-27c1-19 17-35 37-34 1-1 36 1 36 2zm36 96c-5-6-15 1-9 7l21 25-10 8c-2 2-3 5-1 7l2 3c3 3 6 0 6 0l10-9 10 10-22 17c-2 2-2 5-1 7l9 11c2 2 5 2 7 1l22-17 6 7c5 6 14-1 9-7zm-50-70-21-2c-5 0-10 4-11 9l-1 27c0 6 4 10 9 10l16 1c-1-6 4-36 8-45z"
+                />
+                <circle cx="215" cy="348" r="14" />
+                <circle cx="298" cy="348" r="14" />
+              </g>
+            </svg>
+            Keybase
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/SCdF/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="GitHub"
+              role="img"
+              viewBox="0 0 512 512"
+            >
+              <rect width="512" height="512" rx="50%" fill="#1B1817" />
+              <path
+                fill="#fff"
+                d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"
+              />
+            </svg>
+            Github
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/stefandufresne">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="LinkedIn"
+              role="img"
+              viewBox="0 0 512 512"
+              fill="#fff"
+            >
+              <rect width="512" height="512" rx="50%" fill="#000" />
+              <circle cx="142" cy="138" r="37" />
+              <path
+                stroke="#fff"
+                stroke-width="66"
+                d="M244 194v198M142 194v198"
+              />
+              <path
+                d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"
+              />
+            </svg>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="./resume.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="PDF"
+              role="img"
+              viewBox="0 0 512 512"
+            >
+              <rect width="512" height="512" rx="50%" fill="#000" />
+              <path
+                fill="#fff"
+                d="M413 302c-9-10-29-15-56-15-16 0-33 2-53 5a252 252 0 0 1-52-69c10-30 17-59 17-81 0-17-6-44-30-44-7 0-13 4-17 10-10 18-6 58 13 100a898 898 0 0 1-50 117c-53 22-88 46-91 65-2 9 4 24 25 24 31 0 65-45 91-91a626 626 0 0 1 92-24c38 33 71 38 87 38 32 0 35-23 24-35zM227 111c8-12 26-8 26 16 0 16-5 42-15 72-18-42-18-75-11-88zM100 391c3-16 33-38 80-57-26 44-52 72-68 72-10 0-13-9-12-15zm197-98a574 574 0 0 0-83 22 453 453 0 0 0 36-84 327 327 0 0 0 47 62zm13 4c32-5 59-4 71-2 29 6 19 41-13 33-23-5-42-18-58-31z"
+              />
+            </svg>
+            Résumé
+          </a>
+        </li>
+      </ul>
+    </section>
+    <script type="text/javascript">
+      /* jshint browser: true */
+      (function () {
+        "use strict";
+
+        var Utils = function () {
+          var jobTitles = [
+            "software developer",
+            "developer",
+            "coder",
+            "programmer",
+          ];
+
+          var allJobTitles = jobTitles.concat([
+            "(defn stefan [] (fn[work] (do-work work)))",
+            "1x engineer",
+            "architect of your dreams",
+            "artisan software sculptor",
+            "beard horticulturalist",
+            "beard horticulturist",
+            "bespoke bit twiddler",
+            "big fan of yours",
+            "bit herder",
+            "blockchain disbeliever",
+            "boxes and lines man",
+            "code archeologist",
+            "code costermonger",
+            "code craftsman",
+            "code monkey",
+            "code typhoon",
+            "complexity decoder",
+            "courageous headphone jack",
+            "ddd dilettante",
+            "deterministic finite automata",
+            "document definer",
+            "general human",
+            "gentle code crooner",
+            "good enough dev for government work",
+            "greatly enlarged micro-organism",
+            "infinite field of flowers",
+            "large font aficionado",
+            "llm minder",
+            "magnetised needle and a steady hand",
+            "monad (which is just a monoid in the category of endofunctors, what's the problem?)",
+            "monotonic semi-lattice",
+            "non-brogrammer programmer",
+            "parametrically polymorphic programmer",
+            "principal engineer",
+            "reasonable human",
+            "software craftsman",
+            "software engineer",
+            "software imagineer",
+            "stackoverflow savant",
+            "staff engineer",
+            "technical debt collecter",
+            "thing explainer",
+            "thoroughly average programmer",
+          ]);
+
+          var careerLengths = [
+            {
+              title: "years",
+              fn: function () {
+                var start = new Date(careerStart),
+                  now = new Date();
+
+                var years = now.getYear() - start.getYear();
+
+                start.setFullYear(now.getFullYear());
+
+                if (start.getTime() > now.getTime()) {
+                  return years - 1;
+                } else {
+                  return years;
+                }
+              },
+            },
+            {
+              title: "seconds",
+              fn: function () {
+                return divideCareerLengthMillisBy(1000);
+              },
+              speed: "second",
+            },
+            {
+              title: "minutes",
+              fn: function () {
+                return divideCareerLengthMillisBy(1000 * 60);
+              },
+            },
+            {
+              title: "hours",
+              fn: function () {
+                return divideCareerLengthMillisBy(1000 * 60 * 60);
+              },
+            },
+            {
+              title: "days",
+              fn: function () {
+                return divideCareerLengthMillisBy(1000 * 60 * 60 * 24);
+              },
+            },
+            {
+              title: "moons", // https://en.wikipedia.org/wiki/Lunar_phase
+              fn: function () {
+                return divideCareerLengthMillisBy(
+                  1000 * 60 * 60 * 24 * 29.53
+                );
+              },
+            },
+            {
+              title: "friedmans", // https://en.wikipedia.org/wiki/Friedman_Unit
+              fn: function () {
+                return divideCareerLengthMillisBy(
+                  1000 * 60 * 60 * 24 * 30.4 * 6
+                );
+              },
+            },
+            {
+              title: "LoTR viewings", // Based on all three extended editions
+              fn: function () {
+                return divideCareerLengthMillisBy(1000 * 60 * 60 * 11.4);
+              },
+            },
+            {
+              title: "readings of War & Peace",
+              fn: function () {
+                var wpm = 320; // apparently
+                var warAndPeaceWordCount = 561093;
+
+                var minPerWap = warAndPeaceWordCount / wpm;
+                return divideCareerLengthMillisBy(1000 * 60 * minPerWap);
+              },
+            },
+
+            // https://en.wikipedia.org/wiki/List_of_unusual_units_of_measurement
+            {
+              title: "dog years",
+              fn: function () {
+                return divideCareerLengthMillisBy(1000 * 60 * 60 * 24 * 52);
+              },
+            },
+            {
+              title: "kermits",
+              fn: function () {
+                return divideCareerLengthMillisBy(1000 * 60 * 14.4);
+              },
+            },
+            {
+              title: "shakes",
+              fn: function () {
+                return (
+                  divideCareerLengthMillisBy(1 / 1000) +
+                  Math.round(Math.random() * 1000)
+                ); // get rid of the boring 000 at the end
+              },
+              speed: "frame",
+            },
+            {
+              title: "jiffies",
+              fn: function () {
+                return divideCareerLengthMillisBy(1000 / 60);
+              },
+              speed: "frame",
+            },
+            {
+              title: "galactic years",
+              fn: function () {
+                return (
+                  careerLengthMillis() /
+                  (1000 * 60 * 60 * 24 * 365 * 250000000)
+                ).toPrecision(10);
+              },
+              speed: "frame",
+            },
+
+            {
+              title: "plancks", // https://en.wikipedia.org/wiki/Planck_time
+              fn: function () {
+                return divideCareerLengthMillisBy(
+                  5.39 * Math.pow(10, -41)
+                ).toPrecision(10);
+              },
+              speed: "frame",
+            },
+            {
+              title: "light meters", // https://en.wikipedia.org/wiki/Speed_of_light &
+              // https://en.wikipedia.org/wiki/List_of_unusual_units_of_measurement#Light-distance
+              fn: function () {
+                var metersPerSecond = 299792458;
+                var metersPerMilliSecond = metersPerSecond / 1000;
+                return Math.floor(
+                  careerLengthMillis() * metersPerMilliSecond
+                );
+              },
+              speed: "frame",
+            },
+          ];
+
+          var careerStart = 1139860800000;
+
+          var careerLengthMillis = function () {
+            return Date.now() - careerStart;
+          };
+
+          var divideCareerLengthMillisBy = function (divisor) {
+            return Math.floor(careerLengthMillis() / divisor);
+          };
+
+          // https://stackoverflow.com/a/2450976/1666
+          var shuffle = function (array) {
+            var currentIndex = array.length,
+              temporaryValue,
+              randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+              // Pick a remaining element...
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+
+              // And swap it with the current element.
+              temporaryValue = array[currentIndex];
+              array[currentIndex] = array[randomIndex];
+              array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+          };
+
+          var LoopingShuffleIterator = function (array, _last) {
+            var it;
+            var last = _last;
+
+            return {
+              next: function () {
+                var next = it && it.next();
+                if (!next || next.done) {
+                  shuffle(array);
+                  it = array.values();
+                  next = it.next();
+                }
+
+                if (next.value === last) {
+                  // We don't want double-ups, so skip it
+                  next = it.next();
+                }
+
+                last = next.value;
+
+                return { value: next.value, done: false };
+              },
+            };
+          };
+
+          var titleIterator, careerLengthIterator;
+          var careerAnimationHandle;
+
+          var api = {
+            reverse: function (s) {
+              return s.split("").reverse().join("");
+            },
+
+            // I'm a <XXX> from New Zea…
+            title: function (cb) {
+              var result;
+              if (!titleIterator) {
+                // First time show a normal one and prep the silly ones
+                titleIterator = LoopingShuffleIterator(allJobTitles);
+                result = {
+                  display:
+                    jobTitles[Math.floor(Math.random() * jobTitles.length)],
+                };
+              } else {
+                result = { display: titleIterator.next().value };
+              }
+
+              if (cb) {
+                cb(result);
+              } else {
+                return result;
+              }
+            },
+
+            article: function (currentTitle) {
+              if (
+                ["a", "e", "i", "o", "u"].indexOf(currentTitle.charAt(0)) >= 0
+              ) {
+                return "an";
+              } else {
+                return "a";
+              }
+            },
+
+            careerLength: function (cb) {
+              var career;
+              if (!careerLengthIterator) {
+                career = careerLengths[0];
+                careerLengthIterator = LoopingShuffleIterator(
+                  careerLengths,
+                  career
+                );
+              } else {
+                career = careerLengthIterator.next().value;
+              }
+
+              var result = function () {
+                return {
+                  display:
+                    '<span class="numbers">' +
+                    career.fn() +
+                    "</span> " +
+                    career.title,
+                };
+              };
+
+              if (cb) {
+                var animate = function () {
+                  cb(result());
+                };
+
+                window.clearInterval(careerAnimationHandle);
+
+                animate();
+
+                if (career.speed === "frame") {
+                  // TODO: it would be nice to use requestAnimationFrame
+                  // Unfortunately it's surprisingly hard to call and cancel stably
+                  careerAnimationHandle = window.setInterval(animate, 100);
+                } else if (career.speed === "second") {
+                  careerAnimationHandle = window.setInterval(animate, 1000);
+                } else {
+                  careerAnimationHandle = window.setInterval(
+                    animate,
+                    1000 * 60
+                  );
+                }
+              } else {
+                return result();
+              }
+            },
+
+            beClickable: function (element, clickFn) {
+              element.classList.add("clickable");
+
+              clickFn(function (firstValue) {
+                element.innerHTML = firstValue.display;
+              });
+
+              element.onmousedown = function (e) {
+                e.preventDefault();
+              };
+              element.onmouseup = function () {
+                element.classList.add("smash");
+                window.setTimeout(function () {
+                  clickFn(function (newValue) {
+                    element.innerHTML = newValue.display;
+                  });
+
+                  element.classList.remove("smash");
+                }, 100);
+              };
+            },
+          };
+          return api;
+        };
+
+        var utils = Utils();
+
+        document.addEventListener("DOMContentLoaded", function () {
+          var greeting = document.getElementById("greeting");
+          var hours = new Date().getHours();
+          if (hours < 12) {
+            greeting.innerHTML = "Good Morning!";
+          } else if (hours < 18) {
+            greeting.innerHTML = "Good Afternoon!";
+          } else {
+            greeting.innerHTML = "Good Evening!";
+          }
+
+          utils.beClickable(
+            document.querySelector("#career-length"),
+            utils.careerLength
+          );
+          utils.beClickable(
+            document.querySelector("#job-title"),
+            utils.title
+          );
+
+          var jobTitle = document.querySelector("#job-title");
+          var titleArticle = document.querySelector("#aan");
+
+          titleArticle.innerHTML = utils.article(jobTitle.innerHTML);
+
+          var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+              if (mutation.type === "childList" && jobTitle.innerHTML) {
+                titleArticle.innerHTML = utils.article(jobTitle.innerHTML);
+              }
+            });
+          });
+
+          observer.observe(jobTitle, { childList: true });
+        });
+      })();
+    </script>
+  </body>
+</html>

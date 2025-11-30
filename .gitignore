@@ -12,7 +12,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
 .env.production
@@ -22,3 +21,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# obsidian
+src/blog/.obsidian
+# Drafts in obsidian. This isn't perfect, but we can name like this to hide true drafts
+# For them to show up in the blog they still need the frontmatter
+src/blog/_*.md

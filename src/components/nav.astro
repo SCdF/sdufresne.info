@@ -1,0 +1,20 @@
+---
+const locations = [
+  {url: '/', name: 'Home', hide: true},
+  // {url: '/blog', name: 'Blog'},
+  // {url: '/notes', name: 'Notes'},
+  // {url: '/projects', name: 'Projects'},
+  // {url: '/photos', name: 'Photos'},
+]
+---
+<ul id="nav">
+  {locations.map(location => {
+    if (Astro.url.pathname === location.url && location.hide) {
+      return;
+    } else if (Astro.url.pathname === location.url) {
+      return <li>{location.name}</li>
+    } else {
+      return <li><a href={location.url}>{location.name}</a></li>
+    }
+  })}
+</ul>

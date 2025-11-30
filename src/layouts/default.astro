@@ -1,0 +1,32 @@
+---
+import Nav from '../components/nav.astro';
+import '../styles/global.css'
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {title || "Stefan du Fresne - software developer, imagineer and general human"}
+    </title>
+    <meta
+      name="description"
+      content="Personal homepage of Stefan du Fresne, software developer aka software engineer aka code craftsman aka software imagineer."
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title="Stefan du Fresne's blog" href={new URL("rss.xml", Astro.site)}/>
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

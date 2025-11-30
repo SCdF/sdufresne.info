@@ -1,0 +1,146 @@
+html {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  max-width: 1280px;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0 auto;
+  padding: 0 1em;
+  color: #333;
+}
+
+main {
+  max-width: 800px;
+}
+
+.astro-code {
+  padding: 0.5em 1.5em;
+}
+
+.numbers {
+  font-family: monospace;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.clickable,
+a {
+  display: inline-block;
+  transition: all 0.1s;
+}
+.clickable,
+a,
+a:visited,
+a:hover,
+a:active {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  background-color: #ffefef;
+  margin: -0.125em;
+  padding: 0.125em;
+}
+.clickable:hover,
+a:hover {
+  color: #ffefef;
+  background-color: #a00;
+
+  -webkit-transform: rotateZ(-1deg);
+  -ms-transform: rotateZ(-1deg);
+  transform: rotateZ(-1deg);
+}
+.smash {
+  transition: all 0.1s;
+
+  -webkit-transform: rotateZ(1deg) !important;
+  -ms-transform: rotateZ(1deg) !important;
+  transform: rotateZ(1deg) !important;
+}
+
+@media (pointer: coarse) {
+  .clickable:hover,
+  a:hover {
+    color: #333;
+    background-color: #ffefef;
+
+    -webkit-transform: initial;
+    -ms-transform: initial;
+    transform: initial;
+  }
+}
+
+#nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0.3em 0;
+  padding-left: 0;
+
+  max-width: 640px;
+}
+
+#nav li {
+  display: inline-block;
+  margin: 0.3em;
+}
+
+/* Light and dark mode */
+/* @media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+    color: #fff;
+  }
+
+  TODO: theme links, both normal and sidebar, properly
+        once that's done you can remove the "no darkmode" from spiel
+
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+} */
+
+/* smaller screens */
+@media screen and (max-width: 1280px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 900px) {
+  body {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 760px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 420px) {
+  body {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 380px) {
+  body {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 360px) {
+  body {
+    font-size: 10px;
+  }
+}
