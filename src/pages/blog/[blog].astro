@@ -1,0 +1,17 @@
+---
+import '../../styles/global.css'
+
+import { getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+const { blog: blogId } = Astro.params
+
+const blog = await getEntry('blog', blogId)
+
+export async function getStaticPaths() {
+  return (await getCollection('blog')).map(b => ({params: {blog: b.id}}))
+}
+---
+<h1>{blog?.data.title}</h1>
+
+{blog?.body}

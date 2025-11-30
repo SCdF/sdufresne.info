@@ -1,8 +1,8 @@
 ---
-import '../styles/main.css'
+import '../styles/global.css'
 import './index.css'
 
-import {latestFirst, published} from './blog/_templates/blog.ts'
+import {latestFirst, published} from '../blog.ts'
 const latestPosts = latestFirst(published()).splice(0, 3)
 ---
 
@@ -39,11 +39,10 @@ const latestPosts = latestFirst(published()).splice(0, 3)
         </p>
         <p>One day there will be dark mode here.</p>
         <h3>Latest posts</h3>
-        <!-- FIXME: move style to CSS -->
         <section class="recent-posts">
-          {latestPosts.map((post: any) => <post>
-            <h3><a href={post.url}>{post.frontmatter.title}</a></h3>
-            <p>{post.frontmatter.description}</p>
+          {latestPosts.map((post) => <post>
+            <h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
+            <p>{post.data.description}</p>
           </post>)}
         </section>
 

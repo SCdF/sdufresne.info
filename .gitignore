@@ -23,7 +23,7 @@ pnpm-debug.log*
 .idea/
 
 # obsidian
-src/pages/blog/.obsidian
+src/blog/.obsidian
 # Drafts in obsidian. This isn't perfect, but we can name like this to hide true drafts
 # For them to show up in the blog they still need the frontmatter
-src/pages/blog/_*.md
+src/blog/_*.md
