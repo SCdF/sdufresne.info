@@ -29,18 +29,6 @@
   padding-left: 0;
 }
 
-#major-links {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0.3em 0;
-}
-
-#major-links li {
-  display: inline-block;
-  margin: 0.3em;
-}
-
 #major-contacts {
   margin: 0.3em 0;
 }

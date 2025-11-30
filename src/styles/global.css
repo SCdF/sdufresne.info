@@ -65,6 +65,21 @@ a:hover {
   }
 }
 
+#nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0.3em 0;
+  padding-left: 0;
+
+  max-width: 640px;
+}
+
+#nav li {
+  display: inline-block;
+  margin: 0.3em;
+}
+
 /* smaller screens */
 @media screen and (max-width: 760px) {
   body {
