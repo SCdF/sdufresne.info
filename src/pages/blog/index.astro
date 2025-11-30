@@ -1,6 +1,7 @@
 ---
 import Default from '../../layouts/default.astro'
 import {published} from '../../blog.ts'
+import { date } from '../../utils'
 
 const posts = await published()
 ---
@@ -8,7 +9,7 @@ const posts = await published()
   <h1>Blog posts</h1>
   {posts.map(post =>
   <section>
-    <h3><a href={`/blog/${post.id}`}>{post.data.pubDate.toISOString().split('T')[0]}: {post.data.title}</a></h3>
+    <h3><a href={`/blog/${post.id}`}>{date(post.data.pubDate)}: {post.data.title}</a></h3>
     <p>{post.data.title}</p>
   </section>)}
 </Default>

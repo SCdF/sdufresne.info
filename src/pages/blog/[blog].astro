@@ -1,4 +1,5 @@
 ---
+import { date } from '../../utils';
 import Default from '../../layouts/default.astro'
 
 import { getEntry, render } from 'astro:content';
@@ -8,7 +9,6 @@ const { blog: blogId } = Astro.params
 
 const blog = await getEntry('blog', blogId)
 if (!blog) {
-  // Handle Error, for example:
   throw new Error(`Ooops, broken link to ${blogId}??`);
 }
 const { Content, headings } = await render(blog);
@@ -17,8 +17,25 @@ export async function getStaticPaths() {
   return (await getCollection('blog')).map(b => ({params: {blog: b.id}}))
 }
 ---
-<Default title={blog.data.title}>
-  <h1>{blog.data.title}</h1>
+<style>
+  heading {
+    h1 {
+      font-size: 250%;
+      font-weight: bold;
 
+      margin-bottom: 0;
+    }
+
+    date {
+      font-style: italic;
+    }
+}
+
+</style>
+<Default title={blog.data.title}>
+  <heading>
+    <h1>{blog.data.title}</h1>
+    <date>{date(blog.data.pubDate)}</date>
+  </heading>
   <Content />
 </Default>

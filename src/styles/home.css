@@ -3,7 +3,7 @@
   float: left;
   width: 60%;
 
-  font-size: 175%;
+  font-size: 150%;
 }
 #sidebar {
   width: 30%;
@@ -25,11 +25,7 @@
 }
 
 /* sidebar */
-#sidebar {
-  font-size: 140%;
-}
-
-#avatar {
+#sidebar #avatar {
   max-width: 100%;
   height: auto;
 }

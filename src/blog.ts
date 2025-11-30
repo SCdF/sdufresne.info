@@ -6,7 +6,7 @@ export const BlogSchema = z.object({
   pubDate: z.coerce.date(),
 });
 
-type BlogSchema = z.infer<typeof BlogSchema>;
+export type BlogSchema = z.infer<typeof BlogSchema>;
 
 export const published = async () =>
   (await getCollection("blog")).sort(
