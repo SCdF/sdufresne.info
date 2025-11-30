@@ -1,6 +1,6 @@
 ---
 title: "{{title}}"
-pubDate: {{date}}
-description: 
-tags: 
+pubDate:
+  "{ date }":
+description:
 ---
