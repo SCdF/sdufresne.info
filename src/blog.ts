@@ -1,9 +1,15 @@
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry, z } from "astro:content";
 
-const allBlogPosts = await getCollection("blog");
+export const BlogSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  pubDate: z.coerce.date(),
+});
 
-export const published = () =>
-  Object.values(allBlogPosts).filter((post) => post.data.pubDate !== undefined);
+type BlogSchema = z.infer<typeof BlogSchema>;
 
-export const latestFirst = (posts: CollectionEntry<"blog">[]) =>
-  posts.sort((a, b) => b.data.pubDate.getDate() - a.data.pubDate.getDate());
+export const published = async () =>
+  (await getCollection("blog")).sort(
+    (a, b) =>
+      b.data?.pubDate?.getDate() || 0 - (a.data?.pubDate?.getDate() || 0)
+  );

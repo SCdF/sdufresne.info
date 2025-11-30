@@ -2,9 +2,9 @@
 import '../styles/global.css'
 import '../styles/home.css'
 
-import {latestFirst, published} from '../blog.ts'
+import {published} from '../blog.ts'
 import Nav from '../components/nav.astro'
-const latestPosts = latestFirst(published()).splice(0, 3)
+const latestPosts = (await published()).splice(0, 3)
 ---
 
 <!DOCTYPE html>

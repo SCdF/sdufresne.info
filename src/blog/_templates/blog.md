@@ -1,6 +1,5 @@
 ---
 title: "{{title}}"
-pubDate:
-  "{ date }":
+pubDate: "{{date}}"
 description:
 ---
