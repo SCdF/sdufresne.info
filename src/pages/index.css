@@ -3,7 +3,7 @@
   float: left;
   width: 60%;
 
-  font-size: xx-large;
+  font-size: 175%;
 }
 #sidebar {
   width: 30%;
@@ -16,10 +16,14 @@
 }
 
 #spiel .recent-posts {
-  font-size: x-large;
+  font-size: 75%;
   padding-left: 1em;
 }
 /* sidebar */
+#sidebar {
+  font-size: 140%;
+}
+
 #avatar {
   max-width: 100%;
   height: auto;
@@ -88,9 +92,5 @@
   #spiel {
     float: none;
     width: inherit;
-    margin: 0.5em;
-    margin-top: 0;
-    padding: 1em;
-    padding-top: 0;
   }
 }
