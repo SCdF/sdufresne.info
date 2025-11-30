@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css'
-import './index.css'
+import '../styles/home.css'
 
 import {latestFirst, published} from '../blog.ts'
 import Nav from '../components/nav.astro'
@@ -40,13 +40,19 @@ const latestPosts = latestFirst(published()).splice(0, 3)
         a reasonably large amount of software. Some of it works!
       </p>
       <p>One day there will be dark mode here.</p>
-      <h3>Latest posts</h3>
-      <section class="recent-posts">
-        {latestPosts.map((post) => <post>
-          <h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
-          <p>{post.data.description}</p>
-        </post>)}
-      </section>
+      {
+        latestPosts.length ?
+        <section>
+          <h3>Latest posts</h3>
+          <ul class="recent-posts">
+            {latestPosts.map((post) => <li>
+              <h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+            </li>)}
+          </ul>
+        </section> : ''
+      }
+
 
       <h3>What I'm working on&hellip;</h3>
       <p>Green energy @ <a href="https://ovoenergy.com">OVO!</a></p>

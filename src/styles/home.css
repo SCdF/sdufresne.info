@@ -19,6 +19,11 @@
   font-size: 75%;
   padding-left: 1em;
 }
+
+#spiel .recent-posts li {
+  list-style: none;
+}
+
 /* sidebar */
 #sidebar {
   font-size: 140%;
