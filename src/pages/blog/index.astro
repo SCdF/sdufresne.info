@@ -1,13 +1,14 @@
 ---
-import '../../styles/global.css'
+import Default from '../../layouts/default.astro'
 
 import {latestFirst, published} from '../../blog.ts'
 const posts = latestFirst(published())
 ---
-
-<h1>Blog posts</h1>
+<Default title="Blog index">
+  <h1>Blog posts</h1>
   {posts.map(post =>
   <section>
     <h3><a href={`/blog/${post.id}`}>{post.data.pubDate.toISOString().split('T')[0]}: {post.data.title}</a></h3>
     <p>{post.data.title}</p>
   </section>)}
+</Default>
