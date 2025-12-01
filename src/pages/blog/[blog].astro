@@ -11,7 +11,7 @@ const blog = await getEntry('blog', blogId)
 if (!blog) {
   throw new Error(`Ooops, broken link to ${blogId}??`);
 }
-const { Content, headings } = await render(blog);
+const { Content } = await render(blog);
 
 export async function getStaticPaths() {
   return (await getCollection('blog')).map(b => ({params: {blog: b.id}}))
