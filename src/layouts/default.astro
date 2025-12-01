@@ -1,7 +1,7 @@
 ---
 import Nav from '../components/nav.astro';
 import '../styles/global.css'
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ const { title } = Astro.props;
     </title>
     <meta
       name="description"
-      content="Personal homepage of Stefan du Fresne, software developer aka software engineer aka code craftsman aka software imagineer."
+      content={description || "Personal homepage of Stefan du Fresne, software developer aka software engineer aka code craftsman aka software imagineer."}
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 }
 
 </style>
-<Default title={blog.data.title}>
+<Default title={blog.data.title} description={blog.data.description}>
   <heading>
     <h1>{blog.data.title}</h1>
     <date>{date(blog.data.pubDate)}</date>
