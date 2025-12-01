@@ -1,3 +1,8 @@
+---
+import '../styles/global.css'
+
+import Nav from '../components/nav.astro'
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +13,7 @@
     <meta name="description" content="Résumé of Stefan du Fresne" />
   </head>
   <body>
+    <Nav class="donotprint" />
     <article>
       <section>
         <header id="summary">
@@ -519,30 +525,28 @@
     </article>
 
     <style type="text/css">
-      html {
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-          Roboto, "Helvetica Neue", Arial, sans-serif;
-      }
-
-      body {
-        margin: 0;
-      }
       article {
         max-width: 1024px;
-        font-size: 110%;
+        font-size: 14pt;
+        line-height: 1.618;
         padding-right: 1em;
         padding-left: 1em;
         margin: 0 auto;
       }
 
-      a,
-      a:visited,
-      a:hover,
-      a:active {
-        text-decoration: none;
-        color: #608cd6;
+      /* FIXME: this is also in home, pull this out as the "normal" link */
+      article a,
+      article a:visited,
+      article a:hover,
+      article a:active {
+        margin: initial;
+        padding: initial;
+        font-weight: initial;
+        background-color: initial;
+        display: initial;
+        color: #406cb6;
       }
-      a:hover {
+      article a:hover {
         color: red;
       }
 
@@ -582,8 +586,10 @@
         }
       }
       @media print {
-        body {
+        article {
           font-size: 10pt;
+          padding-left: 0em;
+          padding-right: 0em
         }
         @page {
           margin: 1cm;
@@ -598,7 +604,7 @@
           font-size: 300%;
         }
         .donotprint {
-          display: none;
+          display: none !important;
         }
         a {
           color: inherit !important;

@@ -48,6 +48,7 @@
   max-width: 1.5rem;
 }
 
+/* FIXME: this is also in resume, pull this out as the "normal" link */
 #major-contacts a,
 #major-contacts a:visited,
 #major-contacts a:hover,

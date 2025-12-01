@@ -1,4 +1,6 @@
 ---
+const { class: className, ...rest } = Astro.props;
+
 const locations = [
   {url: '/', name: 'Home', hide: true},
   // {url: '/blog', name: 'Blog'},
@@ -7,7 +9,7 @@ const locations = [
   // {url: '/photos', name: 'Photos'},
 ]
 ---
-<ul id="nav">
+<ul id="nav" class:list={['child-component', className]} {...rest}>
   {locations.map(location => {
     if (Astro.url.pathname === location.url && location.hide) {
       return;
