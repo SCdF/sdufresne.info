@@ -76,4 +76,4 @@ This is more faff than ideal, especially if you want to support multiple runner 
     if-no-files-found: error
 ```
 
-Hopefully GitHub will update their action ([filed ticket](https://github.com/actions/upload-pages-artifact/issues/129)), as working around it is quite painful, and inconsistent with their regular [`upload-artifact`](https://github.com/actions/upload-artifact?tab=readme-ov-file#uploading-hidden-files) action, which support `include-hidden-files: true`.
+Hopefully GitHub will update their action ([filed ticket](https://github.com/actions/upload-pages-artifact/issues/129)), as working around it is quite painful, and inconsistent with their regular [`upload-artifact`](https://github.com/actions/upload-artifact?tab=readme-ov-file#uploading-hidden-files) action, which supports `include-hidden-files: true`.
