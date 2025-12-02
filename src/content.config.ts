@@ -6,17 +6,24 @@ import { date } from "./utils";
 
 const blog = defineCollection({
   loader: glob({
-    pattern: "[^_]*.md",
+    pattern: "*.md",
     base: "src/blog",
     generateId: (options) => {
-      const data = options.data as BlogSchema;
+      const data = options.data;
 
-      const titlePart = slugify(options.entry.split(".md")[0], {
+      const datePart =
+        data.pubDate instanceof Date
+          ? date(data.pubDate)
+          : `DRAFT(${date(new Date())})`;
+
+      const titlePart = options.entry.split(".md")[0];
+
+      const slug = slugify(`${datePart}-${titlePart}`, {
         lower: true,
         trim: true,
       });
 
-      return `${date(data.pubDate)}-${titlePart}`;
+      return slug;
     },
   }),
   schema: BlogSchema,
