@@ -15,7 +15,7 @@ import Nav from '../components/nav.astro'
   <body>
     <Nav class="donotprint" />
     <article>
-      <section>
+      <section class="outer">
         <header id="summary">
           <h1>Stefan du Fresne</h1>
           <div>
@@ -105,7 +105,7 @@ import Nav from '../components/nav.astro'
           </ul>
         </section>
       </section>
-      <section>
+      <section class="outer">
         <header><h2 id="work-experience">Experience</h2></header>
         <section class="inner">
           <h3>(2022-present) Principal Engineer @ OVO</h3>
@@ -425,7 +425,7 @@ import Nav from '../components/nav.astro'
           </ul>
         </section>
       </section>
-      <section>
+      <section class="outer">
         <header><h2 id="work-samples">Work Samples</h2></header>
         <section class="inner" id="sanremo">
           <h3>(2021) Sanremo, A Recent(ish!) Personal Project</h3>
@@ -505,13 +505,13 @@ import Nav from '../components/nav.astro'
           </p>
         </section>
       </section>
-      <section>
+      <section class="outer">
         <header><h2>Education</h2></header>
         <ul>
           <li>BSc Computer Science, University of Auckland, 2003-2005</li>
         </ul>
       </section>
-      <section>
+      <section class="outer">
         <header><h2 id="anything-else-">Anything Else?</h2></header>
         <p>References available upon request.</p>
         <p>
@@ -586,20 +586,35 @@ import Nav from '../components/nav.astro'
         }
       }
       @media print {
+        @page {
+          margin: 0.5cm;
+          padding: 0;
+        }
+
+        body {
+          margin: 0;
+          padding: 0;
+          max-width: 100%
+        }
+
         article {
           font-size: 10pt;
-          padding-left: 0em;
-          padding-right: 0em
-        }
-        @page {
-          margin: 1cm;
-        }
-        article {
           max-width: 100%;
         }
-        section.inner {
-          /* page-break-inside: avoid; */
+
+        ul {
+          break-before: avoid;
         }
+
+        /* What a nightmare lol */
+        section.outer {
+          break-inside: avoid !important;
+        }
+        section.inner,
+        li:not(:has(li)) {
+          break-inside: avoid;
+        }
+
         #me {
           font-size: 300%;
         }
