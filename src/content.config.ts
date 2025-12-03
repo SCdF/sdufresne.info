@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import slugify from "slugify";
 import { glob } from "astro/loaders";
 import { BlogSchema } from "./blog";
