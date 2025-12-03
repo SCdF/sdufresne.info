@@ -525,16 +525,20 @@ import Nav from '../components/nav.astro'
     </article>
 
     <style type="text/css">
-      article {
-        max-width: 1024px;
-        font-size: 14pt;
-        line-height: 1.618;
-        padding-right: 1em;
-        padding-left: 1em;
-        margin: 0 auto;
+    /* Minor links
+      FIXME: this is also in home, pull this out as the "quiet" link */
+      :root {
+        --sidebar-a-text: #406cb6;
+        --sidebar-a-hover-text: #a00;
       }
 
-      /* FIXME: this is also in home, pull this out as the "normal" link */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --sidebar-a-text: #aff;
+          --sidebar-a-hover-text: #ffefef;
+        }
+      }
+
       article a,
       article a:visited,
       article a:hover,
@@ -544,10 +548,18 @@ import Nav from '../components/nav.astro'
         font-weight: initial;
         background-color: initial;
         display: initial;
-        color: #406cb6;
+        color: var(--sidebar-a-text);
       }
       article a:hover {
-        color: red;
+        color: var(--sidebar-a-hover-text);
+      }
+      article {
+        max-width: 1024px;
+        font-size: 14pt;
+        line-height: 1.618;
+        padding-right: 1em;
+        padding-left: 1em;
+        margin: 0 auto;
       }
 
       #summary {

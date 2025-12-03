@@ -1,3 +1,32 @@
+/* Minor links
+FIXME: this is also in resume, pull this out as the "quiet" link */
+:root {
+  --sidebar-a-text: #406cb6;
+  --sidebar-a-hover-text: #a00;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sidebar-a-text: #aff;
+    --sidebar-a-hover-text: #ffefef;
+  }
+}
+
+#major-contacts a,
+#major-contacts a:visited,
+#major-contacts a:hover,
+#major-contacts a:active {
+  margin: initial;
+  padding: initial;
+  font-weight: initial;
+  background-color: initial;
+  display: initial;
+  color: var(--sidebar-a-text);
+}
+#major-contacts a:hover {
+  color: var(--sidebar-a-hover-text);
+}
+
 /* layout */
 #spiel {
   float: left;
@@ -46,22 +75,6 @@
   vertical-align: middle;
   max-height: 1.5rem;
   max-width: 1.5rem;
-}
-
-/* FIXME: this is also in resume, pull this out as the "normal" link */
-#major-contacts a,
-#major-contacts a:visited,
-#major-contacts a:hover,
-#major-contacts a:active {
-  margin: initial;
-  padding: initial;
-  font-weight: initial;
-  background-color: initial;
-  display: initial;
-  color: #406cb6;
-}
-#major-contacts a:hover {
-  color: red;
 }
 
 /* mobile */

@@ -1,6 +1,37 @@
-html {
+:root {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
     "Noto Sans", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --color-bg: #fff;
+  --color-text: #333;
+
+  --color-a-bg: #ffefef;
+  --color-a-text: #333;
+
+  --color-a-hover-bg: #a00;
+  --color-a-hover-text: #ffefef;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #333;
+    --color-text: #fff;
+
+    --color-a-bg: #600;
+    --color-a-text: #ffefef;
+
+    --color-a-hover-bg: #ffefef;
+    --color-a-hover-text: #a00;
+  }
+
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
 }
 
 body {
@@ -9,7 +40,8 @@ body {
   line-height: 1.618;
   margin: 0 auto;
   padding: 0 1em;
-  color: #333;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 main {
@@ -48,15 +80,15 @@ a:hover,
 a:active {
   font-weight: bold;
   text-decoration: none;
-  color: #333;
-  background-color: #ffefef;
+  color: var(--color-a-text);
+  background-color: var(--color-a-bg);
   margin: -0.125em;
   padding: 0.125em;
 }
 .clickable:hover,
 a:hover {
-  color: #ffefef;
-  background-color: #a00;
+  color: var(--color-a-hover-text);
+  background-color: var(--color-a-hover-bg);
 
   -webkit-transform: rotateZ(-1deg);
   -ms-transform: rotateZ(-1deg);
@@ -73,8 +105,8 @@ a:hover {
 @media (pointer: coarse) {
   .clickable:hover,
   a:hover {
-    color: #333;
-    background-color: #ffefef;
+    color: var(--color-a-text);
+    background-color: var(--color-a-bg);
 
     -webkit-transform: initial;
     -ms-transform: initial;
@@ -96,26 +128,6 @@ a:hover {
   display: inline-block;
   margin: 0.3em;
 }
-
-/* Light and dark mode */
-/* @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #333;
-    color: #fff;
-  }
-
-  TODO: theme links, both normal and sidebar, properly
-        once that's done you can remove the "no darkmode" from spiel
-
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-    font-style: var(--shiki-dark-font-style) !important;
-    font-weight: var(--shiki-dark-font-weight) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
-  }
-} */
 
 /* smaller screens */
 @media screen and (max-width: 900px) {
