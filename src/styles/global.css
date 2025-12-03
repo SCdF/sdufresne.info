@@ -17,6 +17,13 @@ main {
   margin-bottom: 3em;
 }
 
+/* Finds `grave-based` inline code blocks */
+:not(.astro-code) > code {
+  font-size: smaller;
+  font-weight: bold;
+}
+
+/* Big ```code blocks``` */
 .astro-code {
   font-size: smaller;
   padding: 0.5em 1.5em;
