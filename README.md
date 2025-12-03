@@ -9,9 +9,6 @@ Astro. Mostly.
   - drafts shouldn't be on a public github
   - publish datetime should be accurate to publish date (don't prefil when starting draft, fill at end)
 
-- TODO: dark mode
-- TODO: `inline code` styled to have the font the right size (it's too big)
-- TODO: both dark and light mode support for Alabaster code theme
 - TODO: replace floats on homepage with flexbox
 - TODO: fix relative styled headers on homepage (maybe resume too): see google lighthouse for those pages
-- TODO: footer with copyright?
+- TODO: footer with copyright, personal links, link to alabaster code theme

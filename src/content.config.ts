@@ -12,9 +12,7 @@ const blog = defineCollection({
       const data = options.data;
 
       const datePart =
-        data.pubDate instanceof Date
-          ? date(data.pubDate)
-          : `DRAFT(${date(new Date())})`;
+        data.pubDate instanceof Date ? date(data.pubDate) : `DRAFT`;
 
       const titlePart = options.entry.split(".md")[0];
 
