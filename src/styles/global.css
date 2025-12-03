@@ -58,7 +58,8 @@ main {
 /* Big ```code blocks``` */
 .astro-code {
   font-size: smaller;
-  padding: 0.5em 1.5em;
+  margin: -0.5em;
+  padding: 0.5em 0.5em;
 }
 
 .numbers {
@@ -67,10 +68,7 @@ main {
 
 .clickable {
   cursor: pointer;
-}
-.clickable,
-a {
-  /* display: inline-block; */
+  display: inline-block;
   transition: all 0.1s;
 }
 .clickable,

@@ -9,6 +9,19 @@ const locations = [
   // {url: '/photos', name: 'Photos'},
 ]
 ---
+<style>
+  .header a,
+  .header a:active,
+  .header a:hover {
+    padding: 1em 0.5em;
+  }
+
+  a,
+  a:active,
+  a:hover {
+    padding: 0.5em 0.5em;
+  }
+</style>
 <ul id="nav" class:list={['child-component', className]} {...rest}>
   {locations.map(location => {
     if (Astro.url.pathname === location.url && location.hide) {

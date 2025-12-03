@@ -68,7 +68,7 @@ This is more faff than ideal, especially if you want to support multiple runner 
 
 - name: Upload artifact
   id: upload-artifact
-  uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+  uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # 4.6.2
   with:
     name: ${{ inputs.name }}
     path: ${{ runner.temp }}/artifact.tar
