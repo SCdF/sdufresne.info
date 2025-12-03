@@ -12,3 +12,4 @@ Astro. Mostly.
 - TODO: replace floats on homepage with flexbox
 - TODO: fix relative styled headers on homepage (maybe resume too): see google lighthouse for those pages
 - TODO: footer with copyright, personal links, link to alabaster code theme
+- TODO: use Astro accessiblity viewer and debug thing, we can fix images etc
