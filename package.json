@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.10.0",
   "scripts": {
     "dev": "astro dev",
-    "test": "astro check",
+    "test": "astro check --minimumFailingSeverity hint",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
