@@ -2,7 +2,7 @@
   "name": "sdufresne.info",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.24.0",
   "scripts": {
     "dev": "astro dev",
     "test": "astro check --minimumFailingSeverity hint",
@@ -16,6 +16,7 @@
     "astro": "^5.15.9",
     "markdown-it": "^14.1.0",
     "sanitize-html": "^2.17.0",
+    "sharp": "^0.34.5",
     "slugify": "^1.6.6",
     "typescript": "^5.9.3"
   }

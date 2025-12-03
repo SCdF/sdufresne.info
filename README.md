@@ -2,6 +2,7 @@
 
 Astro. Mostly.
 
+- TODO: move to https://pages.cloudflare.com/ and make this repo private, to make draft management easier
 - TODO: better draft support, where I don't need to copy files between obsidian vaults
 
   - drafts should be backed up somehow (git, or syncthing)
@@ -13,3 +14,4 @@ Astro. Mostly.
 - TODO: fix relative styled headers on homepage (maybe resume too): see google lighthouse for those pages
 - TODO: footer with copyright, personal links, link to alabaster code theme
 - TODO: use Astro accessiblity viewer and debug thing, we can fix images etc
+- TODO: pull out home js, modernise, make sure whatever initial loopable is selected is at the end of shuffle

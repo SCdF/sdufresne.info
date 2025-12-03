@@ -382,7 +382,13 @@ const latestPosts = (await published()).splice(0, 3)
               },
               speed: "frame",
             },
-
+            {
+              title: "moments",
+              fn: function() {
+                return divideCareerLengthMillisBy(1000 * 90)
+              },
+              speed: "second",
+            },
             {
               title: "plancks", // https://en.wikipedia.org/wiki/Planck_time
               fn: function () {
