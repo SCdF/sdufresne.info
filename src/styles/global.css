@@ -37,16 +37,11 @@
 body {
   max-width: 1280px;
   font-size: 20px;
-  line-height: 1.618;
+  line-height: 1.4;
   margin: 0 auto;
   padding: 0 1em;
   background-color: var(--color-bg);
   color: var(--color-text);
-}
-
-main {
-  max-width: 40em;
-  margin-bottom: 3em;
 }
 
 /* Finds `grave-based` inline code blocks */
@@ -57,13 +52,22 @@ main {
 
 /* Big ```code blocks``` */
 .astro-code {
+  border-radius: 5px;
   font-size: smaller;
-  margin: -0.5em;
-  padding: 0.5em 0.5em;
+  margin: -0.5em -1em;
+  padding: 0.5em 1em;
 }
 
-.numbers {
-  font-family: monospace;
+/* make footnotes look smaller */
+sup,
+.footnotes {
+  font-size: smaller;
+}
+.footnotes {
+  border-top: thin solid var(--color-text);
+}
+#footnote-label {
+  display: none;
 }
 
 .clickable {
@@ -143,7 +147,7 @@ a:hover {
     font-size: 16px;
   }
 }
-@media screen and (max-width: 420px) {
+/* @media screen and (max-width: 420px) {
   body {
     font-size: 15px;
   }
@@ -157,4 +161,4 @@ a:hover {
   body {
     font-size: 12px;
   }
-}
+} */

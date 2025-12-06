@@ -32,11 +32,20 @@ export async function getStaticPaths() {
       font-style: italic;
     }
   }
+
+  article {
+    font-size: 18px;
+    max-width: 40em;
+    margin-bottom: 3em;
+    line-height: 1.618;
+  }
 </style>
 <Default title={blog.data.title} description={blog.data.description}>
-  <heading>
-    <h1>{blog.data.title || blog.id}</h1>
-    <date>{displayPubDate}</date>
-  </heading>
-  <Content />
+  <article>
+    <heading>
+      <h1>{blog.data.title || blog.id}</h1>
+      <date>{displayPubDate}</date>
+    </heading>
+    <Content />
+  </article>
 </Default>
