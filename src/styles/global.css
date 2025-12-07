@@ -3,10 +3,10 @@
     "Noto Sans", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --color-bg: #fff;
-  --color-text: #333;
+  --color-text: #16191c;
 
   --color-a-bg: #ffefef;
-  --color-a-text: #333;
+  --color-a-text: #16191c;
 
   --color-a-hover-bg: #a00;
   --color-a-hover-text: #ffefef;
@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #333;
-    --color-text: #fff;
+    --color-bg: #16191c;
+    --color-text: #cfd0d1;
 
     --color-a-bg: #600;
     --color-a-text: #ffefef;
