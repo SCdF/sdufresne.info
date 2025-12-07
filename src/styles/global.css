@@ -1,6 +1,6 @@
 :root {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-    "Noto Sans", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Noto Sans", -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --color-bg: #fff;
   --color-text: #16191c;
