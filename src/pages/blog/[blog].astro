@@ -30,9 +30,12 @@ export async function getStaticPaths() {
     }
 
     date {
-      font-family: monospace;
-      font-style: italic;
+      color: #aaa;
+      @media (prefers-color-scheme: dark) {
+        color: #888;
+     }
     }
+
   }
 
   article {
