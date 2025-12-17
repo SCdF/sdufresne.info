@@ -555,7 +555,8 @@ const latestPosts = (await published()).splice(0, 3)
               }
             },
 
-            beClickable: function (element, clickFn) {
+            beClickable: function (elName, clickFn) {
+              const element = document.querySelector(elName)
               element.classList.add("clickable");
 
               clickFn(function (firstValue) {
@@ -566,6 +567,8 @@ const latestPosts = (await published()).splice(0, 3)
                 e.preventDefault();
               };
               element.onmouseup = function () {
+                if (typeof sa_event == 'function') sa_event(`clicked-${elName}`)
+
                 element.classList.add("smash");
                 window.setTimeout(function () {
                   clickFn(function (newValue) {
@@ -594,11 +597,11 @@ const latestPosts = (await published()).splice(0, 3)
           }
 
           utils.beClickable(
-            document.querySelector("#career-length"),
+            "#career-length",
             utils.careerLength
           );
           utils.beClickable(
-            document.querySelector("#job-title"),
+            "#job-title",
             utils.title
           );
 
