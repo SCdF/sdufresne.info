@@ -11,7 +11,7 @@ const blog = await getEntry('blog', blogId)
 if (!blog) {
   throw new Error(`Ooops, broken link to ${blogId}??`);
 }
-const displayPubDate = blog.data.pubDate ? date(blog.data.pubDate) : '[DRAFT]'
+const pubDate = blog.data.pubDate ? date(blog.data.pubDate) : '[DRAFT]'
 const { Content } = await render(blog)
 
 export async function getStaticPaths() {
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
       margin-bottom: 0;
     }
 
-    date {
+    time {
       color: #aaa;
       @media (prefers-color-scheme: dark) {
         color: #888;
@@ -49,7 +49,7 @@ export async function getStaticPaths() {
   <article>
     <heading>
       <h1>{blog.data.title || blog.id}</h1>
-      <date>{displayPubDate}</date>
+      <time datetime={pubDate}>{pubDate}</time>
     </heading>
     <Content />
   </article>
