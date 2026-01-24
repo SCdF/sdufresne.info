@@ -5,7 +5,7 @@ import Default from '../../layouts/default.astro'
 import { getEntry, render } from 'astro:content';
 import { getCollection } from 'astro:content';
 
-const { blog: blogId } = Astro.params
+const blogId = Astro.params.blog
 
 const blog = await getEntry('blog', blogId)
 if (!blog) {
@@ -43,6 +43,11 @@ export async function getStaticPaths() {
     max-width: 40em;
     margin-bottom: 3em;
     line-height: 1.618;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 </style>
 <Default title={blog.data.title} description={blog.data.description}>

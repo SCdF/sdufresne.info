@@ -1,8 +1,11 @@
 import { defineCollection } from "astro:content";
-import slugify from "slugify";
+import * as slugifyLib from "slugify";
 import { glob } from "astro/loaders";
 import { BlogSchema } from "./blog";
 import { date } from "./utils";
+
+const slugify = (s: string) =>
+  slugifyLib.default(s, { lower: true, trim: true });
 
 const blog = defineCollection({
   loader: glob({
@@ -11,17 +14,13 @@ const blog = defineCollection({
     generateId: (options) => {
       const data = options.data;
 
-      const datePart =
-        data.pubDate instanceof Date ? date(data.pubDate) : `DRAFT`;
-
       const titlePart = options.entry.split(".md")[0];
 
-      const slug = slugify(`${datePart}-${titlePart}`, {
-        lower: true,
-        trim: true,
-      });
-
-      return slug;
+      if (data.pubDate instanceof Date) {
+        return slugify(`${date(data.pubDate)}-${titlePart}`);
+      } else {
+        return `draft/${slugify(titlePart)}`;
+      }
     },
   }),
   schema: BlogSchema,
