@@ -1,5 +1,5 @@
 import { defineCollection } from "astro:content";
-import * as slugifyLib from "slugify";
+import slugifyLib from "slugify";
 import { glob } from "astro/loaders";
 import { BlogSchema } from "./blog";
 import { date } from "./utils";
