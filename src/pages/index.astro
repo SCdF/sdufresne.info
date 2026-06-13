@@ -39,7 +39,7 @@ const latestPosts = (await published()).splice(0, 3)
         Over the last <a id="career-length">few years</a> I've helped to build
         a reasonably large amount of software. Some of it works!
       </p>
-      <p>I am not really on social media, but I am trying <span style="white-space: pre;">to write more. 👇</span></p>
+      <p>I am not really on social media, but I <span style="white-space: pre;">write sometimes. 👇</span></p>
       {
         latestPosts.length ?
         <section>
@@ -52,53 +52,6 @@ const latestPosts = (await published()).splice(0, 3)
           </ul>
         </section> : ''
       }
-
-      <h3>What I'm working on&hellip;</h3>
-      <p>Green energy @ <a href="https://ovoenergy.com">OVO!</a></p>
-      <h3>Previously&hellip;</h3>
-      <p>
-        Working on mitigating my RSI. A constant niggle throughout my career,
-        I decided it was time to fix it once and for all. After trying
-        different strategies, I've landed on coding by voice, via the
-        astonishingly effective
-        <a href="https://talonvoice.com/">Talon</a>.
-      </p>
-      <p>
-        Talon combined with
-        <a href="https://github.com/pokey/cursorless-talon">Cursorless</a>
-        (incredibly fast structural editing) and
-        <a href="https://vimium.github.io/">Vimium</a> (vim bindings for your
-        browser) is a remarkably effective toolset for hands-free computing,
-        as least as far as web browsing and coding is concerned.
-      </p>
-      <p>
-        To put it to the test, I built
-        <a href="https://sanremo.sdufresne.info">Sanremo</a>
-        <sup>(<a href="https://github.com/SCdF/sanremo">src</a>)</sup>, an
-        experiment in repeatable checklists by way of an offline-first PWA.
-      </p>
-      <img
-        style="max-width: 100%"
-        alt="Github contributions showing that talon is effective"
-        src="assets/img/talon.png"
-      />
-      <p>As you can from my highly scientific graph, Talon works a treat!</p>
-      <p>
-        I still use my hands frequently, but voice coding means I am not
-        required to, and voice coding is often faster (seriously!).
-      </p>
-      <h3>Previously&hellip;</h3>
-      <p>
-        <a href="https://medic.org">Medic</a>; a non-profit building
-        <a href="https://github.com/medic">open source </a> tools to help
-        Community Health Workers worldwide bring doorstep medical care to
-        their communities; as a software developer and later, the engineering
-        manager.
-      </p>
-      <h3>Previously&hellip;</h3>
-      <p>
-        <a href="./resume">I've done a few other things.</a>
-      </p>
     </section>
     <section id="sidebar">
       <img
@@ -188,7 +141,7 @@ const latestPosts = (await published()).splice(0, 3)
             LinkedIn
           </a>
         </li>
-        <li>
+        <li style="display: none;">
           <a href="./resume">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -258,6 +211,7 @@ const latestPosts = (await published()).splice(0, 3)
             "reasonable human",
             "software craftsman",
             "software engineer",
+            "software gardener",
             "software imagineer",
             "stackoverflow savant",
             "staff engineer",
